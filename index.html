@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <title>ASTRA</title>
+</head>
+
+<body>
+    <header>
+        <a href="/index.html"><h2 class="logo">ASTRA</h2></a>
+        <nav class="navigation">
+            <a href="">INICIO</a>
+            <a href="">MENU</a>
+            <button class="btnLogin">INICIAR SESION</button>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+        <div class="form-box login">
+            <h2>Iniciar Sesion</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" required />
+                    <label for="">Correo</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" required />
+                    <label for="">Contraseña</label>
+                </div>
+                <div class="remember-forgot">
+                <label><input type="checkbox">Recordar Dispositivo</input></label>
+                    <a href="#">¿Has Olvidado Tu Contraseña?</a>
+                </div>
+                <button type="submit" class="btn">Iniciar</button>
+                <div class="login-register">
+                    <p>¿No Tienes Una Cuenta? <a href="#" class="register-link">Registrate Aquí</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="form-box register">
+            <h2>Registro</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text" required />
+                    <label for="">Usuario</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" required />
+                    <label for="">Correo</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" required />
+                    <label for="">Contraseña</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Acepto los términos y condiciones.</input></label>
+                </div>
+                <button type="submit" class="btn">Registrar</button>
+                <div class="login-register">
+                    <p>¿Ya Tienes Una Cuenta? <a href="#" class="login-link">Inicia Sesion Aqui</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
