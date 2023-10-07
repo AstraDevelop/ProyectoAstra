@@ -6,4 +6,5 @@ Integrantes:
 * Erkin 
 * Juju
 * Fortinaiti
-* dsdsdsdsdsdsdsds
+
+Estaba configurando el vs code para poder usar git y poder hacerlo todo desde acá.
