@@ -2,7 +2,7 @@
 Sistema de agendamiento de pedidos a corto y largo plazo
 
 Integrantes: 
-* Ereduardo JC
-* Erkin 
-* Juju
-* Fortinaiti
+* Ereduardo (GitMaster/ScrumMaster)
+* Erkin (ProductOwner o como se escriba)
+* Juju (Desarrollador)
+* Fortinaiti (Jugador de Fornite y Valorant)
