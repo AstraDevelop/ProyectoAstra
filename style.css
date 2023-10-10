@@ -13,7 +13,7 @@ body .w {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("/img/fondo.webp") no-repeat;
+  background: url("img/fondo.webp") no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -22,7 +22,10 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 100px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 20px;
+  padding-bottom: -15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,6 +38,9 @@ header a {
   font-size: 2em;
   color: #5b2c6f;
   user-select: none;
+}
+nav{
+  margin-bottom: -27px;
 }
 .navigation a.s {
   position: relative;
@@ -57,13 +63,15 @@ header a {
   transform-origin: right;
   transform: scaleX(0);
   transition: transform 0.5s;
+  margin-bottom: 0;
+  margin-bottom: 0;
 }
 .navigation a.s:hover::after {
   transform-origin: left;
   transform: scaleX(1);
 }
 .navigation .btnLogin {
-  width: 130px;
+  width: 145px;
   height: 50px;
   background: transparent;
   backdrop-filter: blur(50px);
@@ -102,12 +110,13 @@ header a {
 .wrapper.active-popup {
   transform: scale(1);
 }
+/*Tamaño del registro*/
 .wrapper.active {
-  height: 520px;
+  height: 600px;
 }
 .wrapper .form-box {
   width: 100%;
-  padding: 40px;
+  padding: 45px;
 }
 .wrapper .form-box.login {
   transition: transform 0.18s ease;
@@ -241,12 +250,12 @@ section.r {
   min-height: 100vh;
 }
 #section-2 {
-  background: url("/img/1.jpg") no-repeat;
+  background: url("img/1.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
 #section-3 {
-  background: url("/img/2.jpg_large") no-repeat;
+  background: url("img/2.jpg_large") no-repeat;
   background-size: cover;
   background-position: center;
 }
