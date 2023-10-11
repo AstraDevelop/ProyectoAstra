@@ -17,13 +17,14 @@ body .w {
   background-size: cover;
   background-position: center;
 }
+/*Encabezado*/
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   padding-left: 100px;
-  padding-right: 100px;
+  padding-right: 30px;
   padding-top: 20px;
   padding-bottom: -15px;
   display: flex;
@@ -39,6 +40,7 @@ header a {
   color: #5b2c6f;
   user-select: none;
 }
+/*Botones del emcabeado*/
 nav{
   margin-bottom: -27px;
 }
@@ -70,6 +72,7 @@ nav{
   transform-origin: left;
   transform: scaleX(1);
 }
+/*Boton de iniio de sesion*/
 .navigation .btnLogin {
   width: 145px;
   height: 50px;
@@ -90,6 +93,7 @@ nav{
   background: #fff;
   color: black;
 }
+/*Cuadro del fomulario de registro y login*/
 .wrapper {
   font-family: "Skranji", cursive;
   position: relative;
@@ -110,31 +114,37 @@ nav{
 .wrapper.active-popup {
   transform: scale(1);
 }
-/*Tamaño del registro*/
+/*Tamaño del cuadro de registro*/
 .wrapper.active {
   height: 600px;
 }
+/*Espacido del contenido a mostrar en el formulario de registro y login*/
 .wrapper .form-box {
   width: 100%;
   padding: 45px;
 }
+/*Espacido del contenido a mostrar en el formulario del login*/
 .wrapper .form-box.login {
   transition: transform 0.18s ease;
   transform: translateX(0);
 }
+/*Espacido del contenido a mostrar en el formulario del login (JavaScrit)*/
 .wrapper.active .form-box.login {
   transition: none;
   transform: translateX(-400px);
 }
+/*Espacido del contenido a mostrar en el formulario del registro*/
 .wrapper .form-box.register {
   position: absolute;
   transition: none;
   transform: translateX(400px);
 }
+/*Espacido del contenido a mostrar en el formulario del registro (JavaScrit)*/
 .wrapper.active .form-box.register {
   transition: transform 0.18s ease;
   transform: translateX(0);
 }
+/*Boton de cerrar del cuadro de registro y login*/
 .wrapper .icon-close {
   position: absolute;
   top: 0;
@@ -151,11 +161,13 @@ nav{
   cursor: pointer;
   z-index: 1;
 }
+/*Estilo del titulo iniciar sesion y registro de los formularios*/
 .form-box h2 {
   font-size: 2em;
   color: #fff;
   text-align: center;
 }
+/*Estilo de los DIV que encierran los input, span y label del formulario*/
 .input-box {
   position: relative;
   width: 100%;
@@ -163,6 +175,7 @@ nav{
   border-bottom: 2px solid #fff;
   margin: 30px 0;
 }
+/*Estilo de los label del formulario*/
 .input-box label {
   position: absolute;
   top: 50%;
@@ -178,6 +191,7 @@ nav{
 .input-box input:valid ~ label {
   top: -5px;
 }
+/*Estilo de los input del formulario*/
 .input-box input {
   width: 100%;
   height: 100%;
@@ -189,6 +203,7 @@ nav{
   font-weight: 600;
   padding: 0 35px 0 5px;
 }
+/*Estilo de los iconos que aparecen en el label del formulario*/
 .input-box .icon {
   position: absolute;
   right: 8px;
@@ -215,6 +230,7 @@ nav{
 .remember-forgot a:hover {
   text-decoration: underline;
 }
+/*Boton del formulario*/
 .btn {
   font-family: "Skranji", cursive;
   width: 100%;
