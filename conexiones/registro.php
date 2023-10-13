@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<script>window.location.href = "../index.html";</script>';
     } else {
         // Los datos son únicos, puedes proceder a insertar el nuevo registro
-        $sqlInsercion = "INSERT INTO usuarios (Nombre, Usuario, Correo, Contraseña) VALUES ('$nombre', '$usuario', '$correo', '$contraseñaEncriptada')";
+        $sqlInsercion = "INSERT INTO usuarios (Nombre, Usuario, CorreoElectronico, Contraseña) VALUES ('$nombre', '$usuario', '$correo', '$contraseñaEncriptada')";
 
         if ($conn->query($sqlInsercion) === TRUE) {
             // Éxito: mostrar un mensaje de alerta y redirigir a index.html
