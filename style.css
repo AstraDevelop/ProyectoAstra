@@ -47,7 +47,7 @@ nav{
 .navigation a.s {
   position: relative;
   font-size: 1.1em;
-  color: black;
+  color: white;
   text-decoration: none;
   font-weight: 700;
   margin-left: 40px;
@@ -78,24 +78,32 @@ nav{
   height: 50px;
   background: transparent;
   backdrop-filter: blur(50px);
-  border: 2px solid black;
+  border: 2px solid white;
   outline: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 1.1em;
-  color: black;
+  color: white;
   font-family: "Skranji", cursive;
   font-weight: 700;
   margin-left: 40px;
   transition: 0.5s;
 }
 .navigation .btnLogin:hover {
-  color: white;
+  color:black;
   scale: 1.1;
-  transition: 15ms;
-  border-color: purple;
-  background-color: black;
+  transition: 150ms;
+  border-color: rgb(240, 58, 240);
+  /*background-color: black;*/
   
+}
+.navigation a:hover{
+  color: darkorange;
+  transition: 150ms;
+}
+.navigation a:active{
+  color: black;
+  transition: 150ms;
 }
 /*Cuadro del fomulario de registro y login*/
 .wrapper {
