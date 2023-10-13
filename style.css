@@ -13,7 +13,7 @@ body .w {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("img/fondo.webp") no-repeat;
+  background: url("img/fondo.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -47,7 +47,7 @@ nav{
 .navigation a.s {
   position: relative;
   font-size: 1.1em;
-  color: #fff;
+  color: black;
   text-decoration: none;
   font-weight: 700;
   margin-left: 40px;
@@ -60,7 +60,7 @@ nav{
   bottom: -6px;
   width: 100%;
   height: 3px;
-  background: #fff;
+  background: black;
   border-radius: 5px;
   transform-origin: right;
   transform: scaleX(0);
@@ -78,12 +78,12 @@ nav{
   height: 50px;
   background: transparent;
   backdrop-filter: blur(50px);
-  border: 2px solid #fff;
+  border: 2px solid black;
   outline: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 1.1em;
-  color: #fff;
+  color: black;
   font-family: "Skranji", cursive;
   font-weight: 700;
   margin-left: 40px;
@@ -164,7 +164,7 @@ nav{
 /*Estilo del titulo iniciar sesion y registro de los formularios*/
 .form-box h2 {
   font-size: 2em;
-  color: #fff;
+  color: black;
   text-align: center;
 }
 /*Estilo de los DIV que encierran los input, span y label del formulario*/
@@ -172,7 +172,7 @@ nav{
   position: relative;
   width: 100%;
   height: 50px;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid black;
   margin: 30px 0;
 }
 /*Estilo de los label del formulario*/
@@ -182,7 +182,7 @@ nav{
   left: 5px;
   transform: translateY(-50%);
   font-size: 1em;
-  color: #fff;
+  color: black;
   font-weight: 500;
   pointer-events: none;
   transition: 0.5s;
@@ -199,7 +199,7 @@ nav{
   border: none;
   outline: none;
   font-size: 1em;
-  color: #fff;
+  color: black;
   font-weight: 600;
   padding: 0 35px 0 5px;
 }
@@ -213,7 +213,7 @@ nav{
 }
 .remember-forgot {
   font-size: 0.9em;
-  color: #fff;
+  color: black;
   font-weight: 500;
   margin: -15px 0 15px;
   display: flex;
@@ -224,7 +224,7 @@ nav{
   margin-right: 3px;
 }
 .remember-forgot a {
-  color: #fff;
+  color: black;
   text-decoration: none;
 }
 .remember-forgot a:hover {
@@ -246,7 +246,7 @@ nav{
 }
 .login-register {
   font-size: 0.9em;
-  color: #fff;
+  color: black;
   text-align: center;
   font-weight: 500;
   margin: 25px 0 10px;
@@ -266,12 +266,12 @@ section.r {
   min-height: 100vh;
 }
 #section-2 {
-  background: url("img/1.jpg") no-repeat;
+  background: url("img/2.png") no-repeat;
   background-size: cover;
   background-position: center;
 }
 #section-3 {
-  background: url("img/2.jpg_large") no-repeat;
+  background: url("img/3.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
