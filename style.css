@@ -90,8 +90,12 @@ nav{
   transition: 0.5s;
 }
 .navigation .btnLogin:hover {
-  background: #fff;
-  color: black;
+  color: white;
+  scale: 1.1;
+  transition: 15ms;
+  border-color: purple;
+  background-color: black;
+  
 }
 /*Cuadro del fomulario de registro y login*/
 .wrapper {
