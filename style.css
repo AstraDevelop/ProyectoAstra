@@ -9,6 +9,7 @@ html {
   scroll-behavior: smooth;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 body .w {
   display: flex;
   justify-content: center;
@@ -18,11 +19,14 @@ body .w {
   background-size: cover;
   background-position: center;
 =======
+=======
+>>>>>>> fb78f1ac3d2a29a63735b85324533d8ce4f48d1f
 body {
     margin: 0;
     padding: 0;
     height: 100vh;
 
+<<<<<<< HEAD
 >>>>>>> fb78f1a (Nuevo Concepto)
 }
 header {
@@ -207,6 +211,10 @@ nav{
   pointer-events: none;
   transition: 0.5s;
 =======
+=======
+}
+header {
+>>>>>>> fb78f1ac3d2a29a63735b85324533d8ce4f48d1f
     position: fixed;
     top: 0;
     left: 0;
@@ -306,7 +314,10 @@ nav{
     justify-content: center;
     align-items: center;
     overflow: hidden;
+<<<<<<< HEAD
 >>>>>>> fb78f1a (Nuevo Concepto)
+=======
+>>>>>>> fb78f1ac3d2a29a63735b85324533d8ce4f48d1f
 }
   .wrapper .form-box {
     width: 100%;
@@ -340,6 +351,7 @@ nav{
   top: -5px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*Estilo de los input del formulario*/
 .input-box input {
   width: 100%;
@@ -354,6 +366,8 @@ nav{
 }
 /*Estilo de los iconos que aparecen en el label del formulario*/
 =======
+=======
+>>>>>>> fb78f1ac3d2a29a63735b85324533d8ce4f48d1f
   .input-box input {
     width: 100%;
     height: 100%;
@@ -365,7 +379,10 @@ nav{
     font-weight: 600;
     padding: 0 35px 0 5px;
   }
+<<<<<<< HEAD
 >>>>>>> fb78f1a (Nuevo Concepto)
+=======
+>>>>>>> fb78f1ac3d2a29a63735b85324533d8ce4f48d1f
 .input-box .icon {
     position: absolute;
     right: 8px;
@@ -375,6 +392,7 @@ nav{
   }
 .remember-forgot {
 <<<<<<< HEAD
+<<<<<<< HEAD
   font-size: 0.9em;
   color: black;
   font-weight: 500;
@@ -383,6 +401,8 @@ nav{
   justify-content: space-between;
 }
 =======
+=======
+>>>>>>> fb78f1ac3d2a29a63735b85324533d8ce4f48d1f
     font-size: .9em;
     color: #fff;
     font-weight: 500;
@@ -390,12 +410,16 @@ nav{
     display: flex;
     justify-content: space-between;
   }
+<<<<<<< HEAD
 >>>>>>> fb78f1a (Nuevo Concepto)
+=======
+>>>>>>> fb78f1ac3d2a29a63735b85324533d8ce4f48d1f
 .remember-forgot label input {
     accent-color: #fff;
     margin-right: 3px;
   }
 .remember-forgot a {
+<<<<<<< HEAD
 <<<<<<< HEAD
   color: black;
   text-decoration: none;
@@ -405,6 +429,11 @@ nav{
     text-decoration: none;
   }
 >>>>>>> fb78f1a (Nuevo Concepto)
+=======
+    color: #fff;
+    text-decoration: none;
+  }
+>>>>>>> fb78f1ac3d2a29a63735b85324533d8ce4f48d1f
 .remember-forgot a:hover {
     text-decoration: underline;
   }
@@ -448,6 +477,7 @@ section {
     background-size: cover;
     background-position: center;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 /*Boton del formulario*/
 .btn {
@@ -495,6 +525,8 @@ section.r {
   background-position: center;
 }
 =======
+=======
+>>>>>>> fb78f1ac3d2a29a63735b85324533d8ce4f48d1f
   #section-2 {
     background: url("img/img-2.jpeg") no-repeat;
     background-size: cover;
@@ -505,4 +537,7 @@ section.r {
     background-size: cover;
     background-position: center;
   }
+<<<<<<< HEAD
 >>>>>>> fb78f1a (Nuevo Concepto)
+=======
+>>>>>>> fb78f1ac3d2a29a63735b85324533d8ce4f48d1f
