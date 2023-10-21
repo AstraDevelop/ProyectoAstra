@@ -9,7 +9,6 @@ $usuario = "";
 $correo = "";
 $contraseña = "";
 $confirmarContraseña = "";
-$rol = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
@@ -17,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['correo'];
     $contraseña = $_POST['contraseña'];
     $confirmarContraseña = $_POST['confirmarContraseña'];
-    $rol = $_POST['rol']; // Obtiene el valor del rol (2 para vendedor, 3 para comprador)
 
     // Verifica que los campos no estén vacíos
     $req = (strlen($nombre) * strlen($usuario) * strlen($correo) * strlen($contraseña) * strlen($confirmarContraseña)) or $mensajeAlerta = "No se han llenado todos los campos";
@@ -25,38 +23,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica que las contraseñas coincidan
     if ($contraseña != $confirmarContraseña) {
         $mensajeAlerta = "Las contraseñas no coinciden, Verifique";
-    }
-
-    // Encripta la contraseña
-    $contraseñaEncriptada = md5($contraseña);
-
-    // Consulta para verificar si el usuario o el correo ya existen
-    $sqlVerificacion = "SELECT * FROM usuarios WHERE Usuario = '$usuario' OR CorreoElectronico = '$correo'";
-    $resultadoVerificacion = $conn->query($sqlVerificacion);
-
-    // Verifica si el usuario ya está registrado
-    $sqlVerificacionUsuario = "SELECT * FROM usuarios WHERE Usuario = '$usuario'";
-    $resultadoVerificacionUsuario = $conn->query($sqlVerificacionUsuario);
-
-    if ($resultadoVerificacionUsuario->num_rows > 0) {
-        $mensajeAlerta = "El usuario ya está registrado.";
     } else {
-        // Verifica si el correo ya está registrado
-        $sqlVerificacionCorreo = "SELECT * FROM usuarios WHERE CorreoElectronico = '$correo'";
-        $resultadoVerificacionCorreo = $conn->query($sqlVerificacionCorreo);
+        // Encripta la contraseña
+        $contraseñaEncriptada = password_hash($contraseña, PASSWORD_BCRYPT);
 
-        if ($resultadoVerificacionCorreo->num_rows > 0) {
-            $mensajeAlerta = "El correo ya está registrado.";
+        // Consulta para verificar si el usuario o el correo ya existen
+        $sqlVerificacion = "SELECT * FROM usuarios WHERE Usuario = '$usuario' OR CorreoElectronico = '$correo'";
+        $resultadoVerificacion = $conn->query($sqlVerificacion);
+
+        // Verifica si el usuario ya está registrado
+        $sqlVerificacionUsuario = "SELECT * FROM usuarios WHERE Usuario = '$usuario'";
+        $resultadoVerificacionUsuario = $conn->query($sqlVerificacionUsuario);
+
+        if ($resultadoVerificacionUsuario->num_rows > 0) {
+            $mensajeAlerta = "El usuario ya está registrado.";
         } else {
-            if(empty($rol) || !in_array($rol, ['2', '3'])) {
-                $mensajeAlerta = "Por favor, seleccione un rol válido (Vendedor o Comprador).";
-            }
-            else {
-                // Encripta la contraseña
-                $contraseñaEncriptada = md5($contraseña);
+            // Verifica si el correo ya está registrado
+            $sqlVerificacionCorreo = "SELECT * FROM usuarios WHERE CorreoElectronico = '$correo'";
+            $resultadoVerificacionCorreo = $conn->query($sqlVerificacionCorreo);
 
-                $sqlInsercion = "INSERT INTO usuarios (Nombre, Usuario, CorreoElectronico, Contraseña, Rol) VALUES ('$nombre', '$usuario', '$correo', '$contraseñaEncriptada', '$rol')";
-
+            if ($resultadoVerificacionCorreo->num_rows > 0) {
+                $mensajeAlerta = "El correo ya está registrado.";
+            } else {
+                // INSERT con la contraseña encriptada
+                $sqlInsercion = "INSERT INTO usuarios (Nombre, Usuario, CorreoElectronico, Contraseña, Rol) VALUES ('$nombre', '$usuario', '$correo', '$contraseñaEncriptada', '3')";
 
                 if ($conn->query($sqlInsercion) === TRUE) {
                     $mensajeAlerta = "Datos guardados con éxito.";
@@ -68,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -130,21 +121,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="password" name="confirmarContraseña" required value="<?php echo $confirmarContraseña; ?>">
                         <label for="">Confirmar Contraseña</label>
                     </div> 
-                    <div class="rol">
-                        <div class="option">
-                            <input checked="" value="2" name="rol" type="radio" class="input-rol">
-                            <div class="btnOpcion">
-                                <span class="span-rol">Vendedor</span>
-                            </div>
-                        </div>
-                        <div class="option">
-                            <input value="3" name="rol" type="radio" class="input-rol">
-                            <div class="btnOpcion">
-                                <span class="span-rol">Comprador</span>
-                            </div>  
-                        </div>
-                    </div>
-
                     
                     <button type="submit" class="btn">Registrar</button>
                     <div class="login-register">

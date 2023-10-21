@@ -17,20 +17,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($resultUsuario->num_rows == 1) {
         // El usuario existe, ahora verifica la contraseña
-        $contraseña = md5($_POST['contraseña']); // Encripta la contraseña ingresada con MD5 para compararla con la almacenada en la base de datos
+        $contraseñaIngresada = $_POST['contraseña'];
 
-        // Consulta SQL para verificar la contraseña
-        $sqlContraseña = "SELECT * FROM usuarios WHERE (CorreoElectronico = '$user' OR Usuario = '$user') AND Contraseña = '$contraseña'";
+        // Consulta SQL para obtener la contraseña almacenada en la base de datos
+        $sqlContraseña = "SELECT Contraseña FROM usuarios WHERE (CorreoElectronico = '$user' OR Usuario = '$user')";
         $resultContraseña = $conn->query($sqlContraseña);
 
         if ($resultContraseña->num_rows == 1) {
-            // Inicio de sesión exitoso
-            echo "<script>alert('Inicio de sesión exitoso. Bienvenido, $user!');</script>";
-            echo '<script>window.location.href = "../index.html";</script>';
-        } else {
-            $mensajeAlerta = "Contraseña incorrecta.";
-            // Restablece la contraseña después de un intento fallido de inicio de sesión
-            $contraseña = "";
+            $row = $resultContraseña->fetch_assoc();
+            $hashContraseñaAlmacenada = $row['Contraseña'];
+
+            // Verificar la contraseña utilizando password_verify
+            if (password_verify($contraseñaIngresada, $hashContraseñaAlmacenada)) {
+                // Inicio de sesión exitoso
+                echo "<script>alert('Inicio de sesión exitoso. Bienvenido, $user!');</script>";
+                echo '<script>window.location.href = "../index.html";</script>';
+            } else {
+                $mensajeAlerta = "Contraseña incorrecta.";
+                // Restablece la contraseña después de un intento fallido de inicio de sesión
+                $contraseña = "";
+            }
         }
     } else {
         $mensajeAlerta = "Usuario no encontrado.";
@@ -40,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
