@@ -9,6 +9,7 @@ $usuario = "";
 $correo = "";
 $contraseña = "";
 $confirmarContraseña = "";
+$rol = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
@@ -16,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['correo'];
     $contraseña = $_POST['contraseña'];
     $confirmarContraseña = $_POST['confirmarContraseña'];
+    $rol = $_POST['rol'];
 
     // Verifica que los campos no estén vacíos
     $req = (strlen($nombre) * strlen($usuario) * strlen($correo) * strlen($contraseña) * strlen($confirmarContraseña)) or $mensajeAlerta = "No se han llenado todos los campos";
@@ -24,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($contraseña != $confirmarContraseña) {
         $mensajeAlerta = "Las contraseñas no coinciden, Verifique";
     } else {
-        // Encripta la contraseña
+        // Encripta la contraseña usando password_hash
         $contraseñaEncriptada = password_hash($contraseña, PASSWORD_BCRYPT);
 
         // Consulta para verificar si el usuario o el correo ya existen
@@ -45,13 +47,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($resultadoVerificacionCorreo->num_rows > 0) {
                 $mensajeAlerta = "El correo ya está registrado.";
             } else {
-                // INSERT con la contraseña encriptada
-                $sqlInsercion = "INSERT INTO usuarios (Nombre, Usuario, CorreoElectronico, Contraseña, Rol) VALUES ('$nombre', '$usuario', '$correo', '$contraseñaEncriptada', '3')";
+                if(empty($rol) || !in_array($rol, ['2', '3'])) {
+                    $mensajeAlerta = "Por favor, seleccione un rol válido (Vendedor o Comprador).";
+                }
+                else {
+                    // INSERT con la contraseña encriptada
+                    $sqlInsercion = "INSERT INTO usuarios (Nombre, Usuario, CorreoElectronico, Contraseña, Rol) VALUES ('$nombre', '$usuario', '$correo', '$contraseñaEncriptada', '$rol')";
 
-                if ($conn->query($sqlInsercion) === TRUE) {
-                    $mensajeAlerta = "Datos guardados con éxito.";
-                } else {
-                    $mensajeAlerta = "Error al guardar los datos: " . $conn->error;
+                    if ($conn->query($sqlInsercion) === TRUE) {
+                        $mensajeAlerta = "Datos guardados con éxito.";
+                    } else {
+                        $mensajeAlerta = "Error al guardar los datos: " . $conn->error;
+                    }
                 }
             }
         }
@@ -121,7 +128,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="password" name="confirmarContraseña" required value="<?php echo $confirmarContraseña; ?>">
                         <label for="">Confirmar Contraseña</label>
                     </div> 
-                    
+                    <div class="rol">
+                        <div class="option">
+                            <input value="2" name="rol" type="radio" class="input-rol" <?php echo ($rol == '2') ? 'checked' : ''; ?>>
+                            <div class="btnOpcion">
+                                <span class="span-rol">Vendedor</span>
+                            </div>
+                        </div>
+                        <div class="option">
+                            <input value="3" name="rol" type="radio" class="input-rol" <?php echo ($rol == '3') ? 'checked' : ''; ?>>
+                            <div class="btnOpcion">
+                                <span class="span-rol">Comprador</span>
+                            </div>  
+                        </div>
+                    </div>
+
                     <button type="submit" class="btn">Registrar</button>
                     <div class="login-register">
                         <p>¿Ya Tienes Una Cuenta? <a href="login.php" class="login-link">Inicia Sesion Aqui</a></p>
