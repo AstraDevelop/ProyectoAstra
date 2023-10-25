@@ -1,6 +1,11 @@
 <?php
 include("conexion.php");
 
+header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
+// Las lineas de arriba fueron añadidas para el testeo de CSS durante el desarrollo
+// No necesariamente deben estar ahí en el proyecto final, chequear en caso de problemas con cache
+
 $mensajeAlerta = ""; // Inicializa el mensaje de alerta
 
 // Inicializa las variables de los campos con valores predeterminados
@@ -55,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo.jpg">
     <link rel="stylesheet" href="styles-I-R.css">
+    
     <title>Iniciar Sesión ASTRA</title>
 </head>
 <body>
