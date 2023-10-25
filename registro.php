@@ -17,55 +17,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['correo'];
     $contraseña = $_POST['contraseña'];
     $confirmarContraseña = $_POST['confirmarContraseña'];
-    $rol = $_POST['rol'];
 
-    // Verifica que los campos no estén vacíos
-    $req = (strlen($nombre) * strlen($usuario) * strlen($correo) * strlen($contraseña) * strlen($confirmarContraseña)) or $mensajeAlerta = "No se han llenado todos los campos";
+    // Verifica si la clave "rol" está definida en el array $_POST
+    if (isset($_POST['rol'])) {
+        $rol = $_POST['rol'];
 
-    // Verifica que las contraseñas coincidan
-    if ($contraseña != $confirmarContraseña) {
-        $mensajeAlerta = "Las contraseñas no coinciden, Verifique";
-    } else {
-        // Encripta la contraseña usando password_hash
-        $contraseñaEncriptada = password_hash($contraseña, PASSWORD_BCRYPT);
-
-        // Consulta para verificar si el usuario o el correo ya existen
-        $sqlVerificacion = "SELECT * FROM usuarios WHERE Usuario = '$usuario' OR CorreoElectronico = '$correo'";
-        $resultadoVerificacion = $conn->query($sqlVerificacion);
-
-        // Verifica si el usuario ya está registrado
-        $sqlVerificacionUsuario = "SELECT * FROM usuarios WHERE Usuario = '$usuario'";
-        $resultadoVerificacionUsuario = $conn->query($sqlVerificacionUsuario);
-
-        if ($resultadoVerificacionUsuario->num_rows > 0) {
-            $mensajeAlerta = "El usuario ya está registrado.";
+        // Verifica si el rol se ha seleccionado
+        if (empty($rol) || !in_array($rol, ['2', '3'])) {
+            $mensajeAlerta = "Por favor, seleccione un rol válido (Vendedor o Comprador).";
         } else {
-            // Verifica si el correo ya está registrado
-            $sqlVerificacionCorreo = "SELECT * FROM usuarios WHERE CorreoElectronico = '$correo'";
-            $resultadoVerificacionCorreo = $conn->query($sqlVerificacionCorreo);
+            // Resto del código para el procesamiento de los datos
+            // Verifica que los campos no estén vacíos
+            $req = (strlen($nombre) * strlen($usuario) * strlen($correo) * strlen($contraseña) * strlen($confirmarContraseña)) or $mensajeAlerta = "No se han llenado todos los campos";
 
-            if ($resultadoVerificacionCorreo->num_rows > 0) {
-                $mensajeAlerta = "El correo ya está registrado.";
+            // Verifica que las contraseñas coincidan
+            if ($contraseña != $confirmarContraseña) {
+                $mensajeAlerta = "Las contraseñas no coinciden, Verifique";
             } else {
-                if(empty($rol) || !in_array($rol, ['2', '3'])) {
-                    $mensajeAlerta = "Por favor, seleccione un rol válido (Vendedor o Comprador).";
-                }
-                else {
-                    // INSERT con la contraseña encriptada
-                    $sqlInsercion = "INSERT INTO usuarios (Nombre, Usuario, CorreoElectronico, Contraseña, Rol) VALUES ('$nombre', '$usuario', '$correo', '$contraseñaEncriptada', '$rol')";
+                // Encripta la contraseña usando password_hash
+                $contraseñaEncriptada = password_hash($contraseña, PASSWORD_BCRYPT);
 
-                    if ($conn->query($sqlInsercion) === TRUE) {
-                        $mensajeAlerta = "Datos guardados con éxito.";
+                // Consulta para verificar si el usuario o el correo ya existen
+                $sqlVerificacion = "SELECT * FROM usuarios WHERE Usuario = '$usuario' OR CorreoElectronico = '$correo'";
+                $resultadoVerificacion = $conn->query($sqlVerificacion);
+
+                // Verifica si el usuario ya está registrado
+                $sqlVerificacionUsuario = "SELECT * FROM usuarios WHERE Usuario = '$usuario'";
+                $resultadoVerificacionUsuario = $conn->query($sqlVerificacionUsuario);
+
+                if ($resultadoVerificacionUsuario->num_rows > 0) {
+                    $mensajeAlerta = "El usuario ya está registrado.";
+                } else {
+                    // Verifica si el correo ya está registrado
+                    $sqlVerificacionCorreo = "SELECT * FROM usuarios WHERE CorreoElectronico = '$correo'";
+                    $resultadoVerificacionCorreo = $conn->query($sqlVerificacionCorreo);
+
+                    if ($resultadoVerificacionCorreo->num_rows > 0) {
+                        $mensajeAlerta = "El correo ya está registrado.";
                     } else {
-                        $mensajeAlerta = "Error al guardar los datos: " . $conn->error;
+                        // INSERT con la contraseña encriptada
+                        $sqlInsercion = "INSERT INTO usuarios (Nombre, Usuario, CorreoElectronico, Contraseña, Rol) VALUES ('$nombre', '$usuario', '$correo', '$contraseñaEncriptada', '$rol')";
+
+                        if ($conn->query($sqlInsercion) === TRUE) {
+                            $mensajeAlerta = "Datos guardados con éxito.";
+                        } else {
+                            $mensajeAlerta = "Error al guardar los datos: " . $conn->error;
+                        }
                     }
                 }
             }
         }
+    } else {
+        $mensajeAlerta = "Por favor, seleccione un rol válido (Vendedor o Comprador).";
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
