@@ -26,46 +26,70 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($rol) || !in_array($rol, ['2', '3'])) {
             $mensajeAlerta = "Por favor, seleccione un rol válido (Vendedor o Comprador).";
         } else {
-            // Resto del código para el procesamiento de los datos
             // Verifica que los campos no estén vacíos
             $req = (strlen($nombre) * strlen($usuario) * strlen($correo) * strlen($contraseña) * strlen($confirmarContraseña)) or $mensajeAlerta = "No se han llenado todos los campos";
 
             // Verifica que las contraseñas coincidan
             if ($contraseña != $confirmarContraseña) {
                 $mensajeAlerta = "Las contraseñas no coinciden, Verifique";
-            } else {
-                // Encripta la contraseña usando password_hash
-                $contraseñaEncriptada = password_hash($contraseña, PASSWORD_BCRYPT);
-
-                // Consulta para verificar si el usuario o el correo ya existen
-                $sqlVerificacion = "SELECT * FROM usuarios WHERE Usuario = '$usuario' OR CorreoElectronico = '$correo'";
-                $resultadoVerificacion = $conn->query($sqlVerificacion);
-
-                // Verifica si el usuario ya está registrado
-                $sqlVerificacionUsuario = "SELECT * FROM usuarios WHERE Usuario = '$usuario'";
-                $resultadoVerificacionUsuario = $conn->query($sqlVerificacionUsuario);
-
-                if ($resultadoVerificacionUsuario->num_rows > 0) {
-                    $mensajeAlerta = "El usuario ya está registrado.";
+            } else{
+                // Validar longitud mínima de contraseña (al menos 8 caracteres)
+                if (strlen($contraseña) < 8) {
+                    $mensajeAlerta = "La contraseña debe tener al menos 8 caracteres.";
                 } else {
-                    // Verifica si el correo ya está registrado
-                    $sqlVerificacionCorreo = "SELECT * FROM usuarios WHERE CorreoElectronico = '$correo'";
-                    $resultadoVerificacionCorreo = $conn->query($sqlVerificacionCorreo);
-
-                    if ($resultadoVerificacionCorreo->num_rows > 0) {
-                        $mensajeAlerta = "El correo ya está registrado.";
+                    // Validar al menos una letra mayúscula
+                    if (!preg_match('/[A-Z]/', $contraseña)) {
+                        $mensajeAlerta = "La contraseña debe contener al menos una letra mayúscula.";
                     } else {
-                        // INSERT con la contraseña encriptada
-                        $sqlInsercion = "INSERT INTO usuarios (Nombre, Usuario, CorreoElectronico, Contraseña, Rol) VALUES ('$nombre', '$usuario', '$correo', '$contraseñaEncriptada', '$rol')";
-
-                        if ($conn->query($sqlInsercion) === TRUE) {
-                            $mensajeAlerta = "Datos guardados con éxito.";
+                        // Validar al menos una letra minúscula
+                        if (!preg_match('/[a-z]/', $contraseña)) {
+                            $mensajeAlerta = "La contraseña debe contener al menos una letra minúscula.";
                         } else {
-                            $mensajeAlerta = "Error al guardar los datos: " . $conn->error;
+                            // Validar al menos un número
+                            if (!preg_match('/[0-9]/', $contraseña)) {
+                                $mensajeAlerta = "La contraseña debe contener al menos un número.";
+                            } else {
+                                // Validar al menos un carácter especial (por ejemplo, !, @, #, $, %, etc.)
+                                if (!preg_match('/[!@#$%^&*]/', $contraseña)) {
+                                    $mensajeAlerta = "La contraseña debe contener al menos un carácter especial. (! @ # $ % ^ & *)";
+                                }else {
+                                    // Encripta la contraseña usando password_hash
+                                    $contraseñaEncriptada = password_hash($contraseña, PASSWORD_BCRYPT);
+
+                                    // Consulta para verificar si el usuario o el correo ya existen
+                                    $sqlVerificacion = "SELECT * FROM usuarios WHERE Usuario = '$usuario' OR CorreoElectronico = '$correo'";
+                                    $resultadoVerificacion = $conn->query($sqlVerificacion);
+
+                                    // Verifica si el usuario ya está registrado
+                                    $sqlVerificacionUsuario = "SELECT * FROM usuarios WHERE Usuario = '$usuario'";
+                                    $resultadoVerificacionUsuario = $conn->query($sqlVerificacionUsuario);
+
+                                    if ($resultadoVerificacionUsuario->num_rows > 0) {
+                                        $mensajeAlerta = "El usuario ya está registrado.";
+                                    } else {
+                                        // Verifica si el correo ya está registrado
+                                        $sqlVerificacionCorreo = "SELECT * FROM usuarios WHERE CorreoElectronico = '$correo'";
+                                        $resultadoVerificacionCorreo = $conn->query($sqlVerificacionCorreo);
+
+                                        if ($resultadoVerificacionCorreo->num_rows > 0) {
+                                            $mensajeAlerta = "El correo ya está registrado.";
+                                        } else {
+                                            // INSERT con la contraseña encriptada
+                                            $sqlInsercion = "INSERT INTO usuarios (Nombre, Usuario, CorreoElectronico, Contraseña, Rol) VALUES ('$nombre', '$usuario', '$correo', '$contraseñaEncriptada', '$rol')";
+
+                                            if ($conn->query($sqlInsercion) === TRUE) {
+                                                $mensajeAlerta = "Datos guardados con éxito. El registro fue exitoso";
+                                            } else {
+                                                $mensajeAlerta = "Error al guardar los datos: " . $conn->error;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-            }
+            }       
         }
     } else {
         $mensajeAlerta = "Por favor, seleccione un rol válido (Vendedor o Comprador).";

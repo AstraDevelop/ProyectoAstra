@@ -99,6 +99,13 @@ header a {
   color: black;
 }
 
+#alerta {
+  background-color: red;
+  border-radius: 10px;
+  overflow: hidden;
+  color: #fff;
+}
+
 .cuadroLogin {
   font-family: "Skranji", cursive;
   position: relative;
