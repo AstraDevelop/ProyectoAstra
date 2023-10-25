@@ -98,14 +98,14 @@ header a {
   background: #fff;
   color: black;
 }
-
+/*Estilo de la alerta del formulario*/
 #alerta {
   background-color: red;
   border-radius: 10px;
   overflow: hidden;
   color: #fff;
 }
-
+/*Cuadro de formulario de login*/
 .cuadroLogin {
   font-family: "Skranji", cursive;
   position: relative;
@@ -121,7 +121,7 @@ header a {
   align-items: center;
   overflow: hidden;
 }
-
+/*Cuadro de formulario de registro*/
 .cuadroRegistro {
   font-family: "Skranji", cursive;
   position: relative;
@@ -137,7 +137,7 @@ header a {
   align-items: center;
   overflow: hidden;
 }
-
+/*Estilo del formulario*/
 .form-box {
   width: 100%;
   padding: 40px;
@@ -193,7 +193,8 @@ header a {
   color: #fff;
   line-height: 57px;
 }
-
+/*Estilos de las opciones que estás después del formulario de login pero 
+antes del botón enviar*/
 .remember-forgot {
   font-size: .9em;
   color: #fff;
@@ -216,7 +217,7 @@ header a {
 .remember-forgot a:hover {
   text-decoration: underline;
 }
-
+/*Estilo de las opciones para elegir el rol en el registro*/
 .rol {
   position: relative;
   width: 207px;
@@ -284,7 +285,7 @@ header a {
   color: #fff;
   font-weight: 500;
 }
-
+/*Estilos del link para enviar al registro y al login*/
 .login-register {
   font-size: 0.9em;
   color: #fff;
