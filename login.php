@@ -1,5 +1,6 @@
 <?php
 include("conexion.php");
+session_start();
 
 header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
@@ -35,8 +36,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Verificar la contraseña utilizando password_verify
             if (password_verify($contraseñaIngresada, $hashContraseñaAlmacenada)) {
                 // Inicio de sesión exitoso
+<<<<<<< HEAD
                 echo "<script>alert('Inicio de sesión exitoso. Bienvenido, $user!');</script>";
                 echo '<script>window.location.href = "./index.html";</script>'; 
+=======
+                $_SESSION['username'] = $user;
+                header("location: perfil.php");
+>>>>>>> af733a6 (implementacion de inicio de sesion)
             } else {
                 $mensajeAlerta = "Contraseña incorrecta.";
                 // Restablece la contraseña después de un intento fallido de inicio de sesión
