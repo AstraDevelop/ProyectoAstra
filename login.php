@@ -36,8 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Verificar la contraseña utilizando password_verify
             if (password_verify($contraseñaIngresada, $hashContraseñaAlmacenada)) {
                 // Inicio de sesión exitoso
-                $_SESSION['username'] = $user;
-                header("location: perfil.php");
+                echo "<script>alert('Inicio de sesión exitoso. Bienvenido, $user!');</script>";
+                echo '<script>window.location.href = "./index.html";</script>'; 
             } else {
                 $mensajeAlerta = "Contraseña incorrecta.";
                 // Restablece la contraseña después de un intento fallido de inicio de sesión
