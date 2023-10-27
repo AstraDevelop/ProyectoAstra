@@ -126,7 +126,7 @@ header a {
   font-family: "Skranji", cursive;
   position: relative;
   width: 400px;
-  height: 700px;
+  height: 625px;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -143,6 +143,20 @@ header a {
   position: relative;
   width: 400px;
   height: 500px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.recuperar-contraseña {
+  font-family: "Skranji", cursive;
+  position: relative;
+  width: 400px;
+  height: 600px;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -172,6 +186,9 @@ h4.inf {
   font-size: 2em;
   color: #fff;
   text-align: center;
+}
+.input-box.contraseña-nueva {
+  margin-top: 15px;
 }
 
 .input-box {
@@ -224,7 +241,7 @@ h4.inf {
   align-items: center;
   border-bottom-left-radius: 20px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 0;
 }
 .input-box .icon {
   position: absolute;

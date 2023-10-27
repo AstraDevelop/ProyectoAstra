@@ -11,9 +11,17 @@ html {
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-
+    position: relative;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("img/fondo.png") no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center; /* Añade posición relativa al contenedor padre */
 }
+
 header {
     position: fixed;
     top: 0;
@@ -27,6 +35,10 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 99;
+    background: url("img/fondo.png") no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center; 
   }
   header a {
     text-decoration: none;
@@ -78,6 +90,7 @@ header {
     color: #fff;
     font-family: "Skranji", cursive;
     font-weight: 700;
+    margin-bottom: 1em;
     margin-left: 40px;
     transition: 0.5s;
   }
@@ -85,25 +98,41 @@ header {
     background: #fff;
     color: black;
   }
-section {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
-  }
-  #section-1 {
-    background: url("img/fondo.png") no-repeat;
-    background-size: cover;
-    background-position: center;
+/*Cuadro de formulario de datos*/
+.productos-inicio {
+  font-family: "Skranji", cursive;
+  position: relative;
+  top: 100px;
+  margin-bottom: 2em;
+  margin-left: 2em;
+  width: 85em;
+  height: 10em;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
-  #section-2 {
-    background: url("img/img-2.jpeg") no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-  #section-3 {
-    background: url("img/img3.jpg") no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
+div.productos-inicio h1 {
+  margin-top: 5px;
+  margin-left: 1em;
+}
+.productos {
+  display: flex;
+  width: 85em;
+  height: 8em;
+}
+div.productos img {
+  width: 0px;
+  flex-grow: 1;
+  object-fit: cover;
+  opacity: .8;
+  transition: .5s ease;
+}
+div.productos img:hover {
+  cursor: crosshair;
+  width: 5em;
+  opacity: 1;
+  filter: contrast(120%);
+}
