@@ -40,7 +40,11 @@ if (isset($usuarioI)) {
         </nav>
     </header>
     <div class="cuadroDeDatos">
+<<<<<<< HEAD
         <a href="redireccionar.php?rol=<?php echo $rol; ?>">
+=======
+        <a href="vendedor.php">
+>>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
             <span class="icon-close">
                 <ion-icon name="close-outline"></ion-icon>
             </span>

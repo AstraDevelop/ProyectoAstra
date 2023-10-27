@@ -32,13 +32,18 @@ header {
     padding-right: 30px;
     padding-top: 20px;
 <<<<<<< HEAD
+<<<<<<< HEAD
     padding-bottom: -15px;
 =======
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+    padding-bottom: -15px;
+>>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 99;
+<<<<<<< HEAD
 <<<<<<< HEAD
     background-color: #5915c2;
     border-radius: 0 0 20px 20px;
@@ -56,17 +61,29 @@ header {
 }
 
 header a {
+=======
+    background: url("img/fondo.png") no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center; 
+  }
+  header a {
+>>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
     text-decoration: none;
-}
-
-.logo {
+  }
+  .logo {
     font-size: 2em;
     color: #5b2c6f;
     user-select: none;
+<<<<<<< HEAD
 }
 
 .navigation a.s {
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+  }
+  .navigation a.s {
+>>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
     position: relative;
     font-size: 1.1em;
     color: #fff;
@@ -79,10 +96,15 @@ header a {
   .navigation a.s::after {
 =======
     font-family: "Skranji", cursive;
+<<<<<<< HEAD
 }
 
 .navigation a.s::after {
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+  }
+  .navigation a.s::after {
+>>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
     content: "";
     position: absolute;
     left: 0;
@@ -95,10 +117,14 @@ header a {
     transform: scaleX(0);
     transition: transform 0.5s;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
     margin-bottom: 0;
     margin-bottom: 0;
   }
   .navigation a.s:hover::after {
+<<<<<<< HEAD
     transform-origin: left;
     transform: scaleX(1);
 <<<<<<< HEAD
@@ -121,6 +147,13 @@ header a {
 
 .navigation .btnLogin {
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  /*Boton de iniio de sesion*/
+  .navigation .btnLogin {
+>>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
     width: 145px;
     height: 50px;
     background: transparent;
@@ -135,6 +168,7 @@ header a {
     font-weight: 700;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 60d5df1 (Nuevas implementaciones)
     margin-left: 40px;
@@ -146,6 +180,8 @@ header a {
     color: black;
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
     margin-bottom: 1em;
     margin-left: 40px;
     transition: 0.5s;
@@ -165,6 +201,7 @@ a {
     margin-left: 10px;
     padding: 10px;
   }
+<<<<<<< HEAD
   
   .icon-carro p, .icon-historial p {
     color: #fff;
@@ -215,6 +252,15 @@ a {
   
 >>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
 =======
+=======
+.btnLogin.cerrarSesion {
+    border: 2px solid red;
+    color: red;
+}
+.btnLogin.cerrarSesion:hover {
+    background: red;
+    color: #fff;
+>>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
 }
 
 #alerta {
@@ -426,6 +472,7 @@ a {
     margin: 20px 0;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 .btnPerfil {
@@ -447,6 +494,8 @@ a {
 }
 
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+>>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
 .container{
     display: flex;
     justify-content: space-between;
