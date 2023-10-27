@@ -188,7 +188,6 @@ header a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: "Skranji", cursive;
     width: 80%;
     margin-top: 100px;
     background: rgba(0, 0, 0, 0.5);
@@ -203,7 +202,6 @@ header a {
 }
 
 #awebao {
-    font-family: "Skranji", cursive;
     width: 80%;
     margin-top: 100px;
     background: rgba(0, 0, 0, 0.5);
@@ -351,8 +349,9 @@ header a {
     color: darkgoldenrod;
 }
 #bombardeo {
-    position: absolute; /* Posicionamiento absoluto para el botón */
-    right: 10px; /* Alineación a la derecha con un espacio de 10px */
+    position: relative; /* Posicionamiento absoluto para el botón */
+    right: 10px;
+    top: 50px; /* Alineación a la derecha con un espacio de 10px */
     bottom: 10px; /* Alineación en la parte inferior con un espacio de 10px */
     background-color: #5b2c6f; 
     color: #fff;
@@ -363,11 +362,14 @@ header a {
     cursor: pointer;
     transition: 0.3s;
     margin: 0; /* Asegurarse de que no haya margen afectando */
+    padding: 10px;
     
 }
 
 #bombardeo:hover {
+    top: 40px;
     transform: scale(1.1); 
+    transition: 85ms;
     background-color: darkorange; 
 }
 #precio{
