@@ -22,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Consulta SQL para verificar si el usuario existe
     $sqlUsuario = "SELECT Usuario, Contraseña, Rol FROM usuarios WHERE CorreoElectronico = '$user' OR Usuario = '$user'";
     $resultUsuario = $conn->query($sqlUsuario);
+    $row = $resultUsuario->fetch_assoc();
+    $rol = $row['Rol'];
 
     if ($resultUsuario->num_rows == 1) {
 <<<<<<< HEAD
@@ -44,8 +46,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo '<script>window.location.href = "./index.html";</script>'; 
 =======
                 $_SESSION['username'] = $user;
+<<<<<<< HEAD
                 header("location: perfil.php");
 >>>>>>> af733a6 (implementacion de inicio de sesion)
+=======
+                if($rol == 2){
+                    header("location: vendedor.php");
+                }
+                if($rol == 3){
+                    header("location: comprador.php");
+                }
+>>>>>>> 15e4fa0 (redireccion a vendedor/comprador)
             } else {
                 $mensajeAlerta = "Contraseña incorrecta.";
                 // Restablece la contraseña después de un intento fallido de inicio de sesión

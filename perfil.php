@@ -6,7 +6,7 @@ $usuarioI = $_SESSION['username'];
 // Si el usuario ha iniciado sesión, se ejecuta esto
 if (isset($usuarioI)) {
  // Realizar la consulta SQL para obtener los datos del usuario
- $query = "SELECT Nombre, Usuario, CorreoElectronico, Contraseña, rol FROM usuarios WHERE (CorreoElectronico = '$usuarioI' OR Usuario = '$usuarioI')";
+ $query = "SELECT Nombre, Usuario, CorreoElectronico, Contraseña, Rol FROM usuarios WHERE (CorreoElectronico = '$usuarioI' OR Usuario = '$usuarioI')";
 
  $result = $conn->query($query);
 
@@ -17,7 +17,7 @@ if (isset($usuarioI)) {
      $nombre = $row['Nombre'];
      $usuario = $row['Usuario'];
      $correo = $row['CorreoElectronico'];
-     $rol = $row['rol'];
+     $rol = $row['Rol'];
     $Rol = "";
 ?>
 
