@@ -41,6 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sqlUsuario = "SELECT Usuario, Contraseña, Rol FROM usuarios WHERE CorreoElectronico = '$user' OR Usuario = '$user'";
     $resultUsuario = $conn->query($sqlUsuario);
     $row = $resultUsuario->fetch_assoc();
+<<<<<<< HEAD
+=======
+    $rol = $row['Rol'];
+>>>>>>> 15e4fa0 (redireccion a vendedor/comprador)
 
     if ($resultUsuario->num_rows == 1) {
 <<<<<<< HEAD
@@ -72,6 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 =======
 >>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
                 $_SESSION['username'] = $user;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -114,6 +119,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 exit;
 >>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
+=======
+                if($rol == 2){
+                    header("location: vendedor.php");
+                }
+                if($rol == 3){
+                    header("location: comprador.php");
+                }
+>>>>>>> 15e4fa0 (redireccion a vendedor/comprador)
             } else {
                 $mensajeAlerta = "Contraseña incorrecta.";
                 if ($mensajeAlerta === "Contraseña incorrecta.") {
