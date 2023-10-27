@@ -2,11 +2,15 @@
 include("conexion.php");
 session_start();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 60d5df1 (Nuevas implementaciones)
 
 if (!isset($_SESSION['user']) || $_SESSION['rol'] != '2') {
     header('Location: login.php');
     exit();
 }
+<<<<<<< HEAD
 =======
 $usuarioI = $_SESSION['username'];
 $rol = $_SESSION['rol'];
@@ -18,15 +22,24 @@ if (isset($usuarioI) && ($rol == 2)) {
 
 $mensajeAlerta = "";
 $claseAlerta="";
+=======
+
+$mensajeAlerta = "";
+>>>>>>> 60d5df1 (Nuevas implementaciones)
 
 // Verificar mensajes a través de parámetros en la URL
 if (isset($_GET['mensaje'])) {
     if ($_GET['mensaje'] == 'productoAñadido') {
         $mensajeAlerta = "Producto añadido exitosamente!";
+<<<<<<< HEAD
         $claseAlerta="alerta-verde";
     } elseif ($_GET['mensaje'] == 'productoEliminado') {
         $mensajeAlerta = "Producto eliminado exitosamente!";
         $claseAlerta="alerta-verde";
+=======
+    } elseif ($_GET['mensaje'] == 'productoEliminado') {
+        $mensajeAlerta = "Producto eliminado exitosamente!";
+>>>>>>> 60d5df1 (Nuevas implementaciones)
     }
 }
 
@@ -61,8 +74,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['subir'])) {
         $uploadOk = 1;
     } else {
         $mensajeAlerta = "El archivo no es una imagen.";
+<<<<<<< HEAD
         $claseAlerta="alerta-rojo";
 
+=======
+>>>>>>> 60d5df1 (Nuevas implementaciones)
         $uploadOk = 0;
     }
     
@@ -74,11 +90,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['subir'])) {
             exit();
         } else {
             $mensajeAlerta = "Error al añadir producto: " . $conn->error;
+<<<<<<< HEAD
             $claseAlerta="alerta-rojo";
         }
     } else {
         $mensajeAlerta .= " Error al subir la imagen.";
         $claseAlerta="alerta-rojo";
+=======
+        }
+    } else {
+        $mensajeAlerta .= " Error al subir la imagen.";
+>>>>>>> 60d5df1 (Nuevas implementaciones)
     }
 }
 
@@ -86,6 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['subir'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
     $idProducto = $_POST['idProducto'];
 
+<<<<<<< HEAD
     // Primero, obtenemos el nombre del archivo de la imagen asociada con el producto
     $sqlImage = "SELECT imagenProducto FROM productos WHERE ID = '$idProducto' AND vendedorID = '$userID'";
     $resultImage = $conn->query($sqlImage);
@@ -114,13 +137,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
 }
 
 
+=======
+    $sql = "DELETE FROM productos WHERE ID = '$idProducto' AND vendedorID = '$userID'";
+    if ($conn->query($sql) === TRUE) {
+        header('Location: vendedor.php?mensaje=productoEliminado'); // Redirección
+        exit();
+    } else {
+        $mensajeAlerta = "Error al eliminar producto: " . $conn->error;
+    }
+}
+
+>>>>>>> 60d5df1 (Nuevas implementaciones)
 // Obtener la lista de productos del vendedor actual
 $sql = "SELECT * FROM productos WHERE vendedorID = '$userID'";
 $result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="es">
+=======
+<html lang="en">
+>>>>>>> 60d5df1 (Nuevas implementaciones)
 
 <head>
     <meta charset="UTF-8">
@@ -132,6 +170,7 @@ $result = $conn->query($sql);
 
 <body>
     <div class="container">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <header>
             <a href="">
@@ -218,6 +257,51 @@ $result = $conn->query($sql);
 
 
 
+=======
+        <header>
+            <a href="index.html">
+                <h2 class="logo">ASTRA</h2>
+            </a>
+            <button class="btnPerfil">Ver Perfil</button>
+        </header>
+
+        <div class="contenidoVendedor">
+
+            <!-- Sección de subida de producto -->
+            <section class="leftSection">
+    <div class="subirProducto">
+        <h2>Subir Producto</h2>
+        <form action="vendedor.php" method="POST" enctype="multipart/form-data">
+            <!-- Nombre del Producto -->
+            <label for="nombreProducto">Nombre del Producto:</label>
+            <input type="text" name="nombreProducto" required>
+
+            <!-- Descripción -->
+            <label for="descripcion">Descripción:</label>
+            <textarea name="descripcion" required></textarea>
+
+            <!-- Precio -->
+            <label for="precio">Precio:</label>
+            <input type="text" name="precio" required>
+
+            <!-- Imagen del Producto -->
+            <label for="imagenProducto">Imagen del Producto:</label>
+            <input type="file" name="imagenProducto" required>
+
+            <!-- Botón para Subir Producto -->
+            <button type="submit" name="subir">Subir Producto</button>
+        </form>
+    </div>
+</section>
+
+            
+            
+            <!-- Mensajes de alerta -->
+            <?php if (!empty($mensajeAlerta)) : ?>
+                <div class="alerta"><?php echo $mensajeAlerta; ?></div>
+            <?php endif; ?>
+        </div>
+>>>>>>> 60d5df1 (Nuevas implementaciones)
         <div class="contenidoVendedor" id="awebao">
         <!-- Sección de productos -->
                     <section class="rightSection">
@@ -226,6 +310,7 @@ $result = $conn->query($sql);
                         <ul>
                             <?php while($row = $result->fetch_assoc()): ?>
                                 <li>
+<<<<<<< HEAD
                                     <form action="vendedor.php" method="POST">
                                         <div class="productoContainer">
                                             <img src="<?php echo $row['imagenProducto']; ?>" alt="Imagen del producto">
@@ -242,11 +327,26 @@ $result = $conn->query($sql);
                                             
                                         </div>
                                     </form>
+=======
+                                    <div class="productoContainer">
+                                        <img src="<?php echo $row['imagenProducto']; ?>" alt="Imagen del producto">
+                                        <div class="productoInfo">
+                                            <p class="descripcionProducto"><?php echo $row['descripcion']; ?></p>
+                                            <p class="nombreProducto"><?php echo $row['nombreProducto']; ?></p> <p id="precio">$<?php echo $row['precio']; ?></p>
+                                            
+                                        </div>
+                                        <form action="vendedor.php" method="POST">
+                                                <input type="hidden" name="idProducto" value="<?php echo $row['ID']; ?>">
+                                                <button type="submit" id="bombardeo" name="eliminar">Eliminar</button>
+                                        </form>
+                                    </div>
+>>>>>>> 60d5df1 (Nuevas implementaciones)
                                 </li>
                             <?php endwhile; ?>
                         </ul>
                     </div>
                     </section>
+<<<<<<< HEAD
         </div>
 
     </div>
@@ -262,3 +362,11 @@ $result = $conn->query($sql);
 }
 ?>
 >>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
+=======
+
+        </div>
+
+    </div>
+</body>
+</html>
+>>>>>>> 60d5df1 (Nuevas implementaciones)

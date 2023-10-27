@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
+<<<<<<< HEAD
 -- Tiempo de generación: 26-11-2023 a las 21:21:48
+=======
+-- Tiempo de generación: 27-10-2023 a las 05:02:07
+>>>>>>> 60d5df1 (Nuevas implementaciones)
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -24,6 +28,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Estructura de tabla para la tabla `carrito`
 --
 
@@ -143,6 +148,8 @@ INSERT INTO `perfil_vendedor` (`ID`, `Usuario`, `FotoPerfil`, `Descripcion`) VAL
 -- --------------------------------------------------------
 
 --
+=======
+>>>>>>> 60d5df1 (Nuevas implementaciones)
 -- Estructura de tabla para la tabla `productos`
 --
 
@@ -160,9 +167,14 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`ID`, `vendedorID`, `nombreProducto`, `descripcion`, `precio`, `imagenProducto`) VALUES
+<<<<<<< HEAD
 (59, 25, 'Pan', 'a', 2500.00, 'uploads/Pan-casero-fácil.webp'),
 (60, 25, 'CocaCola', 'a', 1500.00, 'uploads/gaseosa-coca-cola-15-lt.jpg'),
 (61, 26, 'Pan De sal', 'h', 3500.00, 'uploads/sandwitch.jpg');
+=======
+(46, 6, 'Pan careverga', 'Yo ofrezco\r\ndesnudas, vírgenes, intactas y sencillas,\r\npara mis delicias y el placer de mis amigos,\r\nestas noches árabes vividas, soñadas y traducidas sobre su tierra natal y sobre el agua\r\nEllas me fueron dulces durante los ocios en remotos mares, bajo un cielo ahora lejano.\r\nPor eso las doy.\r\n\r\nSencillas, sonrientes y llenas de ingenuidad, como la musulmana Schehrazada, su madre suculenta que las dió a luz en el misterio; fermentando con emoción en los brazos de un príncipe sublime —lúbrico y feroz—, bajo la mirada enternecida de Alah, clemente y misericordioso.', 12000.00, 'uploads/Captura de pantalla 2023-10-25 185330.png'),
+(47, 6, 'awebazo', 'awebito currambero', 1234.00, 'uploads/Captura de pantalla 2023-10-26 130340.png');
+>>>>>>> 60d5df1 (Nuevas implementaciones)
 
 -- --------------------------------------------------------
 
@@ -185,17 +197,22 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID`, `Nombre`, `Usuario`, `CorreoElectronico`, `Contraseña`, `Rol`, `FechaRegistro`) VALUES
+<<<<<<< HEAD
 (23, 'cliente', 'cliente', 'cliente@gmail.com', '$2y$10$DzCKXGLPPljB9yy3xz2K7.tHKVM3srKr3HvieVyDwihWV98nF9Lxi', '3', '2023-10-28 21:16:36'),
 (24, 'Junior', 'JuniorSierra', 'juniors@gmail.com', '$2y$10$EfEbjxlYR1fsF7l5Q0sDJOZ548eykiwHRG96EbZSTWt9bFe689.Wu', '3', '2023-11-19 20:34:20'),
 (25, 'olimpica', 'JuniorSierraM', 'junior@gmail.com', '$2y$10$TrXEBYq74N4JOZMQ4eRBsOuqet9lkDPdlLU49TAmjCfzDhKchxls2', '2', '2023-11-19 20:34:51'),
 (26, 'juni', 'b', '156@gmail.com', '$2y$10$RS/rOov74JblsjVEVD9shelC1bjU9FPe/kUSl.5MFX0yi51IpLx6e', '2', '2023-11-19 22:59:01'),
 (27, 'ARA', 'Astra', 'astra@gmail.com', '$2y$10$0vr55r8.aZmu38Imvo.DF.pddABkWjMo4vZCsSfmwDsYLFDOisg2O', '2', '2023-11-26 18:18:19');
+=======
+(6, 'Astra', 'Astra', 'Astra@gmail.com', '$2y$10$4HOsv/61ojXF81YywuM/R.c2W/V4flT1c9HWzguUp8BHy9l4Zes26', '2', '2023-10-26 22:26:04');
+>>>>>>> 60d5df1 (Nuevas implementaciones)
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+<<<<<<< HEAD
 -- Indices de la tabla `carrito`
 --
 ALTER TABLE `carrito`
@@ -224,6 +241,8 @@ ALTER TABLE `perfil_vendedor`
   ADD UNIQUE KEY `Usuario` (`Usuario`);
 
 --
+=======
+>>>>>>> 60d5df1 (Nuevas implementaciones)
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -234,14 +253,19 @@ ALTER TABLE `productos`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `Usuario` (`Usuario`);
+=======
+  ADD PRIMARY KEY (`ID`);
+>>>>>>> 60d5df1 (Nuevas implementaciones)
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
@@ -264,18 +288,29 @@ ALTER TABLE `pedidos`
 --
 ALTER TABLE `productos`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+=======
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+>>>>>>> 60d5df1 (Nuevas implementaciones)
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
+<<<<<<< HEAD
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+=======
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+>>>>>>> 60d5df1 (Nuevas implementaciones)
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
+<<<<<<< HEAD
 -- Filtros para la tabla `carrito`
 --
 ALTER TABLE `carrito`
@@ -295,6 +330,8 @@ ALTER TABLE `perfil_vendedor`
   ADD CONSTRAINT `perfil_vendedor_fk` FOREIGN KEY (`Usuario`) REFERENCES `usuarios` (`Usuario`) ON DELETE CASCADE;
 
 --
+=======
+>>>>>>> 60d5df1 (Nuevas implementaciones)
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`

@@ -31,12 +31,19 @@ $contraseña = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $_POST['user'];
     $contraseñaIngresada = $_POST['contraseña'];
+<<<<<<< HEAD
 
+=======
+
+
+    // Consulta SQL para verificar si el usuario existe
+>>>>>>> 60d5df1 (Nuevas implementaciones)
     $sqlUsuario = "SELECT Usuario, Contraseña, Rol FROM usuarios WHERE CorreoElectronico = '$user' OR Usuario = '$user'";
     $resultUsuario = $conn->query($sqlUsuario);
     $row = $resultUsuario->fetch_assoc();
 
     if ($resultUsuario->num_rows == 1) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -116,6 +123,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
                 $contraseña = "";
 =======
+=======
+>>>>>>> 60d5df1 (Nuevas implementaciones)
         $userData = $resultUsuario->fetch_assoc();
         $hashContraseñaAlmacenada = $userData['Contraseña'];
     
@@ -134,6 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Si el usuario es comprador
                 header('Location: comprador.php'); // Redireccionar a la página de comprador
                 exit();
+<<<<<<< HEAD
 >>>>>>> 60d5df1 (Nuevas implementaciones)
             }
         } else {
@@ -143,6 +153,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } elseif ($mensajeAlerta === "Usuario no encontrado.") {
                 $claseAlerta = "alerta-rojo";
             }
+=======
+            }
+        } else {
+            $mensajeAlerta = "Contraseña incorrecta.";
+            // Restablece la contraseña después de un intento fallido de inicio de sesión
+>>>>>>> 60d5df1 (Nuevas implementaciones)
             $contraseña = "";
         }
     } else {
