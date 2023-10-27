@@ -22,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Consulta SQL para verificar si el usuario existe
     $sqlUsuario = "SELECT Usuario, Contraseña, Rol FROM usuarios WHERE CorreoElectronico = '$user' OR Usuario = '$user'";
     $resultUsuario = $conn->query($sqlUsuario);
+    $row = $resultUsuario->fetch_assoc();
+    $rol = $row['Rol'];
 
     if ($resultUsuario->num_rows == 1) {
         // El usuario existe, ahora verifica la contraseña
@@ -39,7 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($contraseñaIngresada, $hashContraseñaAlmacenada)) {
                 // Inicio de sesión exitoso
                 $_SESSION['username'] = $user;
-                header("location: vendedor.php");
+                if($rol == 2){
+                    header("location: vendedor.php");
+                }
+                if($rol == 3){
+                    header("location: comprador.php");
+                }
             } else {
                 $mensajeAlerta = "Contraseña incorrecta.";
                 // Restablece la contraseña después de un intento fallido de inicio de sesión
