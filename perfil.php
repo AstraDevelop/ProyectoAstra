@@ -41,6 +41,11 @@ if (isset($usuarioI)) {
         </a>
     </header>
     <div class="cuadroDeDatos">
+        <a href="vendedor.php">
+            <span class="icon-close">
+                <ion-icon name="close-outline"></ion-icon>
+            </span>
+        </a>
         <div class="form-box">
             <h1>Perfil</h1>
             <h4 class="datos">Nombre</h4>

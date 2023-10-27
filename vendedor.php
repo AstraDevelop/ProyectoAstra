@@ -101,7 +101,10 @@ $result = $conn->query($sql);
             <a href="index.html">
                 <h2 class="logo">ASTRA</h2>
             </a>
-            <button class="btnPerfil">Ver Perfil</button>
+            <nav class="navigation">
+                <a href="perfil.php"><button class="btnLogin">Ver Perfil</button></a>
+                <a href="cerrarSesion.php"><button class="btnLogin cerrarSesion">CERRAR SESION</button></a>
+            </nav>
         </header>
 
         <div class="contenidoVendedor">
