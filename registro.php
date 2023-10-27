@@ -102,6 +102,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </header>
 
         <div class="cuadroRegistro">
+            <a href="index.html">
+                <span class="icon-close">
+                    <ion-icon name="close-outline"></ion-icon>
+                </span>
+            </a>
             <!-- Caja del registro -->
             <div class="form-box register">
                 <h2>Registro</h2>

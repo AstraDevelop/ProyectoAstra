@@ -78,6 +78,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </header>
 
         <div class="cuadroLogin">
+                <a href="index.html">
+                    <span class="icon-close">
+                        <ion-icon name="close-outline"></ion-icon>
+                    </span>
+                </a>
             <!-- Caja del login -->
             <div class="form-box login">
                 <h2>Iniciar Sesion</h2>
@@ -101,8 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="">Contraseña</label>
                     </div>
                     <div class="remember-forgot">
-                        <label><input type="checkbox">Recordar Dispositivo</input></label>
-                        <a href="#">¿Has Olvidado Tu Contraseña?</a>
+                        <a href="recuperarContraseña.php">¿Has Olvidado Tu Contraseña?</a>
                     </div>
                     <button type="submit" class="btn">Iniciar</button>
                     <div class="login-register">
