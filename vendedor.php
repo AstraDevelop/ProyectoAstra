@@ -70,14 +70,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['subir'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
     $idProducto = $_POST['idProducto'];
 
-    $sql = "DELETE FROM productos WHERE ID = '$idProducto' AND vendedorID = '$userID'";
-    if ($conn->query($sql) === TRUE) {
-        header('Location: vendedor.php?mensaje=productoEliminado'); // Redirección
-        exit();
+    // Primero, obtenemos el nombre del archivo de la imagen asociada con el producto
+    $sqlImage = "SELECT imagenProducto FROM productos WHERE ID = '$idProducto' AND vendedorID = '$userID'";
+    $resultImage = $conn->query($sqlImage);
+    if($resultImage && $resultImage->num_rows > 0) {
+        $imageData = $resultImage->fetch_assoc();
+        $imagePath = $imageData['imagenProducto'];
+
+        // Ahora procedemos a eliminar el producto de la base de datos
+        $sql = "DELETE FROM productos WHERE ID = '$idProducto' AND vendedorID = '$userID'";
+        if ($conn->query($sql) === TRUE) {
+            // Si se eliminó con éxito el producto, intentamos eliminar la imagen del servidor
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+
+            header('Location: vendedor.php?mensaje=productoEliminado'); // Redirección
+            exit();
+        } else {
+            $mensajeAlerta = "Error al eliminar producto: " . $conn->error;
+        }
     } else {
-        $mensajeAlerta = "Error al eliminar producto: " . $conn->error;
+        $mensajeAlerta = "Error al obtener información del producto para eliminación.";
     }
 }
+
 
 // Obtener la lista de productos del vendedor actual
 $sql = "SELECT * FROM productos WHERE vendedorID = '$userID'";
