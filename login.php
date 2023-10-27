@@ -22,26 +22,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Consulta SQL para verificar si el usuario existe
     $sqlUsuario = "SELECT Usuario, Contraseña, Rol FROM usuarios WHERE CorreoElectronico = '$user' OR Usuario = '$user'";
     $resultUsuario = $conn->query($sqlUsuario);
+    $row = $resultUsuario->fetch_assoc();
+    $rol = $row['Rol'];
 
     if ($resultUsuario->num_rows == 1) {
-        $userData = $resultUsuario->fetch_assoc();
-        $hashContraseñaAlmacenada = $userData['Contraseña'];
-    
-        // Verificar la contraseña utilizando password_verify
-        if (password_verify($contraseñaIngresada, $hashContraseñaAlmacenada)) {
-            // Inicio de sesión exitoso
-            session_start(); // Iniciar la sesión
-            $_SESSION['user'] = $user; // Almacenar el nombre de usuario en la sesión
-            $_SESSION['rol'] = $userData['Rol']; // Almacenar el rol en la sesión
-    
-            if ($userData['Rol'] == '2') {
-                // Si el usuario es vendedor
-                header('Location: vendedor.php'); // Redireccionar a la página de vendedor
-                exit();
-            } elseif ($userData['Rol'] == '3') {
-                // Si el usuario es comprador
-                header('Location: comprador.php'); // Redireccionar a la página de comprador
-                exit();
+        // El usuario existe, ahora verifica la contraseña
+        $contraseñaIngresada = $_POST['contraseña'];
+
+        // Consulta SQL para obtener la contraseña almacenada en la base de datos
+        $sqlContraseña = "SELECT Contraseña FROM usuarios WHERE (CorreoElectronico = '$user' OR Usuario = '$user')";
+        $resultContraseña = $conn->query($sqlContraseña);
+
+        if ($resultContraseña->num_rows == 1) {
+            $row = $resultContraseña->fetch_assoc();
+            $hashContraseñaAlmacenada = $row['Contraseña'];
+
+            // Verificar la contraseña utilizando password_verify
+            if (password_verify($contraseñaIngresada, $hashContraseñaAlmacenada)) {
+                // Inicio de sesión exitoso
+                $_SESSION['username'] = $user;
+                if($rol == 2){
+                    header("location: vendedor.php");
+                }
+                if($rol == 3){
+                    header("location: comprador.php");
+                }
+            } else {
+                $mensajeAlerta = "Contraseña incorrecta.";
+                // Restablece la contraseña después de un intento fallido de inicio de sesión
+                $contraseña = "";
             }
         } else {
             $mensajeAlerta = "Contraseña incorrecta.";
