@@ -139,6 +139,10 @@ if (isset($usuarioI) && ($rol == 2)) {
 
 <?php  
 } else {
+<<<<<<< HEAD
     header('location: index.php');
+=======
+    header('location: index.html');
+>>>>>>> 8676b27 (agregue editar productos)
 }
 ?>

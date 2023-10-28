@@ -51,8 +51,12 @@ if (isset($usuarioI)) {
         </nav>
     </header>
     <div class="cuadroDeDatos">
+<<<<<<< HEAD
         <a href="javascript:history.back()">
 >>>>>>> 02e46ab (mejoramos todo)
+=======
+        <a href="redireccionar.php?rol=<?php echo $rol; ?>">
+>>>>>>> 8676b27 (agregue editar productos)
             <span class="icon-close">
                 <ion-icon name="close-outline"></ion-icon>
             </span>

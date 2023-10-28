@@ -299,43 +299,64 @@ $result = $conn->query($sql);
 >>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
         </header>
 
-        <div class="contenidoVendedor">
-
+        <div class="contenidoEditarProducto">
             <!-- Sección de subida de producto -->
             <section class="leftSection">
-    <div class="subirProducto">
-        <h2>Subir Producto</h2>
-        <form action="vendedor.php" method="POST" enctype="multipart/form-data">
-            <!-- Nombre del Producto -->
-            <label for="nombreProducto">Nombre del Producto:</label>
-            <input type="text" name="nombreProducto" required>
+                <div class="subirProducto">
+                    <h2>Subir Producto</h2>
+                    <form action="vendedor.php" method="POST" enctype="multipart/form-data">
+                        <!-- Nombre del Producto -->
+                        <label for="nombreProducto">Nombre del Producto:</label>
+                        <input type="text" name="nombreProducto" required>
 
-            <!-- Descripción -->
-            <label for="descripcion">Descripción:</label>
-            <textarea name="descripcion" required></textarea>
+                        <!-- Descripción -->
+                        <label for="descripcion">Descripción:</label>
+                        <textarea name="descripcion" required></textarea>
 
-            <!-- Precio -->
-            <label for="precio">Precio:</label>
-            <input type="text" name="precio" required>
+                        <!-- Precio -->
+                        <label for="precio">Precio:</label>
+                        <input type="text" name="precio" required>
 
-            <!-- Imagen del Producto -->
-            <label for="imagenProducto">Imagen del Producto:</label>
-            <input type="file" name="imagenProducto" required>
+                        <!-- Imagen del Producto -->
+                        <label for="imagenProducto">Imagen del Producto:</label>
+                        <input type="file" name="imagenProducto" required>
 
-            <!-- Botón para Subir Producto -->
-            <button type="submit" name="subir">Subir Producto</button>
-        </form>
-    </div>
-</section>
-
-            
-            
+                        <!-- Botón para Subir Producto -->
+                        <button class="btnEditarInf" type="submit" name="subir">Subir Producto</button>
+                    </form>
+                </div>
+            </section> 
             <!-- Mensajes de alerta -->
             <?php if (!empty($mensajeAlerta)) : ?>
                        <div id="alerta" class="<?php echo $claseAlerta; ?>"><?php echo $mensajeAlerta; ?></div>
-                <?php endif; ?>
+                <?php endif; ?>     
         </div>
+<<<<<<< HEAD
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+
+
+
+       <!-- <div class="contenidoProductos">
+            <h2>Mis productos</h2>
+            <?php /*while($row = $result->fetch_assoc()): ?>
+                <div class="item">
+                    <p>Producto</p>
+                    <img src="<?php echo $row['imagenProducto']; ?>" alt="Imagen del producto">
+                    <p class="nombreProducto"><?php echo $row['nombreProducto']; ?></p>
+                    <p><?php echo "Descripcion"; ?></p>
+                    <p class="descripcionProducto"><?php echo $row['descripcion']; ?></p>
+                    <p id="precio">$<?php echo $row['precio']; ?></p>
+                    <input type="hidden" name="idProducto" value="<?php echo $row['ID']; ?>">
+                    <button type="submit" id="eliminar" name="eliminar">Eliminar</button>
+                </div>
+            <?php endwhile; */?>
+        </div> -->
+
+
+
+
+>>>>>>> 8676b27 (agregue editar productos)
         <div class="contenidoVendedor" id="awebao">
         <!-- Sección de productos -->
                     <section class="rightSection">
@@ -345,10 +366,14 @@ $result = $conn->query($sql);
                             <?php while($row = $result->fetch_assoc()): ?>
                                 <li>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8676b27 (agregue editar productos)
                                     <form action="vendedor.php" method="POST">
                                         <div class="productoContainer">
                                             <img src="<?php echo $row['imagenProducto']; ?>" alt="Imagen del producto">
                                             <div class="productoInfo">
+<<<<<<< HEAD
                                                 <p><?php/* echo "Producto"; */?></p>
                                                 <p class="nombreProducto"><?php echo $row['nombreProducto']; ?></p> 
                                                 <p><?php/* echo "Descripcion"; */?></p>
@@ -375,11 +400,25 @@ $result = $conn->query($sql);
                                         </form>
                                     </div>
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+                                                <p><?php echo "Descripcion"; ?></p>
+                                                <p class="descripcionProducto"><?php echo $row['descripcion']; ?></p>
+                                                <p><?php echo "Producto"; ?></p>
+                                                <p class="nombreProducto"><?php echo $row['nombreProducto']; ?></p> <p id="precio">$<?php echo $row['precio']; ?></p>     
+                                            </div>
+                                            <input type="hidden" name="idProducto" value="<?php echo $row['ID']; ?>">
+                                            <button type="submit" id="bombardeo" name="eliminar">Eliminar</button>
+                                            <button id="bombardeo"><a href="editar_producto.php?id=<?php echo $row['ID']; ?>">Editar</a></button>
+                                            
+                                        </div>
+                                    </form>
+>>>>>>> 8676b27 (agregue editar productos)
                                 </li>
                             <?php endwhile; ?>
                         </ul>
                     </div>
                     </section>
+<<<<<<< HEAD
 <<<<<<< HEAD
         </div>
 
@@ -398,6 +437,8 @@ $result = $conn->query($sql);
 >>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
 =======
 
+=======
+>>>>>>> 8676b27 (agregue editar productos)
         </div>
 
     </div>
