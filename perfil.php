@@ -40,7 +40,7 @@ if (isset($usuarioI)) {
         </nav>
     </header>
     <div class="cuadroDeDatos">
-        <a href="javascript:history.back()">
+        <a href="redireccionar.php?rol=<?php echo $rol; ?>">
             <span class="icon-close">
                 <ion-icon name="close-outline"></ion-icon>
             </span>
