@@ -196,7 +196,7 @@ if (isset($usuarioI)) {
 </html>
 <?php
     }else {
-    echo "Error al recuperar datos del usuario: " . $mysqli->error;
+    echo "Error al recuperar datos del usuario";
     }
 } else {
     header('location: index.html');
