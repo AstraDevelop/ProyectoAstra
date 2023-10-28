@@ -200,9 +200,9 @@ $result = $conn->query($sql);
                                         <div class="productoContainer">
                                             <img src="<?php echo $row['imagenProducto']; ?>" alt="Imagen del producto">
                                             <div class="productoInfo">
-                                                <p><?php echo "Descripcion"; ?></p>
+                                                <p><?php/* echo "Descripcion"; */?></p>
                                                 <p class="descripcionProducto"><?php echo $row['descripcion']; ?></p>
-                                                <p><?php echo "Producto"; ?></p>
+                                                <p><?php/* echo "Producto"; */?></p>
                                                 <p class="nombreProducto"><?php echo $row['nombreProducto']; ?></p> <p id="precio">$<?php echo $row['precio']; ?></p>     
                                             </div>
                                             <input type="hidden" name="idProducto" value="<?php echo $row['ID']; ?>">
