@@ -142,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <ion-icon name="person"></ion-icon>
                         </span>
                         <input type="text" name="nombre" required value="<?php echo $nombre; ?>">
-                        <label for="">Nombre</label>
+                        <label for="">Nombre | Empresa (vendedor)</label>
                     </div>
                     <div class="input-box">
                         <span class="icon">

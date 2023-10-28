@@ -21,7 +21,7 @@ if($resultVendedor && $resultVendedor->num_rows > 0) {
 }
 
 // Consulta SQL para obtener todos los productos del vendedor seleccionado
-$sql = "SELECT imagenProducto, nombreProducto, descripcion, precio
+$sql = "SELECT ID, imagenProducto, nombreProducto, descripcion, precio
         FROM productos 
         WHERE vendedorID = '$vendedorID'";
 
@@ -48,6 +48,7 @@ $result = $conn->query($sql);
             <nav>
                 <!-- Mostrar el nombre del vendedor y el título "Catálogo" -->
                 <h2>Catálogo de <?php echo $nombreVendedor; ?></h2>
+                <p><a href="ver_carrito.php">Carrito</a></p>
             </nav>
         </header>
         
@@ -56,11 +57,18 @@ $result = $conn->query($sql);
         <div class="comp-productos">
             <?php while($row = $result->fetch_assoc()): ?>
                 <div class="comp-producto">
-                    <img src="<?php echo $row['imagenProducto']; ?>" alt="<?php echo $row['nombreProducto']; ?>">
-                    <h3><?php echo $row['nombreProducto']; ?></h3>
-                    <p><?php echo $row['descripcion']; ?></p>
-                    <p>$<?php echo $row['precio']; ?></p>
-                </div>
+    <img src="<?php echo $row['imagenProducto']; ?>" alt="<?php echo $row['nombreProducto']; ?>">
+    <h3><?php echo $row['nombreProducto']; ?></h3>
+    <p><?php echo $row['descripcion']; ?></p>
+    <p>$<?php echo $row['precio']; ?></p>
+
+    <form action="agregar_carrito.php" method="POST">
+        <input type="hidden" name="productoID" value="<?php echo $row['ID']; ?>">
+        <input type="number" name="cantidad" value="1" min="1">
+        <input type="hidden" name="vendedorID" value="<?php echo $vendedorID; ?>">  <!-- Añade esta línea -->
+        <button type="submit">Agregar al Carrito</button>
+    </form>
+</div>
             <?php endwhile; ?>
         </div>
     </div>
