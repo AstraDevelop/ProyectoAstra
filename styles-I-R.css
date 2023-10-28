@@ -2,7 +2,7 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
+  margin: 15px;
   padding: 0;
 }
 
@@ -301,10 +301,11 @@ antes del botón enviar*/
 }
 
 .option {
-  width: 100px;
+  width: 80px;
   height: 28px;
   position: relative;
-  left: 2px;
+  left: -25px;
+  top:-15px;
 }
 
 .input-rol {
@@ -409,6 +410,6 @@ antes del botón enviar*/
   justify-content: center;
   align-items: center;
   overflow-y: auto;
-  padding: 10px;
+  padding: 0px;
   
 }
