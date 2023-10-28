@@ -100,10 +100,12 @@ header a {
 }
 /*Estilo de la alerta del formulario*/
 #alerta {
-  background-color: red;
   border-radius: 10px;
   overflow: hidden;
   color: #fff;
+  padding: 5px 10px;
+  margin: 10px 0;
+  text-align: center;
 }
 /*Cuadro de formulario de login*/
 .cuadroLogin {
@@ -241,7 +243,7 @@ h4.inf {
   align-items: center;
   border-bottom-left-radius: 20px;
   cursor: pointer;
-  z-index: 0;
+  z-index: 100;
 }
 .input-box .icon {
   position: absolute;
@@ -366,3 +368,21 @@ antes del botón enviar*/
 .login-register p a:hover {
   text-decoration: underline;
 }
+.alerta-rojo {
+  background-color: red;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 10px 0;
+  text-align: center;
+  color: white;
+}
+
+.alerta-verde {
+  background-color: green;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 10px 0;
+  text-align: center;
+  color: white;
+}
+
