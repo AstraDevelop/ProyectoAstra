@@ -6,7 +6,6 @@ $mensajeAlerta = $_SESSION['mensajeAlerta'] ?? "";
 $claseAlerta = $_SESSION['claseAlerta'] ?? "";
 unset($_SESSION['mensajeAlerta'], $_SESSION['claseAlerta']);  // Limpiar los mensajes de la sesión después de usarlos
 
-
 // Si el usuario ha iniciado sesión, se ejecuta esto
 if (isset($usuarioI)) {
 
@@ -33,48 +32,46 @@ if (isset($usuarioI)) {
                 $claseAlerta="alerta-rojo";
             } else {
                 // Verifica que los campos no estén vacíos
-                $req = (strlen($nombre) * strlen($usuario) * strlen($correo) * strlen($contraseña) * strlen($confirmarContraseña)) or $mensajeAlerta = "No se han llenado todos los campos";
+                $req = (strlen($nombre) * strlen($usuarioN) * strlen($correoN) * strlen($contraseña) * strlen($confirmarContraseña)) or $mensajeAlerta = "No se han llenado todos los campos";
     
                 // Verifica que las contraseñas coincidan
                 if ($contraseña != $confirmarContraseña) {
                     $mensajeAlerta = "Las contraseñas no coinciden, Verifique";
                     $claseAlerta="alerta-rojo";
                 } else {
-                    
-                        // Encripta la contraseña usando password_hash
-                        $contraseñaEncriptada = password_hash($contraseña, PASSWORD_BCRYPT);
+                    // Encripta la contraseña usando password_hash
+                    $contraseñaEncriptada = password_hash($contraseña, PASSWORD_BCRYPT);
                 
-                        // Verifica si el usuario ya está registrado
-                        $sqlVerificacionUsuario = "SELECT * FROM usuarios WHERE Usuario = '$usuarioN'";
-                        $resultadoVerificacionUsuario = $conn->query($sqlVerificacionUsuario);
+                    // Verifica si el usuario ya está registrado
+                    $sqlVerificacionUsuario = "SELECT * FROM usuarios WHERE Usuario = '$usuarioN'";
+                    $resultadoVerificacionUsuario = $conn->query($sqlVerificacionUsuario);
 
-                        if ($resultadoVerificacionUsuario->num_rows > 0) {
-                            $mensajeAlerta = "El usuario ya existe, por favor Cambiar.";
+                    if ($resultadoVerificacionUsuario->num_rows > 0) {
+                        $mensajeAlerta = "El usuario ya existe, por favor Cambiar.";
+                        $claseAlerta="alerta-rojo";
+                    } else {
+                        // Verifica si el correo ya está registrado
+                        $sqlVerificacionCorreo = "SELECT * FROM usuarios WHERE CorreoElectronico = '$correoN'";
+                        $resultadoVerificacionCorreo = $conn->query($sqlVerificacionCorreo);
+    
+                        if ($resultadoVerificacionCorreo->num_rows > 0) {
+                            $mensajeAlerta = "El correo ya existe, por favor Cambiar.";
                             $claseAlerta="alerta-rojo";
                         } else {
-                            // Verifica si el correo ya está registrado
-                            $sqlVerificacionCorreo = "SELECT * FROM usuarios WHERE CorreoElectronico = '$correo'";
-                            $resultadoVerificacionCorreo = $conn->query($sqlVerificacionCorreo);
-    
-                            if ($resultadoVerificacionCorreo->num_rows > 0) {
-                                $mensajeAlerta = "El correo ya existe, por favor Cambiar.";
-                                $claseAlerta="alerta-rojo";
-                            } else {
-                                $updateQuery = "UPDATE usuarios SET Nombre = '$nombre', Usuario = '$usuario', CorreoElectronico = '$correo', rol = '$rol' WHERE (CorreoElectronico = '$usuarioI' OR Usuario = '$usuarioI')";
+                            $updateQuery = "UPDATE usuarios SET Nombre = '$nombre', Usuario = '$usuarioN', CorreoElectronico = '$correoN', rol = '$rol' WHERE (CorreoElectronico = '$usuarioI' OR Usuario = '$usuarioI')";
 
-                                if ($conn->query($updateQuery) === TRUE) {
-                                    $mensajeAlerta = "Datos actualizados con éxito.";
-                                    $claseAlerta="alerta-verde";
-                                    $_SESSION['username'] = $usuario;
-                                    $usuarioI = $_SESSION['username'];
-                                } else {
-                                    $mensajeAlerta = "Error al actualizar los datos: " . $conn->error;
-                                    $claseAlerta="alerta-rojo";
-                                }
+                            if ($conn->query($updateQuery) === TRUE) {
+                                $mensajeAlerta = "Datos actualizados con éxito.";
+                                $claseAlerta="alerta-verde";
+                                $_SESSION['username'] = $usuarioN;
+                                $usuarioI = $usuarioN;
+                            } else {
+                                $mensajeAlerta = "Error al actualizar los datos: " . $conn->error;
+                                $claseAlerta="alerta-rojo";
                             }
-                        }       
+                        }
+                    }       
                 }
-                
             }
         } else {
             $mensajeAlerta = "Por favor, seleccione un rol válido (Vendedor o Comprador).";
@@ -82,11 +79,9 @@ if (isset($usuarioI)) {
         }   
         $_SESSION['mensajeAlerta'] = $mensajeAlerta;
         $_SESSION['claseAlerta'] = $claseAlerta;
-        header("Location: actualizarDatos.php"); // Reemplaza "nombreDelArchivoActual.php" con el nombre de tu archivo actual.
+        header("Location: actualizarDatos.php"); 
         exit;   
     }
-
-    
 
     // Realizar la consulta SQL para obtener los datos del usuario
     $query = "SELECT Nombre, Usuario, CorreoElectronico, Contraseña, rol FROM usuarios WHERE (CorreoElectronico = '$usuarioI' OR Usuario = '$usuarioI')";
@@ -97,10 +92,15 @@ if (isset($usuarioI)) {
         $row = $result->fetch_assoc();
 
         // Asignar los valores de la base de datos a las variables
-        $nombre = $row['Nombre'];
-        $usuario = $row['Usuario'];
-        $correo = $row['CorreoElectronico'];
-        $rol = $row['rol'];
+        if ($row) {
+            $nombre = $row['Nombre'];
+            $usuario = $row['Usuario'];
+            $correo = $row['CorreoElectronico'];
+            $rol = $row['rol'];
+        } else {
+            // Manejar el caso en que no se encuentra ningún resultado o hay un error en la consulta
+            echo "No se encontraron datos o hubo un error en la consulta.";
+        }
 ?>
 <!DOCTYPE html>
 <html lang="es">
