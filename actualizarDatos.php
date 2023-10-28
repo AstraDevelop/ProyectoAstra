@@ -2,6 +2,10 @@
 include("conexion.php");
 session_start();
 $usuarioI = $_SESSION['username'];
+$mensajeAlerta = $_SESSION['mensajeAlerta'] ?? "";
+$claseAlerta = $_SESSION['claseAlerta'] ?? "";
+unset($_SESSION['mensajeAlerta'], $_SESSION['claseAlerta']);  // Limpiar los mensajes de la sesión después de usarlos
+
 
 // Si el usuario ha iniciado sesión, se ejecuta esto
 if (isset($usuarioI)) {
@@ -26,6 +30,7 @@ if (isset($usuarioI)) {
             // Verifica si el rol se ha seleccionado
             if (empty($rol) || !in_array($rol, ['2', '3'])) {
                 $mensajeAlerta = "Por favor, seleccione un rol válido (Vendedor o Comprador).";
+                $claseAlerta="alerta-rojo";
             } else {
                 // Verifica que los campos no estén vacíos
                 $req = (strlen($nombre) * strlen($usuario) * strlen($correo) * strlen($contraseña) * strlen($confirmarContraseña)) or $mensajeAlerta = "No se han llenado todos los campos";
@@ -33,6 +38,7 @@ if (isset($usuarioI)) {
                 // Verifica que las contraseñas coincidan
                 if ($contraseña != $confirmarContraseña) {
                     $mensajeAlerta = "Las contraseñas no coinciden, Verifique";
+                    $claseAlerta="alerta-rojo";
                 } else {
                     
                         // Encripta la contraseña usando password_hash
@@ -44,6 +50,7 @@ if (isset($usuarioI)) {
 
                         if ($resultadoVerificacionUsuario->num_rows > 0) {
                             $mensajeAlerta = "El usuario ya existe, por favor Cambiar.";
+                            $claseAlerta="alerta-rojo";
                         } else {
                             // Verifica si el correo ya está registrado
                             $sqlVerificacionCorreo = "SELECT * FROM usuarios WHERE CorreoElectronico = '$correo'";
@@ -51,15 +58,18 @@ if (isset($usuarioI)) {
     
                             if ($resultadoVerificacionCorreo->num_rows > 0) {
                                 $mensajeAlerta = "El correo ya existe, por favor Cambiar.";
+                                $claseAlerta="alerta-rojo";
                             } else {
                                 $updateQuery = "UPDATE usuarios SET Nombre = '$nombre', Usuario = '$usuario', CorreoElectronico = '$correo', rol = '$rol' WHERE (CorreoElectronico = '$usuarioI' OR Usuario = '$usuarioI')";
 
                                 if ($conn->query($updateQuery) === TRUE) {
                                     $mensajeAlerta = "Datos actualizados con éxito.";
+                                    $claseAlerta="alerta-verde";
                                     $_SESSION['username'] = $usuario;
                                     $usuarioI = $_SESSION['username'];
                                 } else {
                                     $mensajeAlerta = "Error al actualizar los datos: " . $conn->error;
+                                    $claseAlerta="alerta-rojo";
                                 }
                             }
                         }       
@@ -68,8 +78,15 @@ if (isset($usuarioI)) {
             }
         } else {
             $mensajeAlerta = "Por favor, seleccione un rol válido (Vendedor o Comprador).";
-        }      
+            $claseAlerta="alerta-rojo";
+        }   
+        $_SESSION['mensajeAlerta'] = $mensajeAlerta;
+        $_SESSION['claseAlerta'] = $claseAlerta;
+        header("Location: actualizarDatos.php"); // Reemplaza "nombreDelArchivoActual.php" con el nombre de tu archivo actual.
+        exit;   
     }
+
+    
 
     // Realizar la consulta SQL para obtener los datos del usuario
     $query = "SELECT Nombre, Usuario, CorreoElectronico, Contraseña, rol FROM usuarios WHERE (CorreoElectronico = '$usuarioI' OR Usuario = '$usuarioI')";
@@ -113,7 +130,7 @@ if (isset($usuarioI)) {
                 <h2>Datos Del Usuario</h2>
                 <!-- Mostrar alerta si hay un mensaje -->
                 <?php if (!empty($mensajeAlerta)) : ?>
-                    <div id="alerta"><?php echo $mensajeAlerta; ?></div>
+                       <div id="alerta" class="<?php echo $claseAlerta; ?>"><?php echo $mensajeAlerta; ?></div>
                 <?php endif; ?>
                 <form action="" method="POST">
                     <div class="input-box">

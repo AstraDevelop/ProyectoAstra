@@ -8,6 +8,7 @@ header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
 // No necesariamente deben estar ahí en el proyecto final, chequear en caso de problemas con cache
 
 $mensajeAlerta = ""; // Inicializa el mensaje de alerta
+$claseAlerta = "";
 
 // Inicializa las variables de los campos con valores predeterminados
 $user = "";
@@ -52,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['username'] = $user;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 header("location: perfil.php");
 >>>>>>> af733a6 (implementacion de inicio de sesion)
 =======
@@ -65,8 +67,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     header("location: comprador.php");
                 }
 >>>>>>> 15e4fa0 (redireccion a vendedor/comprador)
+=======
+                // Dependiendo del rol, redirige al usuario a la página correspondiente
+                if ($resultUsuario->fetch_assoc()['Rol'] == 3) {
+                    header("location: comprador.php");
+                } else {
+                    header("location: vendedor.php");
+                }
+                exit;  // Es importante hacer un "exit" después de "header".
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
             } else {
                 $mensajeAlerta = "Contraseña incorrecta.";
+                if ($mensajeAlerta === "Contraseña incorrecta.") {
+                    $claseAlerta = "alerta-rojo";
+                } elseif ($mensajeAlerta === "Usuario no encontrado.") {
+                    $claseAlerta = "alerta-rojo";
+                }
                 // Restablece la contraseña después de un intento fallido de inicio de sesión
                 $contraseña = "";
 =======
@@ -92,11 +108,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } else {
             $mensajeAlerta = "Contraseña incorrecta.";
+            if ($mensajeAlerta === "Contraseña incorrecta.") {
+                $claseAlerta = "alerta-rojo";
+            } elseif ($mensajeAlerta === "Usuario no encontrado.") {
+                $claseAlerta = "alerta-rojo";
+            }
             // Restablece la contraseña después de un intento fallido de inicio de sesión
             $contraseña = "";
         }
     } else {
         $mensajeAlerta = "Usuario no encontrado.";
+        if ($mensajeAlerta === "Contraseña incorrecta.") {
+            $claseAlerta = "alerta-rojo";
+        } elseif ($mensajeAlerta === "Usuario no encontrado.") {
+            $claseAlerta = "alerta-rojo";
+        }
         // Restablece el usuario y la contraseña después de un intento fallido de inicio de sesión
         $user = "";
         $contraseña = "";
@@ -134,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>Iniciar Sesion</h2>
                 <!-- Mostrar alerta si hay un mensaje -->
                 <?php if (!empty($mensajeAlerta)) : ?>
-                    <div id="alerta"><?php echo $mensajeAlerta; ?></div>
+                       <div id="alerta" class="<?php echo $claseAlerta; ?>"><?php echo $mensajeAlerta; ?></div>
                 <?php endif; ?>
                 <form action="#" method="POST">
                     <div class="input-box">
