@@ -387,6 +387,7 @@ header {
     margin: 10px 0;
     text-align: center;
     color: white;
+    z-index: 9999;
   }
   .item {
     display: flex;
