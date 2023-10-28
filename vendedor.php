@@ -4,17 +4,21 @@ session_start();
 $usuarioI = $_SESSION['username'];
 $rol = $_SESSION['rol'];
 
+
 // Si el usuario ha iniciado sesión, se ejecuta esto
 if (isset($usuarioI) && ($rol == 2)) {
 
 $mensajeAlerta = "";
+$claseAlerta="";
 
 // Verificar mensajes a través de parámetros en la URL
 if (isset($_GET['mensaje'])) {
     if ($_GET['mensaje'] == 'productoAñadido') {
         $mensajeAlerta = "Producto añadido exitosamente!";
+        $claseAlerta="alerta-verde";
     } elseif ($_GET['mensaje'] == 'productoEliminado') {
         $mensajeAlerta = "Producto eliminado exitosamente!";
+        $claseAlerta="alerta-verde";
     }
 }
 
@@ -49,6 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['subir'])) {
         $uploadOk = 1;
     } else {
         $mensajeAlerta = "El archivo no es una imagen.";
+        $claseAlerta="alerta-rojo";
+
         $uploadOk = 0;
     }
     
@@ -60,9 +66,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['subir'])) {
             exit();
         } else {
             $mensajeAlerta = "Error al añadir producto: " . $conn->error;
+            $claseAlerta="alerta-rojo";
         }
     } else {
         $mensajeAlerta .= " Error al subir la imagen.";
+        $claseAlerta="alerta-rojo";
     }
 }
 
@@ -89,9 +97,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
             exit();
         } else {
             $mensajeAlerta = "Error al eliminar producto: " . $conn->error;
+            $claseAlerta="alerta-rojo";
         }
     } else {
         $mensajeAlerta = "Error al obtener información del producto para eliminación.";
+        $claseAlerta="alerta-rojo";
     }
 }
 
@@ -157,8 +167,8 @@ $result = $conn->query($sql);
             
             <!-- Mensajes de alerta -->
             <?php if (!empty($mensajeAlerta)) : ?>
-                <div class="alerta"><?php echo $mensajeAlerta; ?></div>
-            <?php endif; ?>
+                       <div id="alerta" class="<?php echo $claseAlerta; ?>"><?php echo $mensajeAlerta; ?></div>
+                <?php endif; ?>
         </div>
         <div class="contenidoVendedor" id="awebao">
         <!-- Sección de productos -->
