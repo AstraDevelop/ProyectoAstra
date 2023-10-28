@@ -104,13 +104,6 @@ header {
     color: #fff;
 }
 
-#alerta {
-    background-color: red;
-    border-radius: 10px;
-    overflow: hidden;
-    color: #fff;
-}
-
 .form-box {
     width: 100%;
     padding: 40px;
@@ -345,4 +338,20 @@ header {
     color: lightgreen;
     font-size: 20px;
 }
-
+.alerta-rojo {
+    background-color: red;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 0;
+    text-align: center;
+    color: white;
+  }
+  
+  .alerta-verde {
+    background-color: green;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 0;
+    text-align: center;
+    color: white;
+  }
