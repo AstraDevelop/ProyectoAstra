@@ -23,9 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sqlUsuario = "SELECT Usuario, Contraseña, Rol FROM usuarios WHERE CorreoElectronico = '$user' OR Usuario = '$user'";
     $resultUsuario = $conn->query($sqlUsuario);
     $row = $resultUsuario->fetch_assoc();
-    $rol = $row['Rol'];
+    
 
     if ($resultUsuario->num_rows == 1) {
+        $rol = $row['Rol'];
         // El usuario existe, ahora verifica la contraseña
         $contraseñaIngresada = $_POST['contraseña'];
 
@@ -41,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($contraseñaIngresada, $hashContraseñaAlmacenada)) {
                 // Inicio de sesión exitoso
                 $_SESSION['username'] = $user;
+                $_SESSION['rol'] = $rol;
                 if($rol == 2){
                     header("location: vendedor.php");
                 }

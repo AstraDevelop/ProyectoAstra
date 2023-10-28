@@ -1,11 +1,11 @@
 <?php
 include("conexion.php");
 session_start();
+$usuarioI = $_SESSION['username'];
+$rol = $_SESSION['rol'];
 
-if (!isset($_SESSION['user']) || $_SESSION['rol'] != '2') {
-    header('Location: login.php');
-    exit();
-}
+// Si el usuario ha iniciado sesión, se ejecuta esto
+if (isset($usuarioI) && ($rol == 2)) {
 
 $mensajeAlerta = "";
 
@@ -115,7 +115,7 @@ $result = $conn->query($sql);
 <body>
     <div class="container">
         <header>
-            <a href="index.html">
+            <a href="">
                 <h2 class="logo">ASTRA</h2>
             </a>
             <nav class="navigation">
