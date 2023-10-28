@@ -1,3 +1,13 @@
+<?php
+include("conexion.php");
+session_start();
+$usuarioI = $_SESSION['username'];
+$rol = $_SESSION['rol'];
+
+// Si el usuario ha iniciado sesión, se ejecuta esto
+if (isset($usuarioI) && ($rol == 3)) {
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,8 +26,8 @@
                 <h2 class="logo">ASTRA</h2>
             </a>
             <nav class="navigation">
-               <!-- Rellenar nav bar  -->
-                                
+                <a href="perfil.php"><button class="btnLogin">Ver Perfil</button></a>
+                <a href="cerrarSesion.php"><button class="btnLogin cerrarSesion">CERRAR SESION</button></a>
             </nav>
         </header>
         <Section id="fondo">
@@ -60,3 +70,8 @@
 </body>
 
 </html>
+<?php  
+}else {
+    header('location: index.html');
+}
+?>
