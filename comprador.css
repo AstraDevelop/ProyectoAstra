@@ -114,7 +114,8 @@ section {
 }
 .vendedores .item{
 	width: 150px;
-	padding: 0px;
+	height: 150px;
+  padding: 0px;
 	border-radius: 5px;
 	background-color: #21262d;
 	position: absolute;

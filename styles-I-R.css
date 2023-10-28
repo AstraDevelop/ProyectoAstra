@@ -255,6 +255,7 @@ p.mensaje {
 }
 .input-box.contraseña {
   margin-top: 9px;
+  margin-bottom: 17px;
 }
 /*Estilos de las opciones que estás después del formulario de login pero 
 antes del botón enviar*/

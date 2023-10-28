@@ -12,7 +12,6 @@ if (isset($usuarioI)) {
 
  if ($result) {
      $row = $result->fetch_assoc();
-
      // Asignar los valores de la base de datos a las variables
      $nombre = $row['Nombre'];
      $usuario = $row['Usuario'];
@@ -33,15 +32,15 @@ if (isset($usuarioI)) {
 <body>
 <div class="container">
     <header>
-        <a href="index.html">
+        <a href="">
             <h2 class="logo">ASTRA</h2>
-            <nav class="navigation">
-                <a href="cerrarSesion.php"><button class="btnLogin">CERRAR SESION</button></a>
-            </nav>
         </a>
+        <nav class="navigation">
+            <a href="cerrarSesion.php"><button class="btnLogin">CERRAR SESION</button></a>
+        </nav>
     </header>
     <div class="cuadroDeDatos">
-        <a href="vendedor.php">
+        <a href="javascript:history.back()">
             <span class="icon-close">
                 <ion-icon name="close-outline"></ion-icon>
             </span>
@@ -72,12 +71,14 @@ if (isset($usuarioI)) {
             <a href="actualizarDatos.php"><button type="submit" class="btn">Actualizar Datos</button></a>
         </div>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </div>
 </body>
 </html>
 <?php
     }else {
-    echo "Error al recuperar datos del usuario: " . $mysqli->error;
+    echo "Error al recuperar datos del usuario:";
     }
 } else {
     header('location: index.html');
