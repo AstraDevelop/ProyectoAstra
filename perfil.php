@@ -36,6 +36,7 @@ if (isset($usuarioI)) {
             <h2 class="logo">ASTRA</h2>
         </a>
         <nav class="navigation">
+<<<<<<< HEAD
             <a href="cerrarSesion.php"><button class="btnLogin cerrarSesion">CERRAR SESION</button></a>
         </nav>
     </header>
@@ -45,6 +46,13 @@ if (isset($usuarioI)) {
 =======
         <a href="vendedor.php">
 >>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
+=======
+            <a href="cerrarSesion.php"><button class="btnLogin">CERRAR SESION</button></a>
+        </nav>
+    </header>
+    <div class="cuadroDeDatos">
+        <a href="javascript:history.back()">
+>>>>>>> 02e46ab (mejoramos todo)
             <span class="icon-close">
                 <ion-icon name="close-outline"></ion-icon>
             </span>

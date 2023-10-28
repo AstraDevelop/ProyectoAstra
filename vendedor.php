@@ -14,7 +14,13 @@ if (!isset($_SESSION['user']) || $_SESSION['rol'] != '2') {
 =======
 $usuarioI = $_SESSION['username'];
 $rol = $_SESSION['rol'];
+<<<<<<< HEAD
 
+
+// Si el usuario ha iniciado sesión, se ejecuta esto
+if (isset($usuarioI) && ($rol == 2)) {
+>>>>>>> 02e46ab (mejoramos todo)
+=======
 
 // Si el usuario ha iniciado sesión, se ejecuta esto
 if (isset($usuarioI) && ($rol == 2)) {

@@ -3,6 +3,16 @@ include("conexion.php");
 session_start();
 $usuarioI = $_SESSION['username'];
 $rol = $_SESSION['rol'];
+<<<<<<< HEAD
+=======
+
+// Si el usuario ha iniciado sesión, se ejecuta esto
+if (isset($usuarioI) && ($rol == 3)) {
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+>>>>>>> 02e46ab (mejoramos todo)
 
 if (!isset($usuarioI) || $rol != '3') {
     header('location: index.php');
@@ -39,10 +49,58 @@ $result = $conn->query($sql);
     <title>Comprador - ASTRA</title>
 </head>
 <body>
+<<<<<<< HEAD
     <header>
         <a href="index.php">
             <h2 class="logo">ASTRA</h2>
         </a>
+=======
+    <div class="inicio">
+        <header>
+            <a href="">
+                <h2 class="logo">ASTRA</h2>
+            </a>
+            <nav class="navigation">
+                <a href="perfil.php"><button class="btnLogin">Ver Perfil</button></a>
+                <a href="cerrarSesion.php"><button class="btnLogin cerrarSesion">CERRAR SESION</button></a>
+            </nav>
+        </header>
+        <Section id="fondo">
+        <div class="slider">
+	<input type="radio" name="vendedor" id="t-1">
+	<input type="radio" name="vendedor" id="t-2">
+	<input type="radio" name="vendedor" id="t-3" checked>
+	<input type="radio" name="vendedor" id="t-4">
+	<input type="radio" name="vendedor" id="t-5">
+	<div class="vendedores">
+		<label class="item" for="t-1">
+			<h1><img src="img/fondouno.png" alt=""></h2>
+		</label>
+		<label class="item" for="t-2">
+			<h1>2</h2>
+		</label>
+		<label class="item" for="t-3">
+			<h1>3</h2>
+		</label>
+		<label class="item" for="t-4">
+			<h1>4</h2>
+		</label>
+		<label class="item" for="t-5">
+			<h1>5</h2>
+		</label>
+	</div>
+	<br/>
+	<div class="dots">
+		<label for="t-1"></label>
+		<label for="t-2"></label>
+		<label for="t-3"></label>
+		<label for="t-4"></label>
+		<label for="t-5"></label>
+	</div>
+</div>
+
+        </Section>
+>>>>>>> 02e46ab (mejoramos todo)
         
         <form action="comprador.php" method="GET" id="comp-searchForm">
             <input class="cuadroBusq" type="text" name="buscar" placeholder="Buscar">
@@ -89,4 +147,14 @@ $result = $conn->query($sql);
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+
+</html>
+<?php  
+}else {
+    header('location: index.html');
+}
+?>
+>>>>>>> 02e46ab (mejoramos todo)

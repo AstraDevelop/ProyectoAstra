@@ -42,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultUsuario = $conn->query($sqlUsuario);
     $row = $resultUsuario->fetch_assoc();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     $rol = $row['Rol'];
 >>>>>>> 15e4fa0 (redireccion a vendedor/comprador)
@@ -53,6 +54,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 =======
         $rol = $row['Rol'];
 <<<<<<< HEAD
+>>>>>>> 02e46ab (mejoramos todo)
+=======
+    
+
+    if ($resultUsuario->num_rows == 1) {
+        $rol = $row['Rol'];
 >>>>>>> 02e46ab (mejoramos todo)
         // El usuario existe, ahora verifica la contraseña
 =======
@@ -76,6 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 =======
 >>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
                 $_SESSION['username'] = $user;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -120,6 +128,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit;
 >>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 =======
+=======
+                $_SESSION['rol'] = $rol;
+>>>>>>> 02e46ab (mejoramos todo)
                 if($rol == 2){
                     header("location: vendedor.php");
                 }
