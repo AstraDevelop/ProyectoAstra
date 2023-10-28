@@ -4,7 +4,12 @@ session_start();
 $usuarioI = $_SESSION['username'];
 $mensajeAlerta = $_SESSION['mensajeAlerta'] ?? "";
 $claseAlerta = $_SESSION['claseAlerta'] ?? "";
+<<<<<<< HEAD
 unset($_SESSION['mensajeAlerta'], $_SESSION['claseAlerta']);
+=======
+unset($_SESSION['mensajeAlerta'], $_SESSION['claseAlerta']);  // Limpiar los mensajes de la sesión después de usarlos
+
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
 
 if (isset($usuarioI)) {
     $nombre = '';
@@ -21,6 +26,7 @@ if (isset($usuarioI)) {
         $confirmarNuevaContraseña = $_POST['confirmarNuevaContraseña'] ?? '';
         $rol = $_POST['rol'];
 
+<<<<<<< HEAD
         if (!empty($nuevaContraseña) && $nuevaContraseña != $confirmarNuevaContraseña) {
             $mensajeAlerta = "La nueva contraseña y su confirmación no coinciden.";
             $claseAlerta = "alerta-rojo";
@@ -60,6 +66,73 @@ if (isset($usuarioI)) {
         exit;
     }
 
+=======
+        if (isset($_POST['rol'])) {
+            $rol = $_POST['rol'];
+    
+            // Verifica si el rol se ha seleccionado
+            if (empty($rol) || !in_array($rol, ['2', '3'])) {
+                $mensajeAlerta = "Por favor, seleccione un rol válido (Vendedor o Comprador).";
+                $claseAlerta="alerta-rojo";
+            } else {
+                // Verifica que los campos no estén vacíos
+                $req = (strlen($nombre) * strlen($usuario) * strlen($correo) * strlen($contraseña) * strlen($confirmarContraseña)) or $mensajeAlerta = "No se han llenado todos los campos";
+    
+                // Verifica que las contraseñas coincidan
+                if ($contraseña != $confirmarContraseña) {
+                    $mensajeAlerta = "Las contraseñas no coinciden, Verifique";
+                    $claseAlerta="alerta-rojo";
+                } else {
+                    
+                        // Encripta la contraseña usando password_hash
+                        $contraseñaEncriptada = password_hash($contraseña, PASSWORD_BCRYPT);
+                
+                        // Verifica si el usuario ya está registrado
+                        $sqlVerificacionUsuario = "SELECT * FROM usuarios WHERE Usuario = '$usuarioN'";
+                        $resultadoVerificacionUsuario = $conn->query($sqlVerificacionUsuario);
+
+                        if ($resultadoVerificacionUsuario->num_rows > 0) {
+                            $mensajeAlerta = "El usuario ya existe, por favor Cambiar.";
+                            $claseAlerta="alerta-rojo";
+                        } else {
+                            // Verifica si el correo ya está registrado
+                            $sqlVerificacionCorreo = "SELECT * FROM usuarios WHERE CorreoElectronico = '$correo'";
+                            $resultadoVerificacionCorreo = $conn->query($sqlVerificacionCorreo);
+    
+                            if ($resultadoVerificacionCorreo->num_rows > 0) {
+                                $mensajeAlerta = "El correo ya existe, por favor Cambiar.";
+                                $claseAlerta="alerta-rojo";
+                            } else {
+                                $updateQuery = "UPDATE usuarios SET Nombre = '$nombre', Usuario = '$usuario', CorreoElectronico = '$correo', rol = '$rol' WHERE (CorreoElectronico = '$usuarioI' OR Usuario = '$usuarioI')";
+
+                                if ($conn->query($updateQuery) === TRUE) {
+                                    $mensajeAlerta = "Datos actualizados con éxito.";
+                                    $claseAlerta="alerta-verde";
+                                    $_SESSION['username'] = $usuario;
+                                    $usuarioI = $_SESSION['username'];
+                                } else {
+                                    $mensajeAlerta = "Error al actualizar los datos: " . $conn->error;
+                                    $claseAlerta="alerta-rojo";
+                                }
+                            }
+                        }       
+                }
+                
+            }
+        } else {
+            $mensajeAlerta = "Por favor, seleccione un rol válido (Vendedor o Comprador).";
+            $claseAlerta="alerta-rojo";
+        }   
+        $_SESSION['mensajeAlerta'] = $mensajeAlerta;
+        $_SESSION['claseAlerta'] = $claseAlerta;
+        header("Location: actualizarDatos.php"); // Reemplaza "nombreDelArchivoActual.php" con el nombre de tu archivo actual.
+        exit;   
+    }
+
+    
+
+    // Realizar la consulta SQL para obtener los datos del usuario
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
     $query = "SELECT Nombre, Usuario, CorreoElectronico, Contraseña, rol FROM usuarios WHERE (CorreoElectronico = '$usuarioI' OR Usuario = '$usuarioI')";
     $result = $conn->query($query);
 
@@ -109,7 +182,11 @@ if (isset($usuarioI)) {
                 </a>
                 <h2>Datos Del Usuario</h2>
                 <?php if (!empty($mensajeAlerta)) : ?>
+<<<<<<< HEAD
                 <div id="alerta" class="<?php echo $claseAlerta; ?>"><?php echo $mensajeAlerta; ?></div>
+=======
+                       <div id="alerta" class="<?php echo $claseAlerta; ?>"><?php echo $mensajeAlerta; ?></div>
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
                 <?php endif; ?>
                 <form action="" method="POST">
                     <div class="input-box">

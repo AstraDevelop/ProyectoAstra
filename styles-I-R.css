@@ -107,7 +107,10 @@ header a {
   padding: 5px 10px;
   margin: 10px 0;
   text-align: center;
+<<<<<<< HEAD
   z-index: 99;
+=======
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
 }
 /*Cuadro de formulario de login*/
 .cuadroLogin {
@@ -266,7 +269,11 @@ h4.inf {
   align-items: center;
   border-bottom-left-radius: 20px;
   cursor: pointer;
+<<<<<<< HEAD
   z-index: 9999;
+=======
+  z-index: 100;
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
 }
 .input-box .icon {
   position: absolute;
@@ -407,7 +414,10 @@ antes del botón enviar*/
   margin: 10px 0;
   text-align: center;
   color: white;
+<<<<<<< HEAD
   z-index: 9999;
+=======
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
 }
 
 .alerta-verde {
@@ -418,6 +428,7 @@ antes del botón enviar*/
   text-align: center;
   color: white;
 }
+<<<<<<< HEAD
 .container {
   margin-top: 70px; /* Ajusta este valor según el alto de tu encabezado */
   overflow: inherit;
@@ -697,3 +708,6 @@ table.tabla-de-prodcutos {
   width: 50px;
   border-radius: 0 0 0 10px;
 }
+=======
+
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)

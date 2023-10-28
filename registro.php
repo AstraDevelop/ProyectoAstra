@@ -2,6 +2,7 @@
 include("conexion.php");
 session_start(); 
 
+<<<<<<< HEAD
 // Verificar si el usuario ya ha iniciado sesión
 if (isset($_SESSION['username'])) {
     $rol = $_SESSION['rol'];
@@ -14,6 +15,8 @@ if (isset($_SESSION['username'])) {
     }
 }
 
+=======
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
 $mensajeAlerta = $_SESSION['mensajeAlerta'] ?? "";  // <-- Aquí va
 $claseAlerta = $_SESSION['claseAlerta'] ?? "";      // <-- Aquí va
 

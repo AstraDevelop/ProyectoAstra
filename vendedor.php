@@ -17,6 +17,7 @@ $rol = $_SESSION['rol'];
 <<<<<<< HEAD
 
 
+
 // Si el usuario ha iniciado sesión, se ejecuta esto
 if (isset($usuarioI) && ($rol == 2)) {
 >>>>>>> 02e46ab (mejoramos todo)
@@ -28,24 +29,33 @@ if (isset($usuarioI) && ($rol == 2)) {
 
 $mensajeAlerta = "";
 $claseAlerta="";
+<<<<<<< HEAD
 =======
 
 $mensajeAlerta = "";
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
 
 // Verificar mensajes a través de parámetros en la URL
 if (isset($_GET['mensaje'])) {
     if ($_GET['mensaje'] == 'productoAñadido') {
         $mensajeAlerta = "Producto añadido exitosamente!";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
         $claseAlerta="alerta-verde";
     } elseif ($_GET['mensaje'] == 'productoEliminado') {
         $mensajeAlerta = "Producto eliminado exitosamente!";
         $claseAlerta="alerta-verde";
+<<<<<<< HEAD
 =======
     } elseif ($_GET['mensaje'] == 'productoEliminado') {
         $mensajeAlerta = "Producto eliminado exitosamente!";
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
     }
 }
 
@@ -81,10 +91,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['subir'])) {
     } else {
         $mensajeAlerta = "El archivo no es una imagen.";
 <<<<<<< HEAD
+<<<<<<< HEAD
         $claseAlerta="alerta-rojo";
 
 =======
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+        $claseAlerta="alerta-rojo";
+
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
         $uploadOk = 0;
     }
     
@@ -97,16 +112,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['subir'])) {
         } else {
             $mensajeAlerta = "Error al añadir producto: " . $conn->error;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
             $claseAlerta="alerta-rojo";
         }
     } else {
         $mensajeAlerta .= " Error al subir la imagen.";
         $claseAlerta="alerta-rojo";
+<<<<<<< HEAD
 =======
         }
     } else {
         $mensajeAlerta .= " Error al subir la imagen.";
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
     }
 }
 
@@ -311,8 +332,8 @@ $result = $conn->query($sql);
             
             <!-- Mensajes de alerta -->
             <?php if (!empty($mensajeAlerta)) : ?>
-                <div class="alerta"><?php echo $mensajeAlerta; ?></div>
-            <?php endif; ?>
+                       <div id="alerta" class="<?php echo $claseAlerta; ?>"><?php echo $mensajeAlerta; ?></div>
+                <?php endif; ?>
         </div>
 >>>>>>> 60d5df1 (Nuevas implementaciones)
         <div class="contenidoVendedor" id="awebao">

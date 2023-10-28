@@ -263,6 +263,7 @@ a {
 >>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
 }
 
+<<<<<<< HEAD
 #alerta {
     background-color: red;
     border-radius: 10px;
@@ -271,6 +272,8 @@ a {
 }
 >>>>>>> 60d5df1 (Nuevas implementaciones)
 
+=======
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
 .form-box {
     width: 100%;
     padding: 40px;
@@ -634,6 +637,7 @@ a {
     margin: 10px 0;
     text-align: center;
     color: white;
+<<<<<<< HEAD
     z-index: 9999;
   }
   .item {
@@ -723,3 +727,6 @@ a {
 =======
 >>>>>>> 60d5df1 (Nuevas implementaciones)
 }
+=======
+  }
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)

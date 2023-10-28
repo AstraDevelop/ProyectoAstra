@@ -6,6 +6,7 @@ session_start();
 if (isset($_SESSION['username'])) {
     $rol = $_SESSION['rol'];
 
+<<<<<<< HEAD
     // Si es un vendedor y es la primera vez que inicia sesión, redirige a completarPerfilVendedor.php
     if ($rol == 2 && !haCompletadoPerfilVendedor($_SESSION['username'])) {
         header("location: completarPerfilVendedor.php");
@@ -23,6 +24,9 @@ header("Cache-Control: no-cache, must-revalidate");
 header("Expires: Sat, 1 Jul 2000 05:00:00 GMT");
 
 $mensajeAlerta = "";
+=======
+$mensajeAlerta = ""; // Inicializa el mensaje de alerta
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
 $claseAlerta = "";
 
 $user = "";
@@ -88,6 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 header("location: perfil.php");
 >>>>>>> af733a6 (implementacion de inicio de sesion)
 =======
@@ -115,6 +120,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <<<<<<< HEAD
 >>>>>>> 15e4fa0 (redireccion a vendedor/comprador)
 =======
+=======
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
                 // Dependiendo del rol, redirige al usuario a la página correspondiente
                 if ($resultUsuario->fetch_assoc()['Rol'] == 3) {
                     header("location: comprador.php");
@@ -122,6 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     header("location: vendedor.php");
                 }
                 exit;  // Es importante hacer un "exit" después de "header".
+<<<<<<< HEAD
 >>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
 =======
 
@@ -138,6 +146,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     header("location: comprador.php");
                 }
 >>>>>>> 15e4fa0 (redireccion a vendedor/comprador)
+=======
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
             } else {
                 $mensajeAlerta = "Contraseña incorrecta.";
                 if ($mensajeAlerta === "Contraseña incorrecta.") {
@@ -145,6 +155,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 } elseif ($mensajeAlerta === "Usuario no encontrado.") {
                     $claseAlerta = "alerta-rojo";
                 }
+<<<<<<< HEAD
+=======
+                // Restablece la contraseña después de un intento fallido de inicio de sesión
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
                 $contraseña = "";
 =======
 =======
@@ -181,6 +195,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } else {
             $mensajeAlerta = "Contraseña incorrecta.";
+            if ($mensajeAlerta === "Contraseña incorrecta.") {
+                $claseAlerta = "alerta-rojo";
+            } elseif ($mensajeAlerta === "Usuario no encontrado.") {
+                $claseAlerta = "alerta-rojo";
+            }
             // Restablece la contraseña después de un intento fallido de inicio de sesión
 >>>>>>> 60d5df1 (Nuevas implementaciones)
             $contraseña = "";
@@ -192,6 +211,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } elseif ($mensajeAlerta === "Usuario no encontrado.") {
             $claseAlerta = "alerta-rojo";
         }
+<<<<<<< HEAD
+=======
+        // Restablece el usuario y la contraseña después de un intento fallido de inicio de sesión
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
         $user = "";
         $contraseña = "";
     }
@@ -234,7 +257,11 @@ function haCompletadoPerfilVendedor($usuario) {
             <div class="form-box login">
                 <h2>Iniciar Sesión</h2>
                 <?php if (!empty($mensajeAlerta)) : ?>
+<<<<<<< HEAD
                     <div id="alerta" class="<?php echo $claseAlerta; ?>"><?php echo $mensajeAlerta; ?></div>
+=======
+                       <div id="alerta" class="<?php echo $claseAlerta; ?>"><?php echo $mensajeAlerta; ?></div>
+>>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
                 <?php endif; ?>
                 <form action="#" method="POST">
                     <div class="input-box">
