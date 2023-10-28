@@ -23,6 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Consulta SQL para verificar si el usuario existe
     $sqlUsuario = "SELECT Usuario, Contraseña, Rol FROM usuarios WHERE CorreoElectronico = '$user' OR Usuario = '$user'";
     $resultUsuario = $conn->query($sqlUsuario);
+    $row = $resultUsuario->fetch_assoc();
+    $rol = $row['Rol'];
 
     if ($resultUsuario->num_rows == 1) {
         // El usuario existe, ahora verifica la contraseña
