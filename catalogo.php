@@ -42,13 +42,25 @@ $result = $conn->query($sql);
 <body id="body-catalogo">
     <div class="container" id="catalogoPage">
         <header>
+            <a href="comprador.php">
+                <span class="icon-carro">
+                <ion-icon name="caret-back"></ion-icon>
+                </span>
+            </a>
             <a href="index.html">
                 <h2 class="logo">ASTRA</h2>
             </a>
-            <nav>
-                <!-- Mostrar el nombre del vendedor y el título "Catálogo" -->
-                <h2>Catálogo de <?php echo $nombreVendedor; ?></h2>
-                <p><a href="ver_carrito.php">Carrito</a></p>
+            <!-- Mostrar el nombre del vendedor y el título "Catálogo" -->
+            <h2>Catálogo de <?php echo $nombreVendedor; ?></h2>
+            <a href="ver_carrito.php">
+                <span class="icon-carro">
+                    <p>Carrito</p>
+                    <ion-icon name="cart"></ion-icon>
+                </span>
+            </a>
+            <nav class="navigation">
+                <a href="perfil.php"><button class="btnLogin">Ver Perfil</button></a>
+                <a href="cerrarSesion.php"><button class="btnLogin cerrarSesion">CERRAR SESION</button></a>
             </nav>
         </header>
         
@@ -62,16 +74,18 @@ $result = $conn->query($sql);
     <p><?php echo $row['descripcion']; ?></p>
     <p>$<?php echo $row['precio']; ?></p>
 
-    <form action="agregar_carrito.php" method="POST">
+    <form class="carProd" action="agregar_carrito.php" method="POST">
         <input type="hidden" name="productoID" value="<?php echo $row['ID']; ?>">
         <input type="number" name="cantidad" value="1" min="1">
         <input type="hidden" name="vendedorID" value="<?php echo $vendedorID; ?>">  <!-- Añade esta línea -->
-        <button type="submit">Agregar al Carrito</button>
+        <button class="btnAgreCar" type="submit">Agregar al Carrito</button>
     </form>
 </div>
             <?php endwhile; ?>
         </div>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

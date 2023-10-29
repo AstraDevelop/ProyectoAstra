@@ -153,3 +153,22 @@ div.productos img:hover {
   opacity: 1;
   filter: contrast(120%);
 }
+#section-1{
+  font-family: "Skranji", cursive;
+  margin: 100px;
+}
+#section-1 h1{
+  font-size: 50px;
+  color: #5b2c6f;
+}
+.parrafos {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 5px;
+}
+#section-1 p{
+  font-size: 20px;
+}
+#section-1 span{
+  color: #fff;
+}

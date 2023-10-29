@@ -36,7 +36,7 @@ if (isset($usuarioI)) {
             <h2 class="logo">ASTRA</h2>
         </a>
         <nav class="navigation">
-            <a href="cerrarSesion.php"><button class="btnLogin">CERRAR SESION</button></a>
+            <a href="cerrarSesion.php"><button class="btnLogin cerrarSesion">CERRAR SESION</button></a>
         </nav>
     </header>
     <div class="cuadroDeDatos">

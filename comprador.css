@@ -12,7 +12,6 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-
 }
 header {
     position: fixed;
@@ -214,4 +213,12 @@ section {
 #t-5:checked ~ .vendedores label[for="t-5"]{
 	
 	z-index: 4;
+}
+.btnLogin.cerrarSesion {
+  border: 2px solid red;
+  color: red;
+}
+.btnLogin.cerrarSesion:hover {
+  background: red;
+  color: #fff;
 }

@@ -46,35 +46,44 @@ $result = $conn->query($sql);
             <a href="index.html">
                 <h2 class="logo">ASTRA</h2>
             </a>
-			<nav>
                 <!-- Barra de búsqueda -->
                 <form action="comprador.php" method="GET" id="comp-searchForm">
                     <input type="text" name="buscar" placeholder="Buscar">
-                    <button type="submit">Buscar</button>
+                    <button class="btnBuscar" type="submit">Buscar</button>
                 </form>
+                <a href="ver_carrito.php">
+                    <span class="icon-carro">
+                        <p>Carrito</p>
+                        <ion-icon name="cart"></ion-icon>
+                    </span>
+                </a>
+            <nav class="navigation">
+                <a href="perfil.php"><button class="btnLogin">Ver Perfil</button></a>
+                <a href="cerrarSesion.php"><button class="btnLogin cerrarSesion">CERRAR SESION</button></a>
             </nav>
         </header>
         
-
         <!-- Mostrar vendedores y su último producto -->
+        <h1>Tiendas</h1>
         <div class="comp-vendedores">
             <?php while($row = $result->fetch_assoc()): ?>
-                <div class="comp-vendedor">
-				<h3>
-					<a href="catalogo.php?vendedorID=<?php echo $row['vendedorID']; ?>">
-						<?php echo $row['Nombre']; ?>
-					</a>
-				</h3>
-                    <?php if($row['imagenProducto']): ?>
-                        <img src="<?php echo $row['imagenProducto']; ?>" alt="<?php echo $row['nombreProducto']; ?>">
-                        
-                    <?php else: ?>
-                        <p>Este vendedor aún no tiene productos.</p>
-                    <?php endif; ?>
-                </div>
+                <a href="catalogo.php?vendedorID=<?php echo $row['vendedorID'];?>">
+                    <div class="comp-vendedor">
+                        <h3>
+                            <?php echo $row['Nombre']; ?>
+                        </h3>
+                        <?php if($row['imagenProducto']): ?>
+                        <img src="<?php echo $row['imagenProducto']; ?>" alt="<?php echo $row['nombreProducto']; ?>">              
+                        <?php else: ?>
+                            <p>Este vendedor aún no tiene productos.</p>
+                        <?php endif; ?>
+                    </div>
+                </a>
             <?php endwhile; ?>
         </div>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
