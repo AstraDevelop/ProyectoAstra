@@ -129,7 +129,7 @@ header a {
   font-family: "Skranji", cursive;
   position: relative;
   width: 400px;
-  height: 659px;
+  height: 670px;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -138,7 +138,7 @@ header a {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: auto;
+  overflow: hidden;
   
 }
 /*Cuadro de formulario de datos*/
@@ -354,6 +354,14 @@ antes del botón enviar*/
   color: #fff;
   font-weight: 500;
 }
+.btnLogin.cerrarSesion {
+  border: 2px solid red;
+  color: red;
+}
+.btnLogin.cerrarSesion:hover {
+  background: red;
+  color: #fff;
+}
 /*Estilos del link para enviar al registro y al login*/
 .login-register {
   font-size: 0.9em;
@@ -392,7 +400,7 @@ antes del botón enviar*/
 }
 .container {
   margin-top: 70px; /* Ajusta este valor según el alto de tu encabezado */
-  overflow-y: auto;
+  overflow: inherit;
 }
 
 #cuadroRegistro {
@@ -422,7 +430,6 @@ antes del botón enviar*/
 }
 
 #compradorPage {
-  font-family: 'Arial', sans-serif;
   padding: 20px;
   padding-top: 100px;
   display: inline-block;
@@ -430,6 +437,7 @@ antes del botón enviar*/
 
 /* Estilos para la barra de búsqueda */
 #compradorPage #comp-searchForm {
+  font-family: 'Arial', sans-serif;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -445,7 +453,8 @@ antes del botón enviar*/
   background: rgba(255, 255, 255, 0.5);
 }
 
-#compradorPage button {
+#compradorPage .btnBuscar {
+  font-family: 'Arial', sans-serif;
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
@@ -457,12 +466,13 @@ antes del botón enviar*/
   transition: background-color 0.3s ease;
 }
 
-#compradorPage button:hover {
+#compradorPage .btnBuscar:hover {
   background-color: #555;
 }
 
 /* Estilos para los vendedores */
 #compradorPage .comp-vendedores {
+  font-family: 'Arial', sans-serif;
   cursor: pointer;
   display: flex;
   flex-wrap: wrap;
@@ -474,8 +484,8 @@ antes del botón enviar*/
 #compradorPage .comp-vendedor {
   background: rgba(255, 255, 255, 0.5); /* Ajustado para un fondo más transparente */
   border-radius: 8px;
-  padding: 20px;
-  width: calc(23.33% - 20px); /* Tres vendedores por fila */
+  padding: 1px;
+  width: 150px; /* Tres vendedores por fila */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   border: 5px solid transparent; /* Agregamos un borde transparente inicial */
@@ -486,7 +496,7 @@ antes del botón enviar*/
 
 #compradorPage .comp-vendedor:hover {
   transform: translateY(-5px);
-  border: 5px solid transparent; /* Cambiamos el color del borde en el hover */
+  border: 3px solid transparent; /* Cambiamos el color del borde en el hover */
   animation: borderAnimation 2s linear infinite;
   scale: 1.1;
 }
@@ -518,16 +528,16 @@ antes del botón enviar*/
   width: 100%;
   height: auto;
   border-radius: 8px;
-  margin: 10px 0 10px 0;
+  margin: 0;
 }
 
 #compradorPage .comp-vendedor h3 {
   text-align: center;
   font-size: 18px;
-  margin: 5px 0 5px 0;
+  margin: 0;
 }
 
-#compradorPage .comp-vendedor a {
+#compradorPage .comp-vendedores a {
   text-decoration: none;
 }
 
@@ -572,4 +582,105 @@ body#body-catalogo {
 
 .comp-producto p {
   margin-top: 8px;
+}
+.icon-carro {
+  font-size: 20px;
+  display: flex;
+  background-color: #5b2c6f;
+  color: #fff;
+  padding: 5px;
+  border-radius: 10px;
+}
+.container h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Estilos para la tabla */
+table.tabla-de-prodcutos {
+  border-radius: 10px;
+  width: 60%;
+  border-collapse: collapse;
+  margin-left: 20%;
+  overflow: hidden;
+}
+
+.tabla-de-prodcutos th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+/* Estilos para las filas impares */
+.tabla-de-prodcutos tr:nth-child(odd) {
+  background-color: #DFBFFE;
+}
+
+/* Estilos para las filas pares */
+.tabla-de-prodcutos tr:nth-child(even) {
+  background-color: #CEABFE;
+}
+
+/* Estilos para las celdas de encabezado (th) */
+.tabla-de-prodcutos th { 
+  background-color: #6f0d85;
+  color: #fff;
+}
+
+/* Estilos para las celdas de datos (td) */
+.tabla-de-prodcutos td {
+  border: 1px solid #ddd;
+}
+.tabla-de-prodcutos td img{
+  width: 50%;
+}
+
+/* Estilos para los enlaces de eliminar */
+.tabla-de-prodcutos a {
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+.tabla-de-prodcutos a:hover {
+  text-decoration: underline;
+}
+
+.tabla-de-prodcutos input[type="number"] {
+  background-color: #C183FF;
+  padding: 2px;
+  margin-left: 20%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+#btnELiPro {
+  background-color: red;
+  padding: 5px;
+  margin-left: 20%;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+.tabla-de-prodcutos input[type="submit"] {
+  background-color: red;
+  padding: 5px;
+  margin-left: 20%;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.btnAgreCar {
+  margin-top: 5px;
+  padding: 5px;
+  background-color: #5b2c6f;
+  border-radius: 0 0 10px 0;
+  color: #fff;
+}
+ 
+.carProd input[type="number"] {
+  padding: 5px;
+  width: 50px;
+  border-radius: 0 0 0 10px;
 }
