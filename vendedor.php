@@ -206,8 +206,8 @@ $result = $conn->query($sql);
                                                 <p class="nombreProducto"><?php echo $row['nombreProducto']; ?></p> <p id="precio">$<?php echo $row['precio']; ?></p>     
                                             </div>
                                             <input type="hidden" name="idProducto" value="<?php echo $row['ID']; ?>">
-                                            <button type="submit" id="bombardeo" name="eliminar">Eliminar</button>
-                                            <button id="bombardeo"><a href="editar_producto.php?id=<?php echo $row['ID']; ?>">Editar</a></button>
+                                            <button id="btnEditarProd"><a href="editar_producto.php?id=<?php echo $row['ID']; ?>">Editar</a></button>
+                                            <button type="submit" id="btnEliminarProd" name="eliminar">Eliminar</button>
                                             
                                         </div>
                                     </form>
