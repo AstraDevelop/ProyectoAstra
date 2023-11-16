@@ -5,7 +5,7 @@ $usuarioI = $_SESSION['username'];
 $rol = $_SESSION['rol'];
 
 if (!isset($usuarioI) || $rol != '3') {
-    header('location: index.html');
+    header('location: index.php');
     exit();
 }
 
@@ -43,7 +43,7 @@ $result = $conn->query($sql);
 <body id="body">
     <div class="container" id="compradorPage">
         <header>
-            <a href="index.html">
+            <a href="index.php">
                 <h2 class="logo">ASTRA</h2>
             </a>
                 <!-- Barra de búsqueda -->
