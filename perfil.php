@@ -81,6 +81,6 @@ if (isset($usuarioI)) {
     echo "Error al recuperar datos del usuario:";
     }
 } else {
-    header('location: index.html');
+    header('location: index.php');
 }
 ?>

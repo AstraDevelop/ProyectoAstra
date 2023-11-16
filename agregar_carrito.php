@@ -3,7 +3,7 @@ include("conexion.php");
 session_start();
 
 if (!isset($_SESSION['username']) || $_SESSION['rol'] != '3') {
-    header('location: index.html');
+    header('location: index.php');
     exit();
 }
 

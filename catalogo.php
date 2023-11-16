@@ -5,7 +5,7 @@ $usuarioI = $_SESSION['username'];
 $rol = $_SESSION['rol'];
 
 if (!isset($usuarioI) || $rol != '3') {
-    header('location: index.html');
+    header('location: index.php');
     exit();
 }
 
@@ -47,7 +47,7 @@ $result = $conn->query($sql);
                 <ion-icon name="caret-back"></ion-icon>
                 </span>
             </a>
-            <a href="index.html">
+            <a href="index.php">
                 <h2 class="logo">ASTRA</h2>
             </a>
             <!-- Mostrar el nombre del vendedor y el título "Catálogo" -->

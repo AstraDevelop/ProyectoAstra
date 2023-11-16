@@ -2,6 +2,18 @@
 include("conexion.php");
 session_start();
 
+// Verificar si el usuario ya ha iniciado sesión
+if (isset($_SESSION['username'])) {
+    $rol = $_SESSION['rol'];
+    if ($rol == 2) {
+        header("location: vendedor.php");
+        exit;
+    } elseif ($rol == 3) {
+        header("location: comprador.php");
+        exit;
+    }
+}
+
 header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
 // Las lineas de arriba fueron añadidas para el testeo de CSS durante el desarrollo
@@ -144,13 +156,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
         <header>
-            <a href="index.html">
+            <a href="index.php">
                 <h2 class="logo">ASTRA</h2>
             </a>
         </header>
 
         <div class="cuadroLogin">
-                <a href="index.html">
+                <a href="index.php">
                     <span class="icon-close">
                         <ion-icon name="close-outline"></ion-icon>
                     </span>

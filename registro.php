@@ -2,6 +2,18 @@
 include("conexion.php");
 session_start(); 
 
+// Verificar si el usuario ya ha iniciado sesión
+if (isset($_SESSION['username'])) {
+    $rol = $_SESSION['rol'];
+    if ($rol == 2) {
+        header("location: vendedor.php");
+        exit;
+    } elseif ($rol == 3) {
+        header("location: comprador.php");
+        exit;
+    }
+}
+
 $mensajeAlerta = $_SESSION['mensajeAlerta'] ?? "";  // <-- Aquí va
 $claseAlerta = $_SESSION['claseAlerta'] ?? "";      // <-- Aquí va
 
@@ -118,13 +130,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
         <header>
-            <a href="index.html">
+            <a href="index.php">
                 <h2 class="logo">ASTRA</h2>
             </a>
         </header>
 
         <div class="cuadroRegistro">
-            <a href="index.html">
+            <a href="index.php">
                 <span class="icon-close">
                     <ion-icon name="close-outline"></ion-icon>
                 </span>

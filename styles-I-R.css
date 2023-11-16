@@ -15,7 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("img/fondo.png") no-repeat;
+  background: url("img/fondo.webp") no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -423,7 +423,7 @@ antes del botón enviar*/
 
 /* Estilos para la página del comprador */
 #body {
-  background-image: url('img/sesion.jpg');
+  background-image: url('img/sesion.webp');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover; /* Esto hará que la imagen cubra toda la pantalla */
@@ -543,7 +543,7 @@ antes del botón enviar*/
 
 /* Estilos para el catálogo */
 body#body-catalogo {
-    background-image: url('img/sesion.jpg');
+    background-image: url('img/sesion.webp');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover; /* Esto hará que la imagen cubra toda la pantalla */

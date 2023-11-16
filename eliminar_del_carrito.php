@@ -6,7 +6,7 @@ $usuarioI = $_SESSION['username'];
 $rol = $_SESSION['rol'];
 
 if (!isset($usuarioI) || $rol != '3') {
-    header('location: index.html');
+    header('location: index.php');
     exit();
 }
 
