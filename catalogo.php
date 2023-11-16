@@ -39,11 +39,38 @@ $result = $conn->query($sql);
     <title>Catálogo - ASTRA</title>
 </head>
 
+<<<<<<< HEAD
 <body>
 <header>
         <a href="index.php">
             <h2 class="logo">ASTRA</h2>
         </a>
+=======
+<body id="body-catalogo">
+    <div class="container" id="catalogoPage">
+        <header>
+            <a href="comprador.php">
+                <span class="icon-carro">
+                <ion-icon name="caret-back"></ion-icon>
+                </span>
+            </a>
+            <a href="index.php">
+                <h2 class="logo">ASTRA</h2>
+            </a>
+            <!-- Mostrar el nombre del vendedor y el título "Catálogo" -->
+            <h2>Catálogo de <?php echo $nombreVendedor; ?></h2>
+            <a href="ver_carrito.php">
+                <span class="icon-carro">
+                    <p>Carrito</p>
+                    <ion-icon name="cart"></ion-icon>
+                </span>
+            </a>
+            <nav class="navigation">
+                <a href="perfil.php"><button class="btnLogin">Ver Perfil</button></a>
+                <a href="cerrarSesion.php"><button class="btnLogin cerrarSesion">CERRAR SESION</button></a>
+            </nav>
+        </header>
+>>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
         
         <form action="comprador.php" method="GET" id="comp-searchForm">
             <input class="cuadroBusq" type="text" name="buscar" placeholder="Buscar">

@@ -5,6 +5,22 @@ session_start();
 // Verificar si el usuario ya ha iniciado sesión
 if (isset($_SESSION['username'])) {
     $rol = $_SESSION['rol'];
+<<<<<<< HEAD
+=======
+    if ($rol == 2) {
+        header("location: vendedor.php");
+        exit;
+    } elseif ($rol == 3) {
+        header("location: comprador.php");
+        exit;
+    }
+}
+
+header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
+// Las lineas de arriba fueron añadidas para el testeo de CSS durante el desarrollo
+// No necesariamente deben estar ahí en el proyecto final, chequear en caso de problemas con cache
+>>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
 
 <<<<<<< HEAD
     // Si es un vendedor y es la primera vez que inicia sesión, redirige a completarPerfilVendedor.php
@@ -249,11 +265,20 @@ function haCompletadoPerfilVendedor($usuario) {
         </header>
 
         <div class="cuadroLogin">
+<<<<<<< HEAD
             <a href="index.php">
                 <span class="icon-close">
                     <ion-icon name="close-outline"></ion-icon>
                 </span>
             </a>
+=======
+                <a href="index.php">
+                    <span class="icon-close">
+                        <ion-icon name="close-outline"></ion-icon>
+                    </span>
+                </a>
+            <!-- Caja del login -->
+>>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
             <div class="form-box login">
                 <h2>Iniciar Sesión</h2>
                 <?php if (!empty($mensajeAlerta)) : ?>

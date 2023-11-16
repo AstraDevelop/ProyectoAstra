@@ -444,4 +444,12 @@ $result = $conn->query($sql);
     </div>
 </body>
 </html>
+<<<<<<< HEAD
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+<?php  
+}else {
+    header('location: index.php');
+}
+?>
+>>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)

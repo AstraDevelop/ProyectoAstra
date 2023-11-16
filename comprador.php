@@ -57,7 +57,11 @@ $result = $conn->query($sql);
 =======
     <div class="inicio">
         <header>
+<<<<<<< HEAD
             <a href="">
+=======
+            <a href="index.php">
+>>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
                 <h2 class="logo">ASTRA</h2>
             </a>
             <nav class="navigation">

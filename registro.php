@@ -3,6 +3,9 @@ include("conexion.php");
 session_start(); 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
 // Verificar si el usuario ya ha iniciado sesión
 if (isset($_SESSION['username'])) {
     $rol = $_SESSION['rol'];
@@ -15,8 +18,11 @@ if (isset($_SESSION['username'])) {
     }
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
+=======
+>>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
 $mensajeAlerta = $_SESSION['mensajeAlerta'] ?? "";  // <-- Aquí va
 $claseAlerta = $_SESSION['claseAlerta'] ?? "";      // <-- Aquí va
 

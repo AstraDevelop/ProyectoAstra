@@ -14,12 +14,16 @@ body {
     min-height: 100vh;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     background-color: #fff;
 =======
     background: url("img/fondo.png") no-repeat;
 =======
     background: url("img/sesion.jpg") no-repeat;
 >>>>>>> 8676b27 (agregue editar productos)
+=======
+    background: url("img/sesion.webp") no-repeat;
+>>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
     background-size: cover;
     background-position: center;
 >>>>>>> 60d5df1 (Nuevas implementaciones)

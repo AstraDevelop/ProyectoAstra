@@ -96,7 +96,7 @@ section {
       font-size: 24px;
   }
   #fondo {
-    background: url("img/sesion.jpg") no-repeat;
+    background: url("img/sesion.webp") no-repeat;
     background-size: cover;
     background-position: center;
 }

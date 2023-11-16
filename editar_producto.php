@@ -140,9 +140,13 @@ if (isset($usuarioI) && ($rol == 2)) {
 <?php  
 } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
     header('location: index.php');
 =======
     header('location: index.html');
 >>>>>>> 8676b27 (agregue editar productos)
+=======
+    header('location: index.php');
+>>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
 }
 ?>
