@@ -16,7 +16,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background: url("img/fondo.png") no-repeat;
+    background: url("img/fondo.webp") no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center; /* Añade posición relativa al contenedor padre */
@@ -35,7 +35,7 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 99;
-    background: url("img/fondo.png") no-repeat;
+    background: url("img/fondo.webp") no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center; 

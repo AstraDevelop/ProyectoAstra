@@ -78,7 +78,7 @@ if (isset($usuarioI)) {
         echo "Error al recuperar datos del usuario";
     }
 } else {
-    header('location: index.html');
+    header('location: index.php');
 }
 ?>
 
@@ -96,7 +96,7 @@ if (isset($usuarioI)) {
 <body>
     <div class="container">
         <header>
-            <a href="index.html">
+            <a href="index.php">
                 <h2 class="logo">ASTRA</h2>
             </a>
         </header>

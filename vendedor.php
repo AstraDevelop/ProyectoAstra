@@ -221,3 +221,8 @@ $result = $conn->query($sql);
     </div>
 </body>
 </html>
+<?php  
+}else {
+    header('location: index.php');
+}
+?>
