@@ -41,11 +41,10 @@ $total = 0; // Variable para guardar el total de la compra
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo.jpg">
-    <link rel="stylesheet" href="styles-I-R.css">
+    <link rel="stylesheet" href="css/comprador.css">
     <title>Carrito - ASTRA</title>
 </head>
-<body id="body-carrito">
-    <div class="container" id="carritoPage">
+<body>  
         <header>
             <a href="comprador.php">
                 <span class="icon-carro">
@@ -56,13 +55,13 @@ $total = 0; // Variable para guardar el total de la compra
                 <h2 class="logo">ASTRA</h2>
             </a>
             <nav class="navigation">
-                <a href="perfil.php"><button class="btnLogin">Ver Perfil</button></a>
-                <a href="cerrarSesion.php"><button class="btnLogin cerrarSesion">CERRAR SESION</button></a>
+                <a href="perfil.php"><button class="btnVerPerfil">Ver Perfil</button></a>
+                <a href="cerrarSesion.php"><button class="cerrarSesion">CERRAR SESION</button></a>
             </nav>
         </header>
         
         <!-- Mostrar productos en el carrito -->
-        <div class="comp-productos">
+        <div class="carrito">
             <form method="post" action="">
                 <table class="tabla-de-prodcutos">
                     <tr>
@@ -76,7 +75,7 @@ $total = 0; // Variable para guardar el total de la compra
                     </tr>
                     <?php while ($row = $result->fetch_assoc()) : ?>
                         <tr>
-                            <td><img src="<?php echo $row['imagenProducto']; ?>" alt="<?php echo $row['nombreProducto']; ?>"></td>
+                            <td class="img"><img src="<?php echo $row['imagenProducto']; ?>" alt="<?php echo $row['nombreProducto']; ?>"></td>
                             <td><?php echo $row['nombreProducto']; ?></td>
                             <td><?php echo $row['cantidad']; ?></td>
                             <td>$<?php echo $row['precio']; ?></td>
@@ -103,8 +102,19 @@ $total = 0; // Variable para guardar el total de la compra
                     </tr>
                 </table>
             </form>
+            <!-- Botones para vaciar el carrito y hacer el pedido -->
+            <div class="acciones-carrito">
+                <form method="post" action="Procesos/vaciar_Carrito.php">
+                    <input class="vaciarCarrito" type="submit" name="vaciarCarrito" value="Vaciar Carrito">
+                </form>
+    
+                <form method="post" action="Procesos/hacer_pedido.php">
+                    <input type="hidden" name="productoID" value="<?php echo $productoID; ?>">
+                    <input class="hacerPedido" type="submit" name="hacerPedido" value="Hacer Pedido">
+                </form>
+            </div>
         </div>
-    </div>
+   
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
