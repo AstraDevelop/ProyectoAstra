@@ -100,7 +100,7 @@ if (isset($usuarioI)) {
                 <h2 class="logo">ASTRA</h2>
             </a>
         </header>
-        <div class="cuadroRegistro" id="cuadroRegistro">
+        <div class="cuadroEditarDatos" id="cuadroRegistro">
             <div class="form-box register">
                 <a href="perfil.php">
                     <span class="icon-close">

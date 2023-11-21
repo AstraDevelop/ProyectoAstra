@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Skranji:wght@400;700&family=Work+Sans:wght@100;200;300;400;600;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-color: #fff;
+}
+/* Estilos para el encabezado (header) */
+header {
+  background-color: #5915c2; /* Color de fondo del encabezado */
+  color: #fff; /* Color del texto en el encabezado */
+  padding: 15px; /* Espaciado interno del encabezado */
+  display: flex; /* Para alinear elementos horizontalmente */
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Estilos para el logo */
+.logo {
+  margin: 0; /* Eliminar márgenes predeterminados */
+}
+
+/* Estilos para el formulario de búsqueda */
+#comp-searchForm {
+  display: flex; /* Para alinear elementos del formulario horizontalmente */
+}
+
+.cuadroBusq {
+  padding: 5px; /* Espaciado interno del cuadro de búsqueda */
+  border: none; /* Eliminar el borde del cuadro de búsqueda */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.btnBuscar {
+  padding: 5px;
+  background-color: #fff; /* Color de fondo del botón de búsqueda */
+  color: #5915c2; /* Color del texto del botón de búsqueda */
+  border: 2px solid #fff; /* Eliminar el borde del botón de búsqueda */
+  border-radius: 5px; /* Bordes redondeados */
+  margin-left: 5px; /* Márgenes a la izquierda para separar del cuadro de búsqueda */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+}
+
+.btnBuscar:hover {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #5915c2; /* Cambiar color al pasar sobre el botón */
+}
+
+/* Estilos para los enlaces de Carrito e Historial */
+a {
+  text-decoration: none; /* Eliminar subrayado de los enlaces */
+  color: #fff; /* Color del texto de los enlaces */
+}
+
+/* Estilos para los íconos y texto en los enlaces de Carrito e Historial */
+.icon-carro,
+.icon-historial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.icon-carro p, .icon-historial p {
+  color: #fff;
+}
+
+/* Estilos para los íconos en los enlaces de Carrito e Historial */
+ion-icon {
+  font-size: 24px;
+}
+
+/* Estilos para los botones de Ver Perfil y Cerrar Sesión */
+.navigation button {
+  padding: 5px;
+  background-color: #fff;
+  color: #5915c2;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  border: 2px solid #fff;
+}
+.navigation .cerrarSesion {
+  padding: 5px;
+  background-color: #fff;
+  color: #5915c2;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  border: 2px solid #ff5757;
+}
+
+.navigation button:hover {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #5915c2; /* Cambiar color al pasar sobre los botones */
+}
+.navigation .cerrarSesion:hover {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #ff5757; /* Cambiar color al pasar sobre los botones */
+}
+
+.titulo {
+  margin-top: 30px;
+    color: #5915c2;
+    font-family: "poppins", cursive;
+    text-align: center;
+}
+.contenedor {
+  max-width: 1200px;
+  padding: 10px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  /* oculto lo que queda fuera del .contenedor */
+  contain: paint;
+}
+/* SECCION CONTENEDOR DE ITEMS */
+.contenedor .contenedor-items {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 15px;
+  grid-row-gap: 15px;
+  width: 100%;
+  transition: 0.3s;
+}
+.titulo-item {
+  color: #5915c2;
+}
+p {
+  color: #5915c2;
+}
+.contenedor .contenedor-items .item-tienda {
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 150px;
+  max-height: 230px;
+  margin: auto;
+  border: 1px solid #666;
+  border-radius: 10px;
+  padding: 20px;
+  transition: 0.3s;
+  position: relative;
+}
+.contenedor .contenedor-items .item-tienda form {
+  max-width: 100%;
+  margin-bottom: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.contenedor .contenedor-items .item-tienda .img-item {
+  width: 150px;
+  height: 150pc;
+  max-height: 150px;
+  max-width: 150px;
+}
+.contenedor .contenedor-items .item-tienda:hover {
+  background-color: #ece7ff;
+  box-shadow: 0 0 10px #666;
+}
+.contenedor .contenedor-items .item:hover {
+  background-color: #ece7ff;
+  box-shadow: 0 0 10px #666;
+}
+.contenedor .contenedor-items .item-tienda .titulo-item {
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+.contenedor .contenedor-items .item-tienda .precio-item {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.contenedor .contenedor-items .item-tienda .boton-item {
+  display: block;
+  margin: 10px auto;
+  border: none;
+  background-color: black;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.item-tienda {
+  background: rgba(255, 255, 255, 0.5);
+}
+.item-tienda a {
+  text-decoration: none;
+}
+.contenedor .contenedor-items .item {
+  min-width: 100px;
+  min-height: 300px;
+  max-width: 200px;
+  max-height: 500px;
+  margin: auto;
+  border: 1px solid #666;
+  border-radius: 10px;
+  padding: 20px;
+  transition: 0.3s;
+  position: relative;
+}
+.contenedor .contenedor-items .item form {
+  margin-bottom: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.contenedor .contenedor-items .item .img-item {
+  width: 150px;
+  height: 150pc;
+  max-height: 150px;
+  max-width: 150px;
+}
+.contenedor .contenedor-items .item:hover {
+  box-shadow: 0 0 10px #666;
+
+}
+.item {
+  background: rgba(255, 255, 255, 0.5);
+}
+.item a {
+  text-decoration: none;
+}
+/* Otros estilos para los elementos dentro de la clase 'item' */
+.item h3 {
+  margin-top: 10px; /* Márgenes superiores para separar el título */
+}
+
+.item p {
+  margin: 5px 0; /* Márgenes superior e inferior para separar los párrafos */
+}
+
+.carProd {
+  display: flex;
+  margin-top: 10px; /* Márgenes superiores para separar el formulario del contenido superior */
+}
+
+.carProd input {
+  padding-left: 10px;
+  width: 35px;
+  height: 50px;
+}
+
+.btnAgreCar {
+  background-color: #5915c2;
+  color: #fff;
+  width: 60px;
+  height: 55px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.btnAgreCar:hover {
+  background-color: #8750ff;
+}
+
+
+/* Estilo para la tabla de productos */
+.carrito{
+  margin: 20px 50px 0 50px;
+}
+.tabla-de-prodcutos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.tabla-de-prodcutos th, .tabla-de-prodcutos td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.tabla-de-prodcutos th {
+  background-color: #f2f2f2;
+}
+
+.img {
+  max-width: 100px;
+}
+
+/* Estilo para las imágenes en la tabla */
+.tabla-de-prodcutos img {
+  max-width: 100px;
+  max-height: 150px;
+}
+
+/* Estilo para los botones de eliminar */
+#btnELiPro {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #d9534f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+#btnELiPro:hover {
+  background-color: #c9302c;
+}
+
+/* Estilo para la sección de acciones del carrito */
+.acciones-carrito {
+  margin-top: 20px;
+}
+
+.acciones-carrito form {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.vaciarCarrito {
+  padding: 5px;
+  width: 100px;
+  border-radius: 5px;
+  background: #c9302c;
+  color: #fff;
+  cursor: pointer;
+}
+
+.vaciarCarrito:hover {
+  padding: 5px;
+  width: 100px;
+  border-radius: 5px;
+  background: #d9534f;
+  color: #fff;
+  cursor: pointer;
+}
+
+.hacerPedido {
+  padding: 5px;
+  width: 100px;
+  border-radius: 5px;
+  background: #5915c2;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+
+/* SECCION RESPONSIVE */
+@media screen and (max-width: 850px) {
+  .contenedor {
+    display: block;
+  }
+  .contenedor-items {
+    width: 100% !important;
+  }
+  .carrito {
+    width: 100%;
+  }
+}

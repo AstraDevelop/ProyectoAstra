@@ -12,9 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url("img/sesion.webp") no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-color: #fff;
     height: 100vh;
     overflow: hidden;
 }
@@ -32,13 +30,15 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 99;
+    background-color: #5915c2;
+    border-radius: 0 0 20px 20px;
   }
   header a {
     text-decoration: none;
   }
   .logo {
     font-size: 2em;
-    color: #5b2c6f;
+    color: #fff;
     user-select: none;
   }
   .navigation a.s {
@@ -48,7 +48,7 @@ header {
     text-decoration: none;
     font-weight: 700;
     margin-left: 40px;
-    font-family: "Skranji", cursive;
+    font-family: "poppins", cursive;
   }
   .navigation a.s::after {
     content: "";
@@ -74,6 +74,7 @@ header {
 .navigation .btnLogin {
 =======
   }
+<<<<<<< HEAD
   /*Boton de iniio de sesion*/
   .navigation .btnLogin {
 >>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
@@ -101,20 +102,71 @@ header {
     margin-bottom: 1em;
     margin-left: 40px;
     transition: 0.5s;
+=======
+/* Estilos para los enlaces de Carrito e Historial */
+a {
+    text-decoration: none; /* Eliminar subrayado de los enlaces */
+    color: #fff; /* Color del texto de los enlaces */
   }
-  .navigation .btnLogin:hover {
-    background: #fff;
-    color: black;
+  
+  /* Estilos para los íconos y texto en los enlaces de Carrito e Historial */
+  .icon-carro,
+  .icon-historial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+    padding: 10px;
   }
-.btnLogin.cerrarSesion {
-    border: 2px solid red;
-    color: red;
-}
-.btnLogin.cerrarSesion:hover {
-    background: red;
+  
+  .icon-carro p, .icon-historial p {
     color: #fff;
+  }
+  
+  /* Estilos para los íconos en los enlaces de Carrito e Historial */
+  ion-icon {
+    font-size: 24px;
+  }
+  
+  /* Estilos para los botones de Ver Perfil y Cerrar Sesión */
+  .navigation button {
+    padding: 5px;
+    background-color: #fff;
+    color: #5915c2;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: 2px solid #fff;
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
+  }
+  .navigation .cerrarSesion {
+    padding: 5px;
+    background-color: #fff;
+    color: #5915c2;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: 2px solid #ff5757;
+  }
+  
+  .navigation button:hover {
+    border: 2px solid #fff;
+    color: #fff;
+<<<<<<< HEAD
 >>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
 }
+=======
+    background-color: #5915c2; /* Cambiar color al pasar sobre los botones */
+  }
+  .navigation .cerrarSesion:hover {
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: #ff5757; /* Cambiar color al pasar sobre los botones */
+  }
+  
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
 
 .form-box {
     width: 100%;
@@ -476,7 +528,7 @@ header {
     text-align: center;
   }
 .btnEditarInf {
-    background-color: #5b2c6f;
+    background-color: #5915c2;
     width: 10em;
     height: 3em;
     color: #fff;
@@ -492,5 +544,5 @@ header {
     border-radius: 0 0 20px 20px;
 }
 .subirProducto h2 {
-    color: #fff;
+    color: #5915c2;
 }

@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+      background-color: #fff;
+  }
+  /* Estilos para el encabezado (header) */
+  header {
+      background-color: #5915c2; /* Color de fondo del encabezado */
+      height: 45px;
+      color: #fff; /* Color del texto en el encabezado */
+      padding: 15px; /* Espaciado interno del encabezado */
+      display: flex; /* Para alinear elementos horizontalmente */
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 0 0 20px 20px;
+    }
+    
+    /* Estilos para el logo */
+    .logo {
+      color: #fff;
+      margin: 0; /* Eliminar márgenes predeterminados */
+    }
+    /* Estilos para los botones de Ver Perfil y Cerrar Sesión */
+    .navigation button {
+      padding: 5px;
+      background-color: #fff;
+      color: #5915c2;
+      border: none;
+      border-radius: 5px;
+      margin-left: 10px;
+      cursor: pointer;
+      border: 2px solid #fff;
+    }
+    .navigation .cerrarSesion {
+      padding: 5px;
+      background-color: #fff;
+      color: #5915c2;
+      border: none;
+      border-radius: 5px;
+      margin-left: 10px;
+      cursor: pointer;
+      border: 2px solid #ff5757;
+    }
+    
+    .navigation button:hover {
+      border: 2px solid #fff;
+      color: #fff;
+      background-color: #5915c2; /* Cambiar color al pasar sobre los botones */
+    }
+    .navigation .cerrarSesion:hover {
+      border: 2px solid #fff;
+      color: #fff;
+      background-color: #ff5757; /* Cambiar color al pasar sobre los botones */
+    }
+
+.info-apertura {
+    background-color: #eee;
+    padding: 10px;
+}
+
+.detalle-pedido {
+    margin: 20px 60px 0 60px;
+}
+
+.tabla-detalle-pedido,
+.tabla-productos-pedido {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #5915c2;
+    color: #fff;
+}
+
+strong {
+    font-weight: bold;
+}
