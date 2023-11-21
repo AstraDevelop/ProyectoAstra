@@ -35,55 +35,60 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo.jpg">
-    <link rel="stylesheet" href="styles-I-R.css">
+    <link rel="stylesheet" href="css/comprador.css">
     <title>Catálogo - ASTRA</title>
 </head>
 
-<body id="body-catalogo">
-    <div class="container" id="catalogoPage">
-        <header>
-            <a href="comprador.php">
-                <span class="icon-carro">
-                <ion-icon name="caret-back"></ion-icon>
-                </span>
-            </a>
-            <a href="index.php">
-                <h2 class="logo">ASTRA</h2>
-            </a>
-            <!-- Mostrar el nombre del vendedor y el título "Catálogo" -->
-            <h2>Catálogo de <?php echo $nombreVendedor; ?></h2>
-            <a href="ver_carrito.php">
-                <span class="icon-carro">
-                    <p>Carrito</p>
-                    <ion-icon name="cart"></ion-icon>
-                </span>
-            </a>
-            <nav class="navigation">
-                <a href="perfil.php"><button class="btnLogin">Ver Perfil</button></a>
-                <a href="cerrarSesion.php"><button class="btnLogin cerrarSesion">CERRAR SESION</button></a>
-            </nav>
-        </header>
+<body>
+<header>
+        <a href="index.php">
+            <h2 class="logo">ASTRA</h2>
+        </a>
         
+        <form action="comprador.php" method="GET" id="comp-searchForm">
+            <input class="cuadroBusq" type="text" name="buscar" placeholder="Buscar">
+            <button class="btnBuscar" type="submit">Buscar</button>
+        </form>
+        <a class="btnCarHis" href="ver_carrito.php">
+            <span class="icon-carro">
+                <p>Carrito</p>
+                <ion-icon name="cart"></ion-icon>
+            </span>
+        </a>
+        <a class="btnCarHis" href="historial_pedidos.php">
+            <span class="icon-historial">
+                <p>Historial</p>
+                <ion-icon name="clipboard-outline"></ion-icon>
+            </span>
+        </a>
+        <nav class="navigation">
+            <a href="perfil.php"><button class="btnVerPerfil">Ver Perfil</button></a>
+            <a href="cerrarSesion.php"><button class="cerrarSesion">CERRAR SESION</button></a>
+        </nav>
+    </header>
+        
+        <h2 class="titulo">Catálogo de <?php echo $nombreVendedor; ?></h2>
         
         <!-- Mostrar productos del vendedor seleccionado -->
-        <div class="comp-productos">
-            <?php while($row = $result->fetch_assoc()): ?>
-                <div class="comp-producto">
-    <img src="<?php echo $row['imagenProducto']; ?>" alt="<?php echo $row['nombreProducto']; ?>">
-    <h3><?php echo $row['nombreProducto']; ?></h3>
-    <p><?php echo $row['descripcion']; ?></p>
-    <p>$<?php echo $row['precio']; ?></p>
+        <section class="contenedor">
+            <div class="contenedor-items">
+                <?php while($row = $result->fetch_assoc()): ?>
+                    <div class="item">
+                        <img class="img-item" src="<?php echo $row['imagenProducto']; ?>" alt="<?php echo $row['nombreProducto']; ?>">
+                        <h3><?php echo $row['nombreProducto']; ?></h3>
+                        <p class="descripcion"><?php echo $row['descripcion']; ?></p>
+                        <p class="precio">$<?php echo $row['precio']; ?></p>
 
-    <form class="carProd" action="agregar_carrito.php" method="POST">
-        <input type="hidden" name="productoID" value="<?php echo $row['ID']; ?>">
-        <input type="number" name="cantidad" value="1" min="1">
-        <input type="hidden" name="vendedorID" value="<?php echo $vendedorID; ?>">  <!-- Añade esta línea -->
-        <button class="btnAgreCar" type="submit">Agregar al Carrito</button>
-    </form>
-</div>
-            <?php endwhile; ?>
-        </div>
-    </div>
+                        <form class="carProd" action="agregar_carrito.php" method="POST">
+                            <input type="hidden" name="productoID" value="<?php echo $row['ID']; ?>">
+                            <input type="number" name="cantidad" value="1" min="1">
+                            <input type="hidden" name="vendedorID" value="<?php echo $vendedorID; ?>">  <!-- Añade esta línea -->
+                            <button class="btnAgreCar" type="submit">Agregar al Carrito</button>
+                        </form>
+                    </div>
+                <?php endwhile; ?>
+            </div>
+        </section>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

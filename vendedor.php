@@ -124,15 +124,21 @@ $result = $conn->query($sql);
 
 <body>
     <div class="container">
-        <header>
-            <a href="">
-                <h2 class="logo">ASTRA</h2>
-            </a>
-            <nav class="navigation">
-                <a href="perfil.php"><button class="btnLogin">Ver Perfil</button></a>
-                <a href="cerrarSesion.php"><button class="btnLogin cerrarSesion">CERRAR SESION</button></a>
-            </nav>
-        </header>
+    <header>
+        <a href="index.php">
+            <h2 class="logo">ASTRA</h2>
+        </a>
+        <a class="btnCarHis" href="pedidos_pendientes.php">
+            <span class="icon-historial">
+                <p>PEDIDOS</p>
+                <ion-icon name="clipboard-outline"></ion-icon>
+            </span>
+        </a>
+        <nav class="navigation">
+            <a href="perfil.php"><button class="btnVerPerfil">Ver Perfil</button></a>
+            <a href="cerrarSesion.php"><button class="cerrarSesion">CERRAR SESION</button></a>
+        </nav>
+    </header>
 
         <div class="contenidoEditarProducto">
             <!-- Sección de subida de producto -->
@@ -200,10 +206,11 @@ $result = $conn->query($sql);
                                         <div class="productoContainer">
                                             <img src="<?php echo $row['imagenProducto']; ?>" alt="Imagen del producto">
                                             <div class="productoInfo">
+                                                <p><?php/* echo "Producto"; */?></p>
+                                                <p class="nombreProducto"><?php echo $row['nombreProducto']; ?></p> 
                                                 <p><?php/* echo "Descripcion"; */?></p>
                                                 <p class="descripcionProducto"><?php echo $row['descripcion']; ?></p>
-                                                <p><?php/* echo "Producto"; */?></p>
-                                                <p class="nombreProducto"><?php echo $row['nombreProducto']; ?></p> <p id="precio">$<?php echo $row['precio']; ?></p>     
+                                                <p id="precio">$<?php echo $row['precio']; ?></p>     
                                             </div>
                                             <input type="hidden" name="idProducto" value="<?php echo $row['ID']; ?>">
                                             <button id="btnEditarProd"><a href="editar_producto.php?id=<?php echo $row['ID']; ?>">Editar</a></button>
@@ -219,6 +226,8 @@ $result = $conn->query($sql);
         </div>
 
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
 <?php  
