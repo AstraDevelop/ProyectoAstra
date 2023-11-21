@@ -16,6 +16,7 @@ body {
   align-items: center;
   min-height: 100vh;
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-color: #fff;
 }
 #showPassword,
@@ -26,6 +27,9 @@ body {
   background-size: cover;
   background-position: center;
 >>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
+=======
+  background-color: #fff;
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
 }
 header {
   position: fixed;
@@ -114,9 +118,13 @@ header a {
   margin: 10px 0;
   text-align: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
   z-index: 99;
 =======
 >>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
+=======
+  z-index: 99;
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
 }
 /*Cuadro de formulario de login*/
 .cuadroLogin {
@@ -140,10 +148,14 @@ header a {
   position: relative;
   width: 400px;
 <<<<<<< HEAD
+<<<<<<< HEAD
   height: 670px;
 =======
   height: 659px;
 >>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
+=======
+  height: 670px;
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -459,6 +471,7 @@ antes del botón enviar*/
   
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 /* Estilos para la página del comprador */
@@ -470,6 +483,8 @@ antes del botón enviar*/
 }
 
 >>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
+=======
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
 #compradorPage {
   padding: 20px;
   padding-top: 100px;

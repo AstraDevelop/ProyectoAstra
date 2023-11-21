@@ -40,11 +40,15 @@ $result = $conn->query($sql);
 </head>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
 <body>
 <header>
         <a href="index.php">
             <h2 class="logo">ASTRA</h2>
         </a>
+<<<<<<< HEAD
 =======
 <body id="body-catalogo">
     <div class="container" id="catalogoPage">
@@ -71,6 +75,8 @@ $result = $conn->query($sql);
             </nav>
         </header>
 >>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
+=======
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
         
         <form action="comprador.php" method="GET" id="comp-searchForm">
             <input class="cuadroBusq" type="text" name="buscar" placeholder="Buscar">

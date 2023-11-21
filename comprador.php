@@ -50,10 +50,14 @@ $result = $conn->query($sql);
 </head>
 <body>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
     <header>
         <a href="index.php">
             <h2 class="logo">ASTRA</h2>
         </a>
+<<<<<<< HEAD
 =======
     <div class="inicio">
         <header>
@@ -105,6 +109,8 @@ $result = $conn->query($sql);
 
         </Section>
 >>>>>>> 02e46ab (mejoramos todo)
+=======
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
         
         <form action="comprador.php" method="GET" id="comp-searchForm">
             <input class="cuadroBusq" type="text" name="buscar" placeholder="Buscar">
@@ -152,6 +158,7 @@ $result = $conn->query($sql);
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </html>
 =======
 
@@ -162,3 +169,6 @@ $result = $conn->query($sql);
 }
 ?>
 >>>>>>> 02e46ab (mejoramos todo)
+=======
+</html>
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)

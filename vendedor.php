@@ -199,6 +199,7 @@ $result = $conn->query($sql);
     <div class="container">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <header>
             <a href="">
                 <h2 class="logo">ASTRA</h2>
@@ -213,6 +214,8 @@ $result = $conn->query($sql);
 >>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
         </header>
 =======
+=======
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
     <header>
         <a href="index.php">
             <h2 class="logo">ASTRA</h2>
@@ -224,7 +227,14 @@ $result = $conn->query($sql);
             </span>
         </a>
         <nav class="navigation">
+<<<<<<< HEAD
             <a href="perfilVendedor.php"><button class="btnVerPerfil">Ver Perfil</button></a>
+            <a href="cerrarSesion.php"><button class="cerrarSesion">CERRAR SESION</button></a>
+        </nav>
+    </header>
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
+=======
+            <a href="perfil.php"><button class="btnVerPerfil">Ver Perfil</button></a>
             <a href="cerrarSesion.php"><button class="cerrarSesion">CERRAR SESION</button></a>
         </nav>
     </header>
@@ -374,6 +384,9 @@ $result = $conn->query($sql);
                                             <img src="<?php echo $row['imagenProducto']; ?>" alt="Imagen del producto">
                                             <div class="productoInfo">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
                                                 <p><?php/* echo "Producto"; */?></p>
                                                 <p class="nombreProducto"><?php echo $row['nombreProducto']; ?></p> 
                                                 <p><?php/* echo "Descripcion"; */?></p>
@@ -442,6 +455,8 @@ $result = $conn->query($sql);
         </div>
 
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
 <<<<<<< HEAD

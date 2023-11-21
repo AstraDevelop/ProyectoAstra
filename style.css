@@ -17,6 +17,7 @@ body {
     top: 0;
     left: 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
     background-color: #fff; /* Añade posición relativa al contenedor padre */
 =======
     background: url("img/fondo.webp") no-repeat;
@@ -24,6 +25,9 @@ body {
     background-size: cover;
     background-position: center; /* Añade posición relativa al contenedor padre */
 >>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
+=======
+    background-color: #fff; /* Añade posición relativa al contenedor padre */
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
 }
 
 header {
@@ -40,6 +44,7 @@ header {
     align-items: center;
     z-index: 99;
 <<<<<<< HEAD
+<<<<<<< HEAD
     background-color: #5915c2;
     border-radius: 0 0 20px 20px;
 =======
@@ -48,6 +53,10 @@ header {
     background-size: cover;
     background-position: center; 
 >>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
+=======
+    background-color: #5915c2;
+    border-radius: 0 0 20px 20px;
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
   }
   header a {
     text-decoration: none;

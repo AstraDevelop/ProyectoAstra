@@ -15,6 +15,7 @@ body {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     background-color: #fff;
 =======
     background: url("img/fondo.png") no-repeat;
@@ -27,6 +28,9 @@ body {
     background-size: cover;
     background-position: center;
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+    background-color: #fff;
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
     height: 100vh;
     overflow: hidden;
 }
@@ -53,6 +57,9 @@ header {
     z-index: 99;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
     background-color: #5915c2;
     border-radius: 0 0 20px 20px;
   }
@@ -99,6 +106,9 @@ header a {
     font-weight: 700;
     margin-left: 40px;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
     font-family: "poppins", cursive;
   }
   .navigation a.s::after {
@@ -159,6 +169,7 @@ header a {
     transform-origin: left;
     transform: scaleX(1);
   }
+<<<<<<< HEAD
   /*Boton de iniio de sesion*/
   .navigation .btnLogin {
 >>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
@@ -270,6 +281,66 @@ a {
     color: #fff;
 >>>>>>> d59324c (fusion(No unen bien los dedos y sale goku flaco))
 }
+=======
+/* Estilos para los enlaces de Carrito e Historial */
+a {
+    text-decoration: none; /* Eliminar subrayado de los enlaces */
+    color: #fff; /* Color del texto de los enlaces */
+  }
+  
+  /* Estilos para los íconos y texto en los enlaces de Carrito e Historial */
+  .icon-carro,
+  .icon-historial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+    padding: 10px;
+  }
+  
+  .icon-carro p, .icon-historial p {
+    color: #fff;
+  }
+  
+  /* Estilos para los íconos en los enlaces de Carrito e Historial */
+  ion-icon {
+    font-size: 24px;
+  }
+  
+  /* Estilos para los botones de Ver Perfil y Cerrar Sesión */
+  .navigation button {
+    padding: 5px;
+    background-color: #fff;
+    color: #5915c2;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: 2px solid #fff;
+  }
+  .navigation .cerrarSesion {
+    padding: 5px;
+    background-color: #fff;
+    color: #5915c2;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: 2px solid #ff5757;
+  }
+  
+  .navigation button:hover {
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: #5915c2; /* Cambiar color al pasar sobre los botones */
+  }
+  .navigation .cerrarSesion:hover {
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: #ff5757; /* Cambiar color al pasar sobre los botones */
+  }
+  
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
 
 <<<<<<< HEAD
 #alerta {
@@ -747,6 +818,9 @@ a {
   }
 .btnEditarInf {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
     background-color: #5915c2;
     width: 10em;
     height: 3em;
@@ -770,6 +844,7 @@ a {
 }
 .subirProducto h2 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: #5915c2;
 =======
 >>>>>>> 60d5df1 (Nuevas implementaciones)
@@ -781,3 +856,7 @@ a {
     color: #fff;
 }
 >>>>>>> 8676b27 (agregue editar productos)
+=======
+    color: #5915c2;
+}
+>>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
