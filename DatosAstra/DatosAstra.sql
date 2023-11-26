@@ -5,6 +5,7 @@
 -- Servidor: 127.0.0.1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 -- Tiempo de generación: 26-11-2023 a las 21:21:48
 =======
 -- Tiempo de generación: 27-10-2023 a las 05:02:07
@@ -12,6 +13,9 @@
 =======
 -- Tiempo de generación: 21-11-2023 a las 17:55:35
 >>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
+=======
+-- Tiempo de generación: 26-11-2023 a las 21:21:48
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -133,6 +137,9 @@ INSERT INTO `pedidos` (`ID`, `usuarioNombre`, `estado`, `fechaRealizado`) VALUES
 
 --
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 -- Estructura de tabla para la tabla `perfil_vendedor`
 --
 
@@ -153,10 +160,13 @@ INSERT INTO `perfil_vendedor` (`ID`, `Usuario`, `FotoPerfil`, `Descripcion`) VAL
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 =======
 >>>>>>> 60d5df1 (Nuevas implementaciones)
 =======
 >>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
+=======
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 -- Estructura de tabla para la tabla `productos`
 --
 
@@ -212,6 +222,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`ID`, `Nombre`, `Usuario`, `CorreoElectronico`, `Contraseña`, `Rol`, `FechaRegistro`) VALUES
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 (23, 'cliente', 'cliente', 'cliente@gmail.com', '$2y$10$DzCKXGLPPljB9yy3xz2K7.tHKVM3srKr3HvieVyDwihWV98nF9Lxi', '3', '2023-10-28 21:16:36'),
 (24, 'Junior', 'JuniorSierra', 'juniors@gmail.com', '$2y$10$EfEbjxlYR1fsF7l5Q0sDJOZ548eykiwHRG96EbZSTWt9bFe689.Wu', '3', '2023-11-19 20:34:20'),
 (25, 'olimpica', 'JuniorSierraM', 'junior@gmail.com', '$2y$10$TrXEBYq74N4JOZMQ4eRBsOuqet9lkDPdlLU49TAmjCfzDhKchxls2', '2', '2023-11-19 20:34:51'),
@@ -227,6 +238,13 @@ INSERT INTO `usuarios` (`ID`, `Nombre`, `Usuario`, `CorreoElectronico`, `Contras
 (25, 'olimpica', 'JuniorSierraM', 'junior@gmail.com', '$2y$10$TrXEBYq74N4JOZMQ4eRBsOuqet9lkDPdlLU49TAmjCfzDhKchxls2', '2', '2023-11-19 20:34:51'),
 (26, 'juni', 'b', '156@gmail.com', '$2y$10$RS/rOov74JblsjVEVD9shelC1bjU9FPe/kUSl.5MFX0yi51IpLx6e', '2', '2023-11-19 22:59:01');
 >>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
+=======
+(23, 'cliente', 'cliente', 'cliente@gmail.com', '$2y$10$DzCKXGLPPljB9yy3xz2K7.tHKVM3srKr3HvieVyDwihWV98nF9Lxi', '3', '2023-10-28 21:16:36'),
+(24, 'Junior', 'JuniorSierra', 'juniors@gmail.com', '$2y$10$EfEbjxlYR1fsF7l5Q0sDJOZ548eykiwHRG96EbZSTWt9bFe689.Wu', '3', '2023-11-19 20:34:20'),
+(25, 'olimpica', 'JuniorSierraM', 'junior@gmail.com', '$2y$10$TrXEBYq74N4JOZMQ4eRBsOuqet9lkDPdlLU49TAmjCfzDhKchxls2', '2', '2023-11-19 20:34:51'),
+(26, 'juni', 'b', '156@gmail.com', '$2y$10$RS/rOov74JblsjVEVD9shelC1bjU9FPe/kUSl.5MFX0yi51IpLx6e', '2', '2023-11-19 22:59:01'),
+(27, 'ARA', 'Astra', 'astra@gmail.com', '$2y$10$0vr55r8.aZmu38Imvo.DF.pddABkWjMo4vZCsSfmwDsYLFDOisg2O', '2', '2023-11-26 18:18:19');
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 
 --
 -- Índices para tablas volcadas
@@ -256,6 +274,9 @@ ALTER TABLE `pedidos`
 
 --
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 -- Indices de la tabla `perfil_vendedor`
 --
 ALTER TABLE `perfil_vendedor`
@@ -263,10 +284,13 @@ ALTER TABLE `perfil_vendedor`
   ADD UNIQUE KEY `Usuario` (`Usuario`);
 
 --
+<<<<<<< HEAD
 =======
 >>>>>>> 60d5df1 (Nuevas implementaciones)
 =======
 >>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
+=======
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -328,6 +352,7 @@ ALTER TABLE `productos`
 ALTER TABLE `usuarios`
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 =======
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
@@ -335,6 +360,9 @@ ALTER TABLE `usuarios`
 =======
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 >>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
+=======
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 
 --
 -- Restricciones para tablas volcadas
@@ -356,16 +384,22 @@ ALTER TABLE `detalle_pedido`
 
 --
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 -- Filtros para la tabla `perfil_vendedor`
 --
 ALTER TABLE `perfil_vendedor`
   ADD CONSTRAINT `perfil_vendedor_fk` FOREIGN KEY (`Usuario`) REFERENCES `usuarios` (`Usuario`) ON DELETE CASCADE;
 
 --
+<<<<<<< HEAD
 =======
 >>>>>>> 60d5df1 (Nuevas implementaciones)
 =======
 >>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
+=======
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`

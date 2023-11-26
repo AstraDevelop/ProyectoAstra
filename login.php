@@ -6,8 +6,17 @@ session_start();
 if (isset($_SESSION['username'])) {
     $rol = $_SESSION['rol'];
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     if ($rol == 2) {
+=======
+
+    // Si es un vendedor y es la primera vez que inicia sesión, redirige a completarPerfilVendedor.php
+    if ($rol == 2 && !haCompletadoPerfilVendedor($_SESSION['username'])) {
+        header("location: completarPerfilVendedor.php");
+        exit;
+    } elseif ($rol == 2) {
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
         header("location: vendedor.php");
         exit;
     } elseif ($rol == 3) {
@@ -16,6 +25,7 @@ if (isset($_SESSION['username'])) {
     }
 }
 
+<<<<<<< HEAD
 header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
 // Las lineas de arriba fueron añadidas para el testeo de CSS durante el desarrollo
@@ -43,6 +53,12 @@ $mensajeAlerta = "";
 =======
 $mensajeAlerta = ""; // Inicializa el mensaje de alerta
 >>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
+=======
+header("Cache-Control: no-cache, must-revalidate");
+header("Expires: Sat, 1 Jul 2000 05:00:00 GMT");
+
+$mensajeAlerta = "";
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 $claseAlerta = "";
 
 $user = "";
@@ -55,6 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 =======
 
+<<<<<<< HEAD
 
     // Consulta SQL para verificar si el usuario existe
 >>>>>>> 60d5df1 (Nuevas implementaciones)
@@ -84,6 +101,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // El usuario existe, ahora verifica la contraseña
 =======
 >>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
+=======
+    $sqlUsuario = "SELECT Usuario, Contraseña, Rol FROM usuarios WHERE CorreoElectronico = '$user' OR Usuario = '$user'";
+    $resultUsuario = $conn->query($sqlUsuario);
+    $row = $resultUsuario->fetch_assoc();
+
+    if ($resultUsuario->num_rows == 1) {
+        $rol = $row['Rol'];
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
         $contraseñaIngresada = $_POST['contraseña'];
 
         $sqlContraseña = "SELECT Contraseña FROM usuarios WHERE (CorreoElectronico = '$user' OR Usuario = '$user')";
@@ -95,11 +120,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (password_verify($contraseñaIngresada, $hashContraseñaAlmacenada)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 // Inicio de sesión exitoso
 <<<<<<< HEAD
                 echo "<script>alert('Inicio de sesión exitoso. Bienvenido, $user!');</script>";
                 echo '<script>window.location.href = "./index.html";</script>'; 
 =======
+=======
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 =======
 >>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
                 $_SESSION['username'] = $user;
@@ -115,9 +143,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 =======
                 $_SESSION['rol'] = $rol;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 02e46ab (mejoramos todo)
                 if($rol == 2){
 =======
+=======
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 
                 // Si es un vendedor y es la primera vez que inicia sesión, redirige a completarPerfilVendedor.php
                 if ($rol == 2 && !haCompletadoPerfilVendedor($user)) {
@@ -126,6 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
 
                 if ($rol == 2) {
+<<<<<<< HEAD
 >>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
                     header("location: vendedor.php");
                 }
@@ -156,14 +188,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['rol'] = $rol;
 >>>>>>> 02e46ab (mejoramos todo)
                 if($rol == 2){
+=======
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
                     header("location: vendedor.php");
                 }
-                if($rol == 3){
+
+                if ($rol == 3) {
                     header("location: comprador.php");
                 }
+<<<<<<< HEAD
 >>>>>>> 15e4fa0 (redireccion a vendedor/comprador)
 =======
 >>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
+=======
+
+                exit;
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
             } else {
                 $mensajeAlerta = "Contraseña incorrecta.";
                 if ($mensajeAlerta === "Contraseña incorrecta.") {
@@ -172,9 +212,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $claseAlerta = "alerta-rojo";
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 // Restablece la contraseña después de un intento fallido de inicio de sesión
 >>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
+=======
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
                 $contraseña = "";
 =======
 =======
@@ -216,8 +259,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } elseif ($mensajeAlerta === "Usuario no encontrado.") {
                 $claseAlerta = "alerta-rojo";
             }
+<<<<<<< HEAD
             // Restablece la contraseña después de un intento fallido de inicio de sesión
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
             $contraseña = "";
         }
     } else {
@@ -228,9 +274,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $claseAlerta = "alerta-rojo";
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         // Restablece el usuario y la contraseña después de un intento fallido de inicio de sesión
 >>>>>>> f76eb9c (Cambie colores alertas, redirecciones, actuallizacion problema formulario)
+=======
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
         $user = "";
         $contraseña = "";
     }
@@ -271,6 +320,7 @@ function haCompletadoPerfilVendedor($usuario) {
                     <ion-icon name="close-outline"></ion-icon>
                 </span>
             </a>
+<<<<<<< HEAD
 =======
                 <a href="index.php">
                     <span class="icon-close">
@@ -279,6 +329,8 @@ function haCompletadoPerfilVendedor($usuario) {
                 </a>
             <!-- Caja del login -->
 >>>>>>> 9c7a85d (Agregue validación para que no vuelvan a iniciar sesión y ya hay una sesión iniciada y optimice las imágenes de fondo.)
+=======
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
             <div class="form-box login">
                 <h2>Iniciar Sesión</h2>
                 <?php if (!empty($mensajeAlerta)) : ?>

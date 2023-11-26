@@ -182,10 +182,14 @@ $result = $conn->query($sql);
 
 <!DOCTYPE html>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <html lang="es">
 =======
 <html lang="en">
 >>>>>>> 60d5df1 (Nuevas implementaciones)
+=======
+<html lang="es">
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
 
 <head>
     <meta charset="UTF-8">
@@ -228,6 +232,7 @@ $result = $conn->query($sql);
         </a>
         <nav class="navigation">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <a href="perfilVendedor.php"><button class="btnVerPerfil">Ver Perfil</button></a>
             <a href="cerrarSesion.php"><button class="cerrarSesion">CERRAR SESION</button></a>
         </nav>
@@ -235,6 +240,9 @@ $result = $conn->query($sql);
 >>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
 =======
             <a href="perfil.php"><button class="btnVerPerfil">Ver Perfil</button></a>
+=======
+            <a href="perfilVendedor.php"><button class="btnVerPerfil">Ver Perfil</button></a>
+>>>>>>> 27ea48f (agregue ventana para agregar foto de perfil (solo vendedor))
             <a href="cerrarSesion.php"><button class="cerrarSesion">CERRAR SESION</button></a>
         </nav>
     </header>
