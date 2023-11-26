@@ -97,7 +97,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,17 +116,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </header>
 
         <div class="cuadroLogin">
-                <a href="index.php">
-                    <span class="icon-close">
-                        <ion-icon name="close-outline"></ion-icon>
-                    </span>
-                </a>
+            <a href="index.php">
+                <span class="icon-close">
+                    <ion-icon name="close-outline"></ion-icon>
+                </span>
+            </a>
             <!-- Caja del login -->
             <div class="form-box login">
-                <h2>Iniciar Sesion</h2>
+                <h2>Iniciar Sesión</h2>
                 <!-- Mostrar alerta si hay un mensaje -->
                 <?php if (!empty($mensajeAlerta)) : ?>
-                       <div id="alerta" class="<?php echo $claseAlerta; ?>"><?php echo $mensajeAlerta; ?></div>
+                    <div id="alerta" class="<?php echo $claseAlerta; ?>"><?php echo $mensajeAlerta; ?></div>
                 <?php endif; ?>
                 <form action="#" method="POST">
                     <div class="input-box">
@@ -138,10 +137,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="">Usuario o Correo</label>
                     </div>
                     <div class="input-box">
-                        <span class="icon">
+                        <span class="icon" id="lockIcon">
                             <ion-icon name="lock-closed"></ion-icon>
                         </span>
-                        <input type="password" name="contraseña" required value="<?php echo $contraseña; ?>">
+                        <span class="icon" id="showPassword">
+                            <ion-icon name="eye"></ion-icon>
+                        </span>
+                        <input type="password" name="contraseña" id="password" required value="<?php echo $contraseña; ?>">
                         <label for="">Contraseña</label>
                     </div>
                     <div class="remember-forgot">
@@ -157,6 +159,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script>
+            document.getElementById("password").addEventListener("input", function() {
+                var passwordField = document.getElementById("password");
+                var lockIcon = document.getElementById("lockIcon");
+                var showPassword = document.getElementById("showPassword");
+
+                if (passwordField.value.trim() !== "") {
+                    lockIcon.style.display = "none";
+                    showPassword.style.display = "block";
+                } else {
+                    lockIcon.style.display = "block";
+                    showPassword.style.display = "none";
+                }
+            });
+
+            document.getElementById("showPassword").addEventListener("click", function() {
+                var passwordField = document.getElementById("password");
+                if (passwordField.type === "password") {
+                    passwordField.type = "text";
+                } else {
+                    passwordField.type = "password";
+                }
+            });
+        </script>
     </div>
 </body>
 </html>
