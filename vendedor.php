@@ -120,7 +120,7 @@ $result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -158,7 +158,7 @@ $result = $conn->query($sql);
             </span>
         </a>
         <nav class="navigation">
-            <a href="perfil.php"><button class="btnVerPerfil">Ver Perfil</button></a>
+            <a href="perfilVendedor.php"><button class="btnVerPerfil">Ver Perfil</button></a>
             <a href="cerrarSesion.php"><button class="cerrarSesion">CERRAR SESION</button></a>
         </nav>
     </header>
