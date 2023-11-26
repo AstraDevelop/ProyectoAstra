@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo {
+    margin: 0;
+    font-size: 24px;
+}
+
+.cuadroCompletarPerfil {
+    padding: 20px;
+}
+
+.completar-perfil {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-box {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+}
+
+label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    background-color: #f9f9f9;
+    padding: 0 5px;
+    color: #777;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+input[type="file"]:focus + label,
+textarea:focus + label,
+input[type="file"]:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label {
+    font-size: 12px;
+    top: 5px;
+    left: 5px;
+    background-color: #fff;
+    padding: 0 2px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.icon-close {
+    font-size: 24px;
+    cursor: pointer;
+}

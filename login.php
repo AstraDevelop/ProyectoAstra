@@ -5,7 +5,12 @@ session_start();
 // Verificar si el usuario ya ha iniciado sesión
 if (isset($_SESSION['username'])) {
     $rol = $_SESSION['rol'];
-    if ($rol == 2) {
+
+    // Si es un vendedor y es la primera vez que inicia sesión, redirige a completarPerfilVendedor.php
+    if ($rol == 2 && !haCompletadoPerfilVendedor($_SESSION['username'])) {
+        header("location: completarPerfilVendedor.php");
+        exit;
+    } elseif ($rol == 2) {
         header("location: vendedor.php");
         exit;
     } elseif ($rol == 3) {
@@ -14,36 +19,27 @@ if (isset($_SESSION['username'])) {
     }
 }
 
-header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
-// Las lineas de arriba fueron añadidas para el testeo de CSS durante el desarrollo
-// No necesariamente deben estar ahí en el proyecto final, chequear en caso de problemas con cache
+header("Cache-Control: no-cache, must-revalidate");
+header("Expires: Sat, 1 Jul 2000 05:00:00 GMT");
 
-$mensajeAlerta = ""; // Inicializa el mensaje de alerta
+$mensajeAlerta = "";
 $claseAlerta = "";
 
-// Inicializa las variables de los campos con valores predeterminados
 $user = "";
 $contraseña = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener datos del formulario
     $user = $_POST['user'];
     $contraseñaIngresada = $_POST['contraseña'];
 
-
-    // Consulta SQL para verificar si el usuario existe
     $sqlUsuario = "SELECT Usuario, Contraseña, Rol FROM usuarios WHERE CorreoElectronico = '$user' OR Usuario = '$user'";
     $resultUsuario = $conn->query($sqlUsuario);
     $row = $resultUsuario->fetch_assoc();
-    
 
     if ($resultUsuario->num_rows == 1) {
         $rol = $row['Rol'];
-        // El usuario existe, ahora verifica la contraseña
         $contraseñaIngresada = $_POST['contraseña'];
 
-        // Consulta SQL para obtener la contraseña almacenada en la base de datos
         $sqlContraseña = "SELECT Contraseña FROM usuarios WHERE (CorreoElectronico = '$user' OR Usuario = '$user')";
         $resultContraseña = $conn->query($sqlContraseña);
 
@@ -51,17 +47,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $row = $resultContraseña->fetch_assoc();
             $hashContraseñaAlmacenada = $row['Contraseña'];
 
-            // Verificar la contraseña utilizando password_verify
             if (password_verify($contraseñaIngresada, $hashContraseñaAlmacenada)) {
-                // Inicio de sesión exitoso
                 $_SESSION['username'] = $user;
-                // Dependiendo del rol, redirige al usuario a la página correspondiente
-                if ($resultUsuario->fetch_assoc()['Rol'] == 3) {
+                $_SESSION['rol'] = $rol;
+
+                // Si es un vendedor y es la primera vez que inicia sesión, redirige a completarPerfilVendedor.php
+                if ($rol == 2 && !haCompletadoPerfilVendedor($user)) {
+                    header("location: completarPerfilVendedor.php");
+                    exit;
+                }
+
+                if ($rol == 2) {
+                    header("location: vendedor.php");
+                }
+
+                if ($rol == 3) {
                     header("location: comprador.php");
                 } else {
                     header("location: vendedor.php");
                 }
-                exit;  // Es importante hacer un "exit" después de "header".
+
+                exit;
             } else {
                 $mensajeAlerta = "Contraseña incorrecta.";
                 if ($mensajeAlerta === "Contraseña incorrecta.") {
@@ -69,7 +75,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 } elseif ($mensajeAlerta === "Usuario no encontrado.") {
                     $claseAlerta = "alerta-rojo";
                 }
-                // Restablece la contraseña después de un intento fallido de inicio de sesión
                 $contraseña = "";
             }
         } else {
@@ -79,7 +84,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } elseif ($mensajeAlerta === "Usuario no encontrado.") {
                 $claseAlerta = "alerta-rojo";
             }
-            // Restablece la contraseña después de un intento fallido de inicio de sesión
             $contraseña = "";
         }
     } else {
@@ -89,10 +93,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } elseif ($mensajeAlerta === "Usuario no encontrado.") {
             $claseAlerta = "alerta-rojo";
         }
-        // Restablece el usuario y la contraseña después de un intento fallido de inicio de sesión
         $user = "";
         $contraseña = "";
     }
+}
+
+// Función para verificar si un vendedor ha completado el perfil
+function haCompletadoPerfilVendedor($usuario) {
+    global $conn;
+
+    $sql = "SELECT ID FROM perfil_vendedor WHERE Usuario = '$usuario'";
+    $result = $conn->query($sql);
+
+    return $result->num_rows > 0;
 }
 ?>
 
@@ -103,7 +116,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo.jpg">
     <link rel="stylesheet" href="styles-I-R.css">
-    
     <title>Iniciar Sesión ASTRA</title>
 </head>
 <body>
@@ -120,10 +132,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <ion-icon name="close-outline"></ion-icon>
                 </span>
             </a>
-            <!-- Caja del login -->
             <div class="form-box login">
                 <h2>Iniciar Sesión</h2>
-                <!-- Mostrar alerta si hay un mensaje -->
                 <?php if (!empty($mensajeAlerta)) : ?>
                     <div id="alerta" class="<?php echo $claseAlerta; ?>"><?php echo $mensajeAlerta; ?></div>
                 <?php endif; ?>
