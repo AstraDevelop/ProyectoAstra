@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2023 a las 17:55:35
+-- Tiempo de generación: 26-11-2023 a las 21:21:48
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -123,6 +123,26 @@ INSERT INTO `pedidos` (`ID`, `usuarioNombre`, `estado`, `fechaRealizado`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `perfil_vendedor`
+--
+
+CREATE TABLE `perfil_vendedor` (
+  `ID` int(11) NOT NULL,
+  `Usuario` varchar(255) NOT NULL,
+  `FotoPerfil` varchar(255) DEFAULT NULL,
+  `Descripcion` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `perfil_vendedor`
+--
+
+INSERT INTO `perfil_vendedor` (`ID`, `Usuario`, `FotoPerfil`, `Descripcion`) VALUES
+(0, 'Astra', 'fotosVendedor/sandwitch.jpg', 'mi empresa se dedica a nada');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `productos`
 --
 
@@ -165,11 +185,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID`, `Nombre`, `Usuario`, `CorreoElectronico`, `Contraseña`, `Rol`, `FechaRegistro`) VALUES
-(22, 'Astra', 'Astra', 'Astra@gmail.com', '$2y$10$SXbNZExC0xnIe2uUWBJ6zOO1GSmhrm3EshF9PH1gcBZScCnxzpNlO', '2', '2023-10-28 21:15:32'),
 (23, 'cliente', 'cliente', 'cliente@gmail.com', '$2y$10$DzCKXGLPPljB9yy3xz2K7.tHKVM3srKr3HvieVyDwihWV98nF9Lxi', '3', '2023-10-28 21:16:36'),
 (24, 'Junior', 'JuniorSierra', 'juniors@gmail.com', '$2y$10$EfEbjxlYR1fsF7l5Q0sDJOZ548eykiwHRG96EbZSTWt9bFe689.Wu', '3', '2023-11-19 20:34:20'),
 (25, 'olimpica', 'JuniorSierraM', 'junior@gmail.com', '$2y$10$TrXEBYq74N4JOZMQ4eRBsOuqet9lkDPdlLU49TAmjCfzDhKchxls2', '2', '2023-11-19 20:34:51'),
-(26, 'juni', 'b', '156@gmail.com', '$2y$10$RS/rOov74JblsjVEVD9shelC1bjU9FPe/kUSl.5MFX0yi51IpLx6e', '2', '2023-11-19 22:59:01');
+(26, 'juni', 'b', '156@gmail.com', '$2y$10$RS/rOov74JblsjVEVD9shelC1bjU9FPe/kUSl.5MFX0yi51IpLx6e', '2', '2023-11-19 22:59:01'),
+(27, 'ARA', 'Astra', 'astra@gmail.com', '$2y$10$0vr55r8.aZmu38Imvo.DF.pddABkWjMo4vZCsSfmwDsYLFDOisg2O', '2', '2023-11-26 18:18:19');
 
 --
 -- Índices para tablas volcadas
@@ -195,6 +215,13 @@ ALTER TABLE `detalle_pedido`
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `perfil_vendedor`
+--
+ALTER TABLE `perfil_vendedor`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `Usuario` (`Usuario`);
 
 --
 -- Indices de la tabla `productos`
@@ -242,7 +269,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Restricciones para tablas volcadas
@@ -260,6 +287,12 @@ ALTER TABLE `carrito`
 --
 ALTER TABLE `detalle_pedido`
   ADD CONSTRAINT `detalle_pedido_ibfk_1` FOREIGN KEY (`pedidoID`) REFERENCES `pedidos` (`ID`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `perfil_vendedor`
+--
+ALTER TABLE `perfil_vendedor`
+  ADD CONSTRAINT `perfil_vendedor_fk` FOREIGN KEY (`Usuario`) REFERENCES `usuarios` (`Usuario`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `productos`
