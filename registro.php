@@ -126,6 +126,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="shortcut icon" href="img/logo.jpg">
     <link rel="stylesheet" href="styles-I-R.css">
     <title>REGISTRO ASTRA</title>
+
+    <style>
+        #showPassword {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -171,17 +177,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="">Correo</label>
                     </div>
                     <div class="input-box">
-                        <span class="icon">
+                        <span class="icon" id="lockIcon">
                             <ion-icon name="lock-closed"></ion-icon>
                         </span>
-                        <input type="password" name="contraseña" required value="<?php echo $contraseña; ?>">
+                        <span class="icon" id="showPassword">
+                            <ion-icon name="eye"></ion-icon>
+                        </span>
+                        <input type="password" name="contraseña" id="password" required value="<?php echo $contraseña; ?>">
                         <label for="">Contraseña</label>
                     </div>
                     <div class="input-box">
-                        <span class="icon">
+                        <span class="icon" id="lockIconConfirm">
                             <ion-icon name="lock-closed"></ion-icon>
                         </span>
-                        <input type="password" name="confirmarContraseña" required value="<?php echo $confirmarContraseña; ?>">
+                        <span class="icon" id="showConfirmPassword">
+                            <ion-icon name="eye"></ion-icon>
+                        </span>
+                        <input type="password" name="confirmarContraseña" id="confirmPassword" required value="<?php echo $confirmarContraseña; ?>">
                         <label for="">Confirmar Contraseña</label>
                     </div> 
                     <div class="rol">
@@ -201,7 +213,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <button type="submit" class="btn">Registrar</button>
                     <div class="login-register">
-                        <p>¿Ya Tienes Una Cuenta? <a href="login.php" class="login-link">Inicia Sesion Aqui</a></p>
+                        <p>¿Ya Tienes Una Cuenta? <a href="login.php" class="login-link">Inicia Sesion Aquí</a></p>
                     </div>
                 </form>
             </div>
@@ -209,6 +221,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script>
+            document.getElementById("password").addEventListener("input", function() {
+                var passwordField = document.getElementById("password");
+                var lockIcon = document.getElementById("lockIcon");
+                var showPassword = document.getElementById("showPassword");
+
+                if (passwordField.value.trim() !== "") {
+                    lockIcon.style.display = "none";
+                    showPassword.style.display = "block";
+                } else {
+                    lockIcon.style.display = "block";
+                    showPassword.style.display = "none";
+                }
+            });
+
+            document.getElementById("showPassword").addEventListener("click", function() {
+                var passwordField = document.getElementById("password");
+                if (passwordField.type === "password") {
+                    passwordField.type = "text";
+                } else {
+                    passwordField.type = "password";
+                }
+            });
+
+            document.getElementById("confirmPassword").addEventListener("input", function() {
+                var confirmPasswordField = document.getElementById("confirmPassword");
+                var lockIconConfirm = document.getElementById("lockIconConfirm");
+                var showConfirmPassword = document.getElementById("showConfirmPassword");
+
+                if (confirmPasswordField.value.trim() !== "") {
+                    lockIconConfirm.style.display = "none";
+                    showConfirmPassword.style.display = "block";
+                } else {
+                    lockIconConfirm.style.display = "block";
+                    showConfirmPassword.style.display = "none";
+                }
+            });
+
+            document.getElementById("showConfirmPassword").addEventListener("click", function() {
+                var confirmPasswordField = document.getElementById("confirmPassword");
+                if (confirmPasswordField.type === "password") {
+                    confirmPasswordField.type = "text";
+                } else {
+                    confirmPasswordField.type = "password";
+                }
+            });
+        </script>
     </div>
 </body>
 </html>
