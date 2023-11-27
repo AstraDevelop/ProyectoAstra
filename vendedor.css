@@ -260,6 +260,7 @@ a {
 
 .subirProducto input[type="text"],
 .subirProducto input[type="file"],
+.subirProducto input[type="number"],
 .subirProducto textarea {
     width: 100%;
     padding: 10px;
