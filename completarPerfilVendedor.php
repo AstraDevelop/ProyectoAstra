@@ -2,36 +2,65 @@
 include("conexion.php");
 session_start();
 
-// Verificar si el usuario ha iniciado sesión como vendedor
-if (isset($_SESSION['username']) && $_SESSION['rol'] == 2) {
-    $user = $_SESSION['username'];
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $descripcion = $_POST['descripcion'];
-
-        // Procesar la carga de la imagen de perfil
-        $fotoPerfil = null;
-
-        if ($_FILES['fotoPerfil']['error'] == 0) {
-            $uploadsDir = 'fotosVendedor/';
-            $tmpName = $_FILES['fotoPerfil']['tmp_name'];
-            $fotoPerfil = $uploadsDir . basename($_FILES['fotoPerfil']['name']);
-
-            move_uploaded_file($tmpName, $fotoPerfil);
-        }
-
-        // Insertar o actualizar el perfil del vendedor
-        $sqlInsertOrUpdatePerfil = "INSERT INTO perfil_vendedor (Usuario, FotoPerfil, Descripcion) VALUES ('$user', '$fotoPerfil', '$descripcion') ON DUPLICATE KEY UPDATE FotoPerfil = '$fotoPerfil', Descripcion = '$descripcion'";
-        $conn->query($sqlInsertOrUpdatePerfil);
-
-        // Después de completar el perfil, redirige al vendedor a la página de vendedor normal
-        header("location: vendedor.php");
-        exit;
-    }
-} else {
-    // Si el usuario no ha iniciado sesión o no es un vendedor, redirige a la página de inicio de sesión
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['username'])) {
     header("location: login.php");
     exit;
+}
+
+// Verificar si el usuario es un vendedor
+if ($_SESSION['rol'] != 2) {
+    header("location: index.php"); // Redirigir a la página principal o a la adecuada para compradores
+    exit;
+}
+
+$usuario = $_SESSION['username'];
+$mensajeAlerta = "";
+$claseAlerta = "";
+
+// Verificar si el usuario ya tiene un perfil registrado
+$sqlVerificar = "SELECT * FROM perfil_vendedor WHERE Usuario = '$usuario'";
+$resultadoVerificar = $conn->query($sqlVerificar);
+
+if ($resultadoVerificar->num_rows > 0) {
+    // El usuario ya tiene un perfil registrado, redirigir a la página del vendedor
+    header("location: vendedor.php");
+    exit;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtener datos del formulario
+    $descripcion = $_POST['descripcion'];
+
+    // Procesar y guardar la foto de perfil si se ha cargado
+    $fotoPerfil = null;
+    if (isset($_FILES['fotoPerfil']) && $_FILES['fotoPerfil']['error'] === UPLOAD_ERR_OK) {
+        $fotoPerfil = subirFotoPerfil($_FILES['fotoPerfil'], $usuario);
+    }
+
+    // Guardar los datos en la tabla perfil_vendedor
+    $sql = "INSERT INTO perfil_vendedor (Usuario, FotoPerfil, Descripcion) VALUES ('$usuario', '$fotoPerfil', '$descripcion')";
+    if ($conn->query($sql) === TRUE) {
+        // Redirigir a la página del vendedor después de completar el perfil
+        header("location: vendedor.php");
+        exit;
+    } else {
+        $mensajeAlerta = "Error al guardar el perfil del vendedor: " . $conn->error;
+        $claseAlerta = "alerta-rojo";
+    }
+}
+
+// Función para subir la foto de perfil
+function subirFotoPerfil($foto, $usuario) {
+    $carpetaDestino = "fotosVendedor/";
+    $nombreArchivo = $usuario . "_" . basename($foto["name"]);
+    $rutaCompleta = $carpetaDestino . $nombreArchivo;
+
+    if (move_uploaded_file($foto["tmp_name"], $rutaCompleta)) {
+        return $rutaCompleta;
+    } else {
+        return null;
+    }
 }
 ?>
 
@@ -45,12 +74,14 @@ if (isset($_SESSION['username']) && $_SESSION['rol'] == 2) {
     <title>Completar Perfil Vendedor ASTRA</title>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="index.php">
-                <h2 class="logo">ASTRA</h2>
-            </a>
-        </header>
+    <header>
+        <a href="">
+            <h2 class="logo">ASTRA</h2>
+        </a>
+        <nav class="navigation">
+            <a href="cerrarSesion.php"><button class="btnLogin cerrarSesion">CERRAR SESION</button></a>
+        </nav>
+    </header>
 
         <div class="cuadroCompletarPerfil">
             <a href="index.php">
@@ -62,12 +93,12 @@ if (isset($_SESSION['username']) && $_SESSION['rol'] == 2) {
                 <h2>Completar Perfil</h2>
                 <form action="#" method="POST" enctype="multipart/form-data">
                     <div class="input-box">
-                        <input type="file" name="fotoPerfil" accept="image/*">
                         <label for="">Foto de Perfil</label>
+                        <input type="file" name="fotoPerfil" accept="image/*">
                     </div>
                     <div class="input-box">
-                        <textarea name="descripcion" required></textarea>
                         <label for="">Descripción</label>
+                        <textarea name="descripcion" required></textarea>
                     </div>
                     <button type="submit" class="btn">Completar Perfil</button>
                 </form>
@@ -76,6 +107,6 @@ if (isset($_SESSION['username']) && $_SESSION['rol'] == 2) {
 
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    </div>
+
 </body>
 </html>

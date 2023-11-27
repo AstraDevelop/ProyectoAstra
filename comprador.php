@@ -11,18 +11,10 @@ if (!isset($usuarioI) || $rol != '3') {
 
 $busqueda = isset($_GET['buscar']) ? $_GET['buscar'] : "";
 
-// Consulta SQL para obtener todos los vendedores y su último producto
-$sql = "SELECT u.ID AS vendedorID, u.Nombre, p.imagenProducto, p.nombreProducto
+// Consulta SQL para obtener todos los vendedores y su foto de perfil
+$sql = "SELECT u.ID AS vendedorID, u.Nombre, pv.FotoPerfil
         FROM usuarios u 
-        LEFT JOIN (
-            SELECT vendedorID, imagenProducto, nombreProducto 
-            FROM productos 
-            WHERE ID IN (
-                SELECT MAX(ID) 
-                FROM productos 
-                GROUP BY vendedorID
-            )
-        ) p ON p.vendedorID = u.ID 
+        LEFT JOIN perfil_vendedor pv ON pv.Usuario = u.Usuario
         WHERE u.Rol = '2' 
         AND u.Nombre LIKE '%$busqueda%'";
 
@@ -68,22 +60,21 @@ $result = $conn->query($sql);
     <h1 class="titulo">Tiendas</h1>
     <section class="contenedor">
         <div class="contenedor-items">
-                <?php while($row = $result->fetch_assoc()): ?>
-                    <div class="item-tienda">
+            <?php while($row = $result->fetch_assoc()): ?>
+                <div class="item-tienda">
                     <a href="catalogo.php?vendedorID=<?php echo $row['vendedorID'];?>">
-                    <span class="titulo-item">
-                        <?php echo $row['Nombre']; ?>
-                    </span>
-                    <?php if($row['imagenProducto']): ?>
-                    <img class="img-item" src="<?php echo $row['imagenProducto']; ?>" alt="<?php echo $row['nombreProducto']; ?>">              
-                    <p>Ultimo producto agregado</p>
-                    <?php else: ?>
-                        <p>Este vendedor aún no tiene productos.</p>
-                    <?php endif; ?>
-                    <button class="boton-item">Ver Productos</button>
+                        <span class="titulo-item">
+                            <?php echo $row['Nombre']; ?>
+                        </span>
+                        <?php if($row['FotoPerfil']): ?>
+                            <img class="img-item" src="<?php echo $row['FotoPerfil']; ?>" alt="Foto de perfil de <?php echo $row['Nombre']; ?>">
+                        <?php else: ?>
+                            <p>Este vendedor aún no tiene foto de perfil.</p>
+                        <?php endif; ?>
+                        <button class="boton-item">Ver Productos</button>
                     </a>
-                    </div>
-                <?php endwhile; ?>
+                </div>
+            <?php endwhile; ?>
         </div>
     </section>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

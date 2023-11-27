@@ -88,15 +88,15 @@ if (isset($_SESSION['username']) && $_SESSION['rol'] == 2) {
     <div class="container">
         <div class="perfil-container">
             <div class="info-box">
-                <h1>Perfil Antiguo</h1>
+                <h1>Información Actual</h1>
                 <h2><?php echo $nombre; ?></h2>
                 <?php if ($fotoPerfil) : ?>
                     <img src="<?php echo $fotoPerfil; ?>" alt="Foto de Perfil" class="foto-perfil">
                 <?php endif; ?>
-                <div class="form-box">
-                    <h4 class="datos">Usuario Antiguo</h4>
+                <div class="info">
+                    <h4 class="datos">Usuario Actual</h4>
                     <h4 class="inf"><?php echo $user; ?></h4>
-                    <h4 class="datos">Correo Electrónico Antiguo</h4>
+                    <h4 class="datos">Correo Electrónico Actual</h4>
                     <h4 class="inf"><?php echo $correoElectronico; ?></h4>
                     <h4 class="datos">Rol</h4>
                     <h4 class="inf">
@@ -112,23 +112,23 @@ if (isset($_SESSION['username']) && $_SESSION['rol'] == 2) {
                         }
                         ?>
                     </h4>
-                    <h4 class="datos">Descripción Antigua:</h4>
-                    <h4 class="inf"><?php echo $descripcion; ?></h4>
+                    <h4 class="datos">Descripción Actual</h4>
+                    <h4 class="inf"><?php echo $descripcion; ?></h4>        
                 </div>
             </div>
 
             <div class="form-box">
-                <h1>Perfil Nuevo</h1>
+                <h1>Informacion Nueva</h1>
                 <!-- Formulario de actualización -->
                 <form action="#" method="POST" enctype="multipart/form-data">
                     <h4 class="datos">Nuevo Nombre:</h4>
-                    <input type="text" name="nuevoNombre" required>
+                    <input class="inputArea" type="text" name="nuevoNombre" required>
 
                     <h4 class="datos">Nuevo Usuario:</h4>
-                    <input type="text" name="nuevoUsuario" required>
+                    <input class="inputArea" type="text" name="nuevoUsuario" required>
 
                     <h4 class="datos">Nuevo Correo Electrónico:</h4>
-                    <input type="email" name="nuevoCorreo" required>
+                    <input class="inputArea" type="email" name="nuevoCorreo" required>
 
                     <h4 class="datos">Nueva Descripción:</h4>
                     <textarea name="nuevaDescripcion" required></textarea>
@@ -139,7 +139,7 @@ if (isset($_SESSION['username']) && $_SESSION['rol'] == 2) {
 
                     <!-- Campo para la contraseña actual -->
                     <h4 class="datos">Contraseña Actual:</h4>
-                    <input type="password" name="contrasenaActual" required>
+                    <input class="inputArea" type="password" name="contrasenaActual" required>
 
                     <!-- Manejo de errores de contraseña -->
                     <?php if (isset($errorContraseña)) : ?>
