@@ -10,10 +10,12 @@ if (!isset($usuarioI) || $rol != '3') {
 }
 
 $vendedorID = isset($_GET['vendedorID']) ? $_GET['vendedorID'] : "";
+
 // Consulta SQL para obtener el nombre del vendedor basado en vendedorID
 $sqlVendedor = "SELECT Nombre FROM usuarios WHERE ID = '$vendedorID'";
 $resultVendedor = $conn->query($sqlVendedor);
-if($resultVendedor && $resultVendedor->num_rows > 0) {
+
+if ($resultVendedor && $resultVendedor->num_rows > 0) {
     $vendedorData = $resultVendedor->fetch_assoc();
     $nombreVendedor = $vendedorData['Nombre'];
 } else {
@@ -21,7 +23,7 @@ if($resultVendedor && $resultVendedor->num_rows > 0) {
 }
 
 // Consulta SQL para obtener todos los productos del vendedor seleccionado
-$sql = "SELECT ID, imagenProducto, nombreProducto, descripcion, precio
+$sql = "SELECT ID, imagenProducto, nombreProducto, descripcion, precio, stock
         FROM productos 
         WHERE vendedorID = '$vendedorID'";
 
@@ -44,10 +46,11 @@ $result = $conn->query($sql);
 =======
 >>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
 <body>
-<header>
+    <header>
         <a href="index.php">
             <h2 class="logo">ASTRA</h2>
         </a>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <body id="body-catalogo">
@@ -78,6 +81,9 @@ $result = $conn->query($sql);
 =======
 >>>>>>> b1833b6 (Cambio la interfas, la base de datos y agrege nuevas ventanas)
         
+=======
+
+>>>>>>> b8b1444 (Agregue el stock (No está cien porciento correcto))
         <form action="comprador.php" method="GET" id="comp-searchForm">
             <input class="cuadroBusq" type="text" name="buscar" placeholder="Buscar">
             <button class="btnBuscar" type="submit">Buscar</button>
@@ -99,29 +105,31 @@ $result = $conn->query($sql);
             <a href="cerrarSesion.php"><button class="cerrarSesion">CERRAR SESION</button></a>
         </nav>
     </header>
-        
-        <h2 class="titulo">Catálogo de <?php echo $nombreVendedor; ?></h2>
-        
-        <!-- Mostrar productos del vendedor seleccionado -->
-        <section class="contenedor">
-            <div class="contenedor-items">
-                <?php while($row = $result->fetch_assoc()): ?>
-                    <div class="item">
-                        <img class="img-item" src="<?php echo $row['imagenProducto']; ?>" alt="<?php echo $row['nombreProducto']; ?>">
-                        <h3><?php echo $row['nombreProducto']; ?></h3>
-                        <p class="descripcion"><?php echo $row['descripcion']; ?></p>
-                        <p class="precio">$<?php echo $row['precio']; ?></p>
 
-                        <form class="carProd" action="agregar_carrito.php" method="POST">
-                            <input type="hidden" name="productoID" value="<?php echo $row['ID']; ?>">
-                            <input type="number" name="cantidad" value="1" min="1">
-                            <input type="hidden" name="vendedorID" value="<?php echo $vendedorID; ?>">  <!-- Añade esta línea -->
-                            <button class="btnAgreCar" type="submit">Agregar al Carrito</button>
-                        </form>
-                    </div>
-                <?php endwhile; ?>
-            </div>
-        </section>
+    <h2 class="titulo">Catálogo de <?php echo $nombreVendedor; ?></h2>
+
+    <!-- Mostrar productos del vendedor seleccionado -->
+    <section class="contenedor">
+        <div class="contenedor-items">
+            <?php while ($row = $result->fetch_assoc()) : ?>
+                <div class="item">
+                    <img class="img-item" src="<?php echo $row['imagenProducto']; ?>" alt="<?php echo $row['nombreProducto']; ?>">
+                    <h3><?php echo $row['nombreProducto']; ?></h3>
+                    <p class="descripcion"><?php echo $row['descripcion']; ?></p>
+                    <p class="precio">$<?php echo $row['precio']; ?></p>
+                    <p class="stock">Stock: <?php echo $row['stock']; ?></p>
+
+                    <form class="carProd" action="agregar_carrito.php" method="POST">
+                        <input type="hidden" name="productoID" value="<?php echo $row['ID']; ?>">
+                        <input type="number" name="cantidad" value="1" min="1" max="<?php echo $row['stock']; ?>">
+                        <input type="hidden" name="vendedorID" value="<?php echo $vendedorID; ?>">
+                        <button class="btnAgreCar" type="submit">Agregar al Carrito</button>
+                    </form>
+                </div>
+            <?php endwhile; ?>
+        </div>
+    </section>
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

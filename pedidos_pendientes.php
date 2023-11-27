@@ -5,28 +5,30 @@ session_start();
 $vendedorI = $_SESSION['username'];
 
 // Obtener pedidos pendientes del vendedor
-$sqlPendientes = "SELECT p.ID AS pedidoID, p.fechaRealizado, p.estado, GROUP_CONCAT(dp.productoID) AS productos, SUM(dp.cantidad) AS totalCantidad, SUM(dp.precio) AS totalPrecio, u.Nombre AS nombreCliente 
-        FROM pedidos p
-        JOIN detalle_pedido dp ON p.ID = dp.pedidoID
-        JOIN usuarios u ON p.usuarioNombre = u.Usuario
-        JOIN productos pr ON dp.productoID = pr.ID
-        WHERE pr.vendedorID = (SELECT ID FROM usuarios WHERE Usuario = '$vendedorI')
-        AND p.estado = 'Pendiente'
-        GROUP BY p.ID
-        ORDER BY p.fechaRealizado DESC";
+$sqlPendientes = "SELECT p.ID AS pedidoID, p.fechaRealizado, p.estado, GROUP_CONCAT(dp.productoID) AS productos, 
+    SUM(dp.cantidad) AS totalCantidad, SUM(dp.cantidad * pr.precio) AS totalPrecio, u.Nombre AS nombreCliente 
+    FROM pedidos p
+    JOIN detalle_pedido dp ON p.ID = dp.pedidoID
+    JOIN usuarios u ON p.usuarioNombre = u.Usuario
+    JOIN productos pr ON dp.productoID = pr.ID
+    WHERE pr.vendedorID = (SELECT ID FROM usuarios WHERE Usuario = '$vendedorI')
+    AND p.estado = 'Pendiente'
+    GROUP BY p.ID
+    ORDER BY p.fechaRealizado DESC";
 
 $resultPendientes = $conn->query($sqlPendientes);
 
 // Obtener historial de pedidos aceptados y rechazados del vendedor
-$sqlHistorial = "SELECT p.ID AS pedidoID, p.fechaRealizado, p.estado, GROUP_CONCAT(dp.productoID) AS productos, SUM(dp.cantidad) AS totalCantidad, SUM(dp.precio) AS totalPrecio, u.Nombre AS nombreCliente 
-        FROM pedidos p
-        JOIN detalle_pedido dp ON p.ID = dp.pedidoID
-        JOIN usuarios u ON p.usuarioNombre = u.Usuario
-        JOIN productos pr ON dp.productoID = pr.ID
-        WHERE pr.vendedorID = (SELECT ID FROM usuarios WHERE Usuario = '$vendedorI')
-        AND (p.estado = 'Aceptado' OR p.estado = 'Rechazado')
-        GROUP BY p.ID
-        ORDER BY p.fechaRealizado DESC";
+$sqlHistorial = "SELECT p.ID AS pedidoID, p.fechaRealizado, p.estado, GROUP_CONCAT(dp.productoID) AS productos, 
+    SUM(dp.cantidad) AS totalCantidad, SUM(dp.cantidad * pr.precio) AS totalPrecio, u.Nombre AS nombreCliente 
+    FROM pedidos p
+    JOIN detalle_pedido dp ON p.ID = dp.pedidoID
+    JOIN usuarios u ON p.usuarioNombre = u.Usuario
+    JOIN productos pr ON dp.productoID = pr.ID
+    WHERE pr.vendedorID = (SELECT ID FROM usuarios WHERE Usuario = '$vendedorI')
+    AND (p.estado = 'Aceptado' OR p.estado = 'Rechazado')
+    GROUP BY p.ID
+    ORDER BY p.fechaRealizado DESC";
 
 $resultHistorial = $conn->query($sqlHistorial);
 ?>

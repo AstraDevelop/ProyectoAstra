@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 -- Tiempo de generación: 26-11-2023 a las 21:21:48
 =======
 -- Tiempo de generación: 27-10-2023 a las 05:02:07
@@ -20,6 +21,9 @@
 =======
 -- Tiempo de generación: 27-11-2023 a las 19:12:07
 >>>>>>> 462dd7e (Foto del Vendedor)
+=======
+-- Tiempo de generación: 27-11-2023 a las 22:04:03
+>>>>>>> b8b1444 (Agregue el stock (No está cien porciento correcto))
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -66,6 +70,27 @@ CREATE TABLE `detalle_pedido` (
   `precio` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `detalle_pedido`
+--
+
+INSERT INTO `detalle_pedido` (`ID`, `pedidoID`, `productoID`, `cantidad`, `precio`) VALUES
+(27, 21, 62, 1, 2500.00),
+(28, 22, 62, 10, 2500.00),
+(29, 23, 62, 1, 2500.00),
+(30, 24, 62, 1, 2500.00),
+(31, 25, 62, 10, 2500.00),
+(32, 26, 62, 10, 2500.00),
+(33, 26, 63, 3, 3500.00),
+(34, 27, 62, 1, 2500.00),
+(35, 28, 62, 2, 2500.00),
+(36, 29, 62, 7, 2500.00),
+(37, 30, 62, 8, 2500.00),
+(38, 31, 62, 1, 2500.00),
+(39, 32, 62, 6, 2500.00),
+(40, 33, 63, 3, 3500.00),
+(41, 34, 63, 3, 3500.00);
+
 -- --------------------------------------------------------
 
 --
@@ -78,6 +103,26 @@ CREATE TABLE `pedidos` (
   `estado` enum('PENDIENTE','ACEPTADO','RECHAZADO') NOT NULL,
   `fechaRealizado` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`ID`, `usuarioNombre`, `estado`, `fechaRealizado`) VALUES
+(21, 'JuniorSierra', 'ACEPTADO', '2023-11-27 18:49:06'),
+(22, 'JuniorSierra', 'RECHAZADO', '2023-11-27 19:53:45'),
+(23, 'JuniorSierra', 'ACEPTADO', '2023-11-27 19:58:31'),
+(24, 'JuniorSierra', 'RECHAZADO', '2023-11-27 19:58:46'),
+(25, 'JuniorSierra', 'RECHAZADO', '2023-11-27 20:00:12'),
+(26, 'JuniorSierra', 'RECHAZADO', '2023-11-27 20:01:06'),
+(27, 'JuniorSierra', 'ACEPTADO', '2023-11-27 20:27:19'),
+(28, 'JuniorSierra', 'ACEPTADO', '2023-11-27 20:28:33'),
+(29, 'JuniorSierra', 'ACEPTADO', '2023-11-27 20:30:01'),
+(30, 'JuniorSierra', 'RECHAZADO', '2023-11-27 20:32:04'),
+(31, 'JuniorSierra', 'ACEPTADO', '2023-11-27 20:32:55'),
+(32, 'JuniorSierra', 'ACEPTADO', '2023-11-27 20:33:35'),
+(33, 'JuniorSierra', 'RECHAZADO', '2023-11-27 20:45:11'),
+(34, 'JuniorSierra', 'PENDIENTE', '2023-11-27 20:51:26');
 
 -- --------------------------------------------------------
 
@@ -123,13 +168,15 @@ CREATE TABLE `productos` (
   `nombreProducto` varchar(255) NOT NULL,
   `descripcion` text DEFAULT NULL,
   `precio` decimal(10,2) NOT NULL,
-  `imagenProducto` varchar(255) DEFAULT NULL
+  `imagenProducto` varchar(255) DEFAULT NULL,
+  `stock` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
+<<<<<<< HEAD
 INSERT INTO `productos` (`ID`, `vendedorID`, `nombreProducto`, `descripcion`, `precio`, `imagenProducto`) VALUES
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -149,6 +196,11 @@ INSERT INTO `productos` (`ID`, `vendedorID`, `nombreProducto`, `descripcion`, `p
 =======
 (62, 30, 'Pan', 'ad', 2500.00, 'uploads/Pan-casero-fácil.webp');
 >>>>>>> 462dd7e (Foto del Vendedor)
+=======
+INSERT INTO `productos` (`ID`, `vendedorID`, `nombreProducto`, `descripcion`, `precio`, `imagenProducto`, `stock`) VALUES
+(62, 30, 'Pan', 'ad', 2500.00, 'uploads/Pan-casero-fácil.webp', 0),
+(63, 30, 'CocaCola', 'asdsad', 3500.00, 'uploads/gaseosa-coca-cola-15-lt.jpg', 2);
+>>>>>>> b8b1444 (Agregue el stock (No está cien porciento correcto))
 
 -- --------------------------------------------------------
 
@@ -274,19 +326,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_pedido`
 --
 ALTER TABLE `detalle_pedido`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `perfil_vendedor`
@@ -298,6 +350,7 @@ ALTER TABLE `perfil_vendedor`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
+<<<<<<< HEAD
 <<<<<<< HEAD
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 <<<<<<< HEAD
@@ -312,6 +365,9 @@ ALTER TABLE `productos`
 =======
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 >>>>>>> 462dd7e (Foto del Vendedor)
+=======
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+>>>>>>> b8b1444 (Agregue el stock (No está cien porciento correcto))
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
