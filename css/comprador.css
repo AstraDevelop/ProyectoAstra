@@ -150,6 +150,7 @@ p {
   padding: 20px;
   transition: 0.3s;
   position: relative;
+  box-shadow: 0 0 10px #666;
 }
 .contenedor .contenedor-items .item-tienda form {
   max-width: 100%;
@@ -164,10 +165,12 @@ p {
   height: 150pc;
   max-height: 150px;
   max-width: 150px;
+  border: 1px solid #000;
+  border-radius: 50%;
 }
 .contenedor .contenedor-items .item-tienda:hover {
   background-color: #ece7ff;
-  box-shadow: 0 0 10px #666;
+  box-shadow: 0 0 10px #8b55fd;
 }
 .contenedor .contenedor-items .item:hover {
   background-color: #ece7ff;

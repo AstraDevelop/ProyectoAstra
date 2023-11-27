@@ -31,60 +31,6 @@ if (isset($_SESSION['username']) && $_SESSION['rol'] == 2) {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="css/perfilVendedor.css">
-            <!-- <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    margin: 0;
-                    padding: 0;
-                    background-color: #f0f0f0;
-                }
-
-                .container {
-                    max-width: 600px;
-                    margin: 20px auto;
-                    background-color: #fff;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                    border-radius: 8px;
-                    overflow: hidden;
-                }
-
-                header {
-                    background-color: #333;
-                    color: #fff;
-                    text-align: center;
-                    padding: 10px 0;
-                }
-
-                header a {
-                    color: #fff;
-                    text-decoration: none;
-                }
-
-                .logo {
-                    margin: 0;
-                    font-size: 24px;
-                }
-
-                .perfil-vendedor {
-                    padding: 20px;
-                    text-align: center;
-                }
-
-                .foto-perfil {
-                    max-width: 200px;
-                    border-radius: 50%;
-                    margin-bottom: 20px;
-                }
-
-                h2 {
-                    color: #333;
-                }
-
-                p {
-                    color: #777;
-                    margin-bottom: 10px;
-                }
-            </style> -->
             <title>Perfil del Vendedor ASTRA</title>
         </head>
         <body>
