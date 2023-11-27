@@ -26,6 +26,7 @@ if (isset($usuarioI) && ($rol == 2)) {
         $nuevoNombreProducto = $_POST['nombreProducto'];
         $nuevaDescripcion = $_POST['descripcion'];
         $nuevoPrecio = $_POST['precio'];
+        $nuevoStock = $_POST['stock']; // Nuevo campo para el stock
         
         // Manejo de la imagen
         $target_dir = "uploads/";
@@ -45,13 +46,13 @@ if (isset($usuarioI) && ($rol == 2)) {
 
             if ($uploadOk == 1 && move_uploaded_file($nuevaImagen["tmp_name"], $target_file)) {
                 // Si se ha cargado una nueva imagen, actualizar la ruta de la imagen en la base de datos
-                $sqlUpdate = "UPDATE productos SET nombreProducto = '$nuevoNombreProducto', descripcion = '$nuevaDescripcion', precio = '$nuevoPrecio', imagenProducto = '$target_file' WHERE ID = $productoID";
+                $sqlUpdate = "UPDATE productos SET nombreProducto = '$nuevoNombreProducto', descripcion = '$nuevaDescripcion', precio = '$nuevoPrecio', stock = '$nuevoStock', imagenProducto = '$target_file' WHERE ID = $productoID";
             } else {
                 echo "Error al subir la nueva imagen.";
             }
         } else {
             // Si no se ha proporcionado una nueva imagen, actualizar solo la información sin cambiar la imagen
-            $sqlUpdate = "UPDATE productos SET nombreProducto = '$nuevoNombreProducto', descripcion = '$nuevaDescripcion', precio = '$nuevoPrecio' WHERE ID = $productoID";
+            $sqlUpdate = "UPDATE productos SET nombreProducto = '$nuevoNombreProducto', descripcion = '$nuevaDescripcion', precio = '$nuevoPrecio', stock = '$nuevoStock' WHERE ID = $productoID";
         }
 
         if ($conn->query($sqlUpdate) === TRUE) {
@@ -64,10 +65,10 @@ if (isset($usuarioI) && ($rol == 2)) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo.jpg">
     <link rel="stylesheet" href="vendedor.css">
@@ -75,7 +76,7 @@ if (isset($usuarioI) && ($rol == 2)) {
 </head>
 
 <body>
-<div class="container">
+    <div class="container">
         <header>
             <a href="">
                 <h2 class="logo">ASTRA</h2>
@@ -101,6 +102,11 @@ if (isset($usuarioI) && ($rol == 2)) {
 
                         <h2>Precio:</h2>
                         <h4><?php echo $producto['precio']; ?></h4>
+
+                        <!-- Nuevo campo de stock -->
+                        <h2>Stock:</h2>
+                        <h4><?php echo $producto['stock']; ?></h4>
+
                         <!-- Mostrar la imagen antigua -->
                         <h2>Imagen Antigua:</h2>
                         <br>
@@ -109,6 +115,7 @@ if (isset($usuarioI) && ($rol == 2)) {
                 </div>
             </section>
         </div>
+
         <div class="contenidoEditarProducto izq">
             <!-- Sección de subida de producto -->
             <section class="leftSection">
@@ -124,6 +131,11 @@ if (isset($usuarioI) && ($rol == 2)) {
 
                         <label for="precio">Precio:</label>
                         <input type="text" name="precio" value="<?php echo $producto['precio']; ?>" required>
+
+                        <!-- Nuevo campo de stock -->
+                        <label for="stock">Stock:</label>
+                        <input type="number" name="stock" value="<?php echo $producto['stock']; ?>" required>
+
                         <!-- Carga de nueva imagen -->
                         <label for="imagenProducto">Cargar Nueva Imagen del Producto:</label>
                         <input type="file" name="imagenProducto">
@@ -134,6 +146,7 @@ if (isset($usuarioI) && ($rol == 2)) {
                 </div>
             </section>
         </div>
+    </div>
 </body>
 </html>
 
