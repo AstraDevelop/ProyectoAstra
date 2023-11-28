@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Righteous&family=Skranji:wght@400;700&family=Work+Sans:wght@100;200;300;400;600;800&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fff;
+}
+#showPassword,
+#showConfirmPassword {
+  display: none;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  padding-left: 100px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: -15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Estilos para el logo */
+.logo {
+  margin: 0; /* Eliminar márgenes predeterminados */
+  color: #5915c2;
+}
+a {
+  text-decoration: none; /* Eliminar subrayado de los enlaces */
+}
+/* Estilos para los botones de Ver Perfil y Cerrar Sesión */
+.navigation button {
+  padding: 5px;
+  background-color: #fff;
+  color: #5915c2;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  border: 2px solid #fff;
+}
+.navigation .cerrarSesion {
+  padding: 5px;
+  background-color: #fff;
+  color: #5915c2;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  border: 2px solid #ff5757;
+}
+
+.navigation button:hover {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #5915c2; /* Cambiar color al pasar sobre los botones */
+}
+.navigation .cerrarSesion:hover {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #ff5757; /* Cambiar color al pasar sobre los botones */
+}
+.perfil-vendedor {
+  margin-top: 100px;
+  width: 400px;
+  padding: 20px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-family: "poppins", cursive;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.foto-perfil {
+  width: 200px;
+  height: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #5915c2;
+}
+h4.datos {
+  margin-top: 1em;
+}
+h4.inf {
+  color: #5915c2;
+  background-color: #c1afff;
+  padding: 10px;
+  border-radius: 0 1em 1em 1em;
+}
+/*Estilo del formulario*/
+.form-box {
+  width: 100%;
+  overflow: visible;
+}
+
+.form-box h2 {
+  font-size: 2em;
+  color: #5915c2;
+  text-align: center;
+}
+.input-box.contraseña-nueva {
+  margin-top: 15px;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid #464646;
+  margin: 30px 0;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #464646;
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #464646;
+  font-weight: 600;
+  padding: 0 35px 0 5px;
+}
+.icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  padding: 5px;
+  background: #5915c2;
+  font-size: 2em;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  z-index: 9999;
+}
+.input-box .icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  color: #464646;
+  line-height: 57px;
+}
+.btn {
+  margin-top: 15px;
+  font-family: "poppins", cursive;
+  width: 100%;
+  height: 45px;
+  background: #5915c2;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+}

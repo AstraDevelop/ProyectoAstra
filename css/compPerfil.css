@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Righteous&family=Skranji:wght@400;700&family=Work+Sans:wght@100;200;300;400;600;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fff;
+}
+#showPassword,
+#showConfirmPassword {
+  display: none;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 100px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: -15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+.logo {
+  margin: 0;
+}
+
+.navigation {
+  float: right;
+}
+
+.btnLogin {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cerrarSesion {
+  background-color: #f44336;
+}
+
+.cuadroCompletarPerfil {
+  font-family: "poppins", cursive;
+  position: relative;
+  width: 400px;
+  height: 450px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.form-box {
+  text-align: center;
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.form-box h2 {
+  color: #5915c2;
+}
+.form-box form {
+  padding-top: 20px;
+}
+.input-box {
+  margin-bottom: 20px;
+}
+.input-box label {
+  font-size: 20px;
+}
+input[type="file"] {
+  background-color: #c1afff;
+  color: #5915c2;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #c1afff;
+  color: #5915c2;
+  border-radius: 0 1em 1em 1em;
+}
+
+.btn {
+  background-color: #5915c2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.btn:hover {
+  background-color: #8750ff;
+}
+.icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  padding: 5px;
+  background: #5915c2;
+  font-size: 2em;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.input-box .icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  color: #464646;
+  line-height: 57px;
+}
+
+.icon-close ion-icon {
+  vertical-align: middle;
+}
