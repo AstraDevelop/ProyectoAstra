@@ -11,9 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Verificar stock solo si la acción es 'Aceptado'
     if ($accion == 'Aceptado') {
         // Obtener detalles del pedido
-        $sqlDetalles = "SELECT dp.productoID, dp.cantidad, p.nombreProducto  
+        $sqlDetalles = "SELECT dp.productoID, dp.cantidad 
                         FROM detalle_pedido dp
-                        JOIN productos p ON dp.productoID = p.ID
                         WHERE dp.pedidoID = $pedidoID";
         $resultDetalles = $conn->query($sqlDetalles);
 
@@ -31,24 +30,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($cantidad > $stockDisponible) {
                 // Almacenar información sobre el producto sin stock suficiente
-                $productoInfo = [
-                    'productoID' => $productoID,
-                    'nombreProducto' => $detalle['nombreProducto'],
-                    'cantidadPedido' => $cantidad,
-                    'stockDisponible' => $stockDisponible,
-                ];
-
-                $productosConStockInsuficiente[] = $productoInfo;
+                $productosConStockInsuficiente[] = $productoID;
             }
         }
 
         // Si hay stock suficiente, realizar las actualizaciones
-        if (!empty($productosConStockInsuficiente)) {
+        if (empty($productosConStockInsuficiente)) {
+            // Restar la cantidad del pedido al stock de cada producto
+            foreach ($resultDetalles as $detalle) {
+                $productoID = $detalle['productoID'];
+                $cantidad = $detalle['cantidad'];
+
+                // Actualizar el stock del producto
+                $sqlUpdateStock = "UPDATE productos SET stock = stock - $cantidad WHERE ID = $productoID";
+                $conn->query($sqlUpdateStock);
+            }
+        } else {
             // Mostrar mensaje de error con detalles de los productos sin stock suficiente
             echo "Error: Stock insuficiente para los siguientes productos:<br>";
 
-            foreach ($productosConStockInsuficiente as $productoInfo) {
-                echo "- Producto ID: {$productoInfo['productoID']}, Nombre: {$productoInfo['nombreProducto']}, Cantidad Pedido: {$productoInfo['cantidadPedido']}, Stock Disponible: {$productoInfo['stockDisponible']}<br>";
+            foreach ($productosConStockInsuficiente as $productoID) {
+                echo "- Producto ID: $productoID<br>";
             }
 
             exit();
