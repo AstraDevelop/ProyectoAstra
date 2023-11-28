@@ -63,8 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 if ($rol == 3) {
                     header("location: comprador.php");
-                } else {
-                    header("location: vendedor.php");
                 }
 
                 exit;
